@@ -69,7 +69,25 @@
         /// <summary>
         /// The price of the FlyingSaucer instance
         /// </summary>
-        public decimal Price { get; } = 8.50m;
+        public decimal Price 
+        { 
+            get
+            {
+                if ( StackSize > 6 )
+                {
+                    return 8.50m + (decimal)(.50 * (StackSize - 6));
+                }
+                else if ( StackSize < 6 )
+                {
+                    return 8.50m - (decimal)(.50 * (6 - StackSize));
+                    
+                }
+                else
+                {
+                    return 8.50m;
+                }
+            }
+        }
 
         /// <summary>
         /// The calories of the FlyingSaucer instance
