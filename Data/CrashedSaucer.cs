@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace TheFlyingSaucer.Data
 {
+    /// <summary>
+    /// The class representing the blueprint for an CrashedSaucer object
+    /// </summary>
     public class CrashedSaucer
     {
         /// <summary>

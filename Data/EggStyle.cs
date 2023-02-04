@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace TheFlyingSaucer.Data
 {
     /// <summary>
-    /// 
+    /// The different styles of cooking eggs
     /// </summary>
     public enum EggStyle
     {

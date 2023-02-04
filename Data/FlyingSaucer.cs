@@ -1,12 +1,15 @@
 ﻿namespace TheFlyingSaucer.Data
 {
+    /// <summary>
+    /// The class representing the blueprint for a FlyingSaucer object
+    /// </summary>
     public class FlyingSaucer
     {
         /// <summary>
         /// The name of the FlyingSaucer instance
         /// </summary>
         /// <remarks>
-        /// This is an example of an get-only autoproperty with a default value
+        /// This is an example of a get-only autoproperty with a default value
         /// </remarks>
         public string Name { get; } = "Flying Saucer";
 

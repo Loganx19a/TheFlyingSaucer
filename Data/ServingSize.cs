@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace TheFlyingSaucer.Data
 {
+    /// <summary>
+    /// The size of a menu item
+    /// </summary>
     public enum ServingSize
     {
         Small, 
