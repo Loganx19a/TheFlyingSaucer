@@ -7,24 +7,57 @@ using System.Threading.Tasks;
 
 namespace TheFlyingSaucer.Data
 {
+    /// <summary>
+    /// The class representing the blueprint for an OuterOmlette object
+    /// </summary>
     public class OuterOmlette
     {
+        /// <summary>
+        /// The name of the CropCircle instance
+        /// </summary>
         public string Name { get; } = "Outer Omlette";
 
+        /// <summary>
+        /// The description of the CrashedSaucer instance
+        /// </summary>
         public string Description { get; } = "A fully loaded Omlette.";
 
+        /// <summary>
+        /// If the OuterOmlette instance is served with cheddar cheese 
+        /// </summary>
         public bool CheddarCheese { get; set; } = true;
 
+        /// <summary>
+        /// If the OuterOmlette instance is served with peppers
+        /// </summary>
         public bool Peppers { get; set; } = true;
 
+        /// <summary>
+        /// If the OuterOmlette instance is served with mushrooms
+        /// </summary>
         public bool Mushrooms { get; set; } = true;
 
+        /// <summary>
+        /// If the OuterOmlette instance is served with tomatoes
+        /// </summary>
         public bool Tomatoes { get; set; } = true;
 
+        /// <summary>
+        /// If the OuterOmlette instance is served with onions
+        /// </summary>
         public bool Onions { get; set; } = true;
 
+        /// <summary>
+        /// The price of the OuterOmlette instance
+        /// </summary>
         public decimal Price { get; } = 7.45m;
 
+        /// <summary>
+        /// The calories of the OuterOmlette instance
+        /// </summary>
+        /// <remarks>
+        /// This is a get-only property whose value is derived from the other properties of the class
+        /// </remarks>
         public uint Calories 
         { 
             get
@@ -39,6 +72,9 @@ namespace TheFlyingSaucer.Data
             }
         }
 
+        /// <summary>
+        /// Special instructions for the preparation of this OuterOmlette
+        /// </summary>
         public IEnumerable<string> SpecialInstructions 
         {
             get

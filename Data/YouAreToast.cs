@@ -6,14 +6,29 @@ using System.Threading.Tasks;
 
 namespace TheFlyingSaucer.Data
 {
+    /// <summary>
+    /// The class representing the blueprint for the YouAreToast object
+    /// </summary>
     public class YouAreToast
     {
-        public string Name { get; }
+        /// <summary>
+        /// The name for the YouAreToast instance
+        /// </summary>
+        public string Name { get; } = "You're Toast";
 
-        public string Description { get; }
+        /// <summary>
+        /// The description for the YouAreToast instance
+        /// </summary>
+        public string Description { get; } = "Texas toast.";
 
+        /// <summary>
+        /// The default number of toast slices in the YouAreToast instance
+        /// </summary>
         public uint Count { get; set; } = 2;
 
+        /// <summary>
+        /// The price of the YouAreToast instance
+        /// </summary>
         public decimal Price
         {
             get
@@ -22,6 +37,12 @@ namespace TheFlyingSaucer.Data
             }
         }
 
+        /// <summary>
+        /// The calories in the YouAreToast instance
+        /// </summary>
+        /// <remarks>
+        /// This is a get-only property whose value is derived from the other properties of the class
+        /// </remarks>
         public uint Calories
         {
             get
@@ -31,6 +52,9 @@ namespace TheFlyingSaucer.Data
             }
         }
 
+        /// <summary>
+        /// Special instractions for the preparation of this YouAreToast
+        /// </summary>
         public IEnumerable<string> SpecialInstructions
         {
             get

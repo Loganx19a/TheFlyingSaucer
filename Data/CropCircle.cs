@@ -6,16 +6,37 @@ using System.Threading.Tasks;
 
 namespace TheFlyingSaucer.Data
 {
+    /// <summary>
+    /// The class representing the blueprint for a CropCircle object 
+    /// </summary>
     public class CropCircle
     {
+        /// <summary>
+        /// The name of the CropCircle instance
+        /// </summary>
         public string Name { get; } = "Crop Circle";
 
+        /// <summary>
+        /// The description of the CrashedSaucer instance
+        /// </summary>
         public string Description { get; } = "Oatmeal topped with mixed berries.";
 
+        /// <summary>
+        /// If the CropCircle instance is served with Berries
+        /// </summary>
         public bool Berries { get; set; } = true;
 
+        /// <summary>
+        /// The price of the CropCircle instance
+        /// </summary>
         public decimal Price { get; } = 2.00m;
 
+        /// <summary>
+        /// The calories of the CropCircle instance
+        /// </summary>
+        /// <remarks>
+        /// This is a get-only property whose value is derived from the other properties of the class
+        /// </remarks>
         public uint Calories 
         {
             get
@@ -28,6 +49,9 @@ namespace TheFlyingSaucer.Data
             
         }
 
+        /// <summary>
+        /// Special instructions for the preparation of this CropCircle
+        /// </summary>
         public IEnumerable<string> SpecialInstructions
         {
             get
