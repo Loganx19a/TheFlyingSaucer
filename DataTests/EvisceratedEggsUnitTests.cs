@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace TheFlyingSaucer.DataTests
 {
+    /// <summary>
+    /// Unit tests for the EvisceratedEggs class
+    /// </summary>
     public class EvisceratedEggsUnitTests
     {
         #region default values
@@ -21,6 +24,16 @@ namespace TheFlyingSaucer.DataTests
             Assert.Equal(2, (decimal)ee.Count);
         }
 
+        /// <summary>
+        /// Checks that the default egg style is Over Easy
+        /// </summary>
+        [Fact]
+        public void DefaultEggStyleShouldBeOverEasy()
+        {
+            EvisceratedEggs ee = new();
+            Assert.Equal(5, (decimal)ee.Style);
+        }
+
 
 
         #endregion
@@ -33,17 +46,18 @@ namespace TheFlyingSaucer.DataTests
         /// <param name="count">If the Flying Saucer will be served with berries</param>
         /// <remarks>There are more than 8 possible permutations of state, so we pick a subset to test against</remarks>
         [Theory]
-        [InlineData(6)]
+        [InlineData(6, SoftBoiled)]
         [InlineData(0)]
-        [InlineData(12)]
+        [InlineData(5)]
         [InlineData(3)]
-        [InlineData(8)]
-        [InlineData(11)]
-        public void NameShouldAlwaysBeEvisceratedEggs(uint count)
+        [InlineData(4)]
+        [InlineData(2)]
+        public void NameShouldAlwaysBeEvisceratedEggs(uint count, EggStyle style)
         {
             EvisceratedEggs ee = new()
             {
-                Count = count
+                Count = count,
+                Style = style
             };
             Assert.Equal("Eviscerated Eggs", ee.Name);
         }
@@ -105,7 +119,7 @@ namespace TheFlyingSaucer.DataTests
             {
                 Assert.Contains(instruction, ee.SpecialInstructions);
             }
-            // Check that no unexpected speical instructions exist
+            // Check that no unexpected special instructions exist
             Assert.Equal(instructions.Length, ee.SpecialInstructions.Count());
         }
 

@@ -95,7 +95,7 @@ namespace TheFlyingSaucer.Data
             get
             {
                 List<string> instructions = new();
-                if (StackSize != 2) instructions.Add($"{StackSize} Slices");
+                if (StackSize != 2) instructions.Add($"{StackSize} slices");
                 if (!Butter) instructions.Add("Hold Butter");
                 if (!Syrup) instructions.Add("Hold Syrup");
                 return instructions;
