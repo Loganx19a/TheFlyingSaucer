@@ -78,13 +78,15 @@
             {
                 if ( StackSize > 6 )
                 {
-                    return 8.50m + (decimal)(.50 * (StackSize - 6));
+                    return 8.50m + (.75m * (StackSize - 6));
                 }
+                /*
                 else if ( StackSize < 6 )
                 {
-                    return 8.50m - (decimal)(.50 * (6 - StackSize));
+                    return 8.50m - (.75m * (6 - StackSize));
                     
                 }
+                */
                 else
                 {
                     return 8.50m;

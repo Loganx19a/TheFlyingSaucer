@@ -27,9 +27,31 @@ namespace TheFlyingSaucer.Data
         public EggStyle Style { get; set; } = EggStyle.OverEasy;
 
         /// <summary>
+        /// A private backing field for the Count property
+        /// </summary>
+        private uint _count = 2;
+
+        /// <summary>
         /// The default number of eggs in the EvisceratedEggs instance
         /// </summary>
-        public uint Count { get; set; } = 2;
+        public uint Count
+        {
+            get
+            {
+                return _count;
+            }
+            set
+            {
+                if (value <= 6)
+                {
+                    _count = value;
+                }
+                else
+                {
+                    _count = 6;
+                }
+            }
+        }
 
         /// <summary>
         /// The price of the EvisceratedEggs instance
