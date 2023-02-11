@@ -22,9 +22,35 @@ namespace TheFlyingSaucer.Data
         public string Description { get; } = "Texas toast.";
 
         /// <summary>
+        /// A private backing field for the Count property
+        /// </summary>
+        private uint _count = 2;
+
+        /// <summary>
         /// The default number of toast slices in the YouAreToast instance
         /// </summary>
-        public uint Count { get; set; } = 2;
+        public uint Count
+        {
+            get
+            {
+                return _count;
+            }
+            set
+            {
+                if (value <= 12 && value >= 1)
+                {
+                    _count = value;
+                }
+                else if (value > 12)
+                {
+                    _count = 12;
+                }
+                else
+                {
+                    _count = 1;
+                }
+            }
+        }
 
         /// <summary>
         /// The price of the YouAreToast instance
@@ -60,7 +86,8 @@ namespace TheFlyingSaucer.Data
             get
             {
                 List<string> instructions = new();
-                if (Count != 2) instructions.Add(Count + " slices");
+                if (Count > 2) instructions.Add(Count + " slices");
+                if (Count == 1) instructions.Add(Count + " slice");
                 return instructions;
             }
         }

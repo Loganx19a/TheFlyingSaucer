@@ -22,9 +22,36 @@ namespace TheFlyingSaucer.Data
         public string Description { get; } = "Sizzling pork sausage links.";
 
         /// <summary>
+        /// A private backing field for the Count property
+        /// </summary>
+        private uint _count = 2;
+
+
+        /// <summary>
         /// The default number of links in the MissingLinks instance
         /// </summary>
-        public uint Count { get; set; } = 2;
+        public uint Count
+        {
+            get
+            {
+                return _count;
+            }
+            set
+            {
+                if (value <= 8 && value >= 1)
+                {
+                    _count = value;
+                }
+                else if (value > 8)
+                {
+                    _count = 8;
+                }
+                else
+                {
+                    _count = 1;
+                }
+            }
+        }
 
         /// <summary>
         /// The price of the MissingLinks instance

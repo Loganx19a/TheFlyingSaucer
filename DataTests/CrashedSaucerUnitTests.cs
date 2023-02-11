@@ -88,6 +88,24 @@ namespace TheFlyingSaucer.DataTests
         }
 
         /// <summary>
+        /// This test verifies that the price of a Livestock Mutilation corresponds to the number of french toast slices added to it
+        /// </summary>
+        /// <param name="slices">The number of biscuits in this instance of a LivestockMutilation</param>
+        [Theory]
+        [InlineData(3)]
+        [InlineData(4)]
+        [InlineData(5)]
+        [InlineData(6)]
+        public void PriceShouldCorrespondToNumberOfFrenchToastSlices(uint slices)
+        {
+            CrashedSaucer cs = new()
+            {
+                StackSize = slices,
+            };
+            Assert.Equal(6.45m + 1.50m * (slices - 2m), cs.Price);
+        }
+
+        /// <summary>
         /// This test checks that even as the CrashedSaucer's state mutates, the calories reflect that state
         /// </summary>
         /// <param name="stackSize">The number of french toast slices included</param>
@@ -104,9 +122,9 @@ namespace TheFlyingSaucer.DataTests
         [InlineData(4, true, true, 149 * 4 + 52 + 35)]
         [InlineData(2, true, false, 149 * 2 + 52 + 0)]
         [InlineData(2, false, false, 149 * 2 + 0 + 0)]
-        [InlineData(1, true, false, 149 * 1 + 52 + 0)]
-        [InlineData(8, false, false, 149 * 8 + 0 + 0)]
-        [InlineData(11, true, true, 149 * 11 + 52 + 35)]
+        [InlineData(1, true, false, 149 + 52 + 0)]
+        [InlineData(8, false, false, 149 * 6)]
+        [InlineData(11, true, true, 149 * 6 + 52 + 35)]
         public void CaloriesShouldBeCorrect(uint stackSize, bool syrup, bool butter, uint calories)
         {
             CrashedSaucer cs = new()
@@ -128,7 +146,13 @@ namespace TheFlyingSaucer.DataTests
         /// <param name="instructions">The expected special instructions</param>
         [Theory]
         [InlineData(2, true, true, new string[] {})]
-        [InlineData(4, true, true, new string[] { "4 Slices" })]
+        [InlineData(3, true, true, new string[] { "3 slices" })]
+        [InlineData(4, true, true, new string[] { "4 slices" })]
+        [InlineData(5, true, true, new string[] { "5 slices" })]
+        [InlineData(6, true, true, new string[] { "6 slices" })]
+        [InlineData(4, false, false, new string[] { "4 slices", "Hold Syrup", "Hold Butter" })]
+        [InlineData(4, true, false, new string[] { "4 slices", "Hold Butter" })]
+        [InlineData(4, false, true, new string[] { "4 slices", "Hold Syrup" })]
         public void SpecialInstructionsRelfectsState(uint stackSize, bool syrup, bool butter, string[] instructions)
         {
             CrashedSaucer cs = new()

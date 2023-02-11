@@ -76,17 +76,10 @@
         { 
             get
             {
-                if ( StackSize > 6 )
+                if ( StackSize > 6)
                 {
                     return 8.50m + (.75m * (StackSize - 6));
                 }
-                /*
-                else if ( StackSize < 6 )
-                {
-                    return 8.50m - (.75m * (6 - StackSize));
-                    
-                }
-                */
                 else
                 {
                     return 8.50m;

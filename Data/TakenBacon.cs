@@ -22,9 +22,36 @@ namespace TheFlyingSaucer.Data
         public string Description { get; } = "Crispy strips of bacon";
 
         /// <summary>
+        /// The private backing field for the count property
+        /// </summary>
+        private uint _count = 2;
+
+        /// <summary>
         /// The default number of bacon strips in the TakenBacon instance
         /// </summary>
-        public uint Count { get; set; } = 2;
+        public uint Count
+        {
+            get
+            {
+                return _count;
+            }
+            set
+            {
+                if (value <= 6 && value >= 1)
+                {
+                    _count = value;
+                }
+                else if ( value > 6)
+                {
+                    _count = 6;
+                }
+                else
+                {
+                    _count = 1;
+                }
+            }
+        }
+            
 
         /// <summary>
         /// The price of the TakenBacon instance
@@ -55,7 +82,7 @@ namespace TheFlyingSaucer.Data
         /// <summary>
         /// Special instructinos for the preparation of this TakenBacon
         /// </summary>
-        public IEnumerable<string> SpecialInstruction 
+        public IEnumerable<string> SpecialInstructions 
         { 
             get
             {

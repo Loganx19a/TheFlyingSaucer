@@ -29,7 +29,7 @@ namespace TheFlyingSaucer.Data
         /// <summary>
         /// The number of biscuits in this instance of a LivestockMutilation
         /// </summary>
-        private uint Biscuits
+        public uint Biscuits
         {
             get
             {

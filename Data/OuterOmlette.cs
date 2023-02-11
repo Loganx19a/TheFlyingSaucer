@@ -82,7 +82,7 @@ namespace TheFlyingSaucer.Data
                 List<string> instructions = new();
                 if (!CheddarCheese) instructions.Add("Hold Cheddar Cheese");
                 if (!Peppers) instructions.Add("Hold Peppers");
-                if (!Mushrooms) instructions.Add("Hold mushrooms");
+                if (!Mushrooms) instructions.Add("Hold Mushrooms");
                 if (!Tomatoes) instructions.Add("Hold Tomatoes");
                 if (!Onions) instructions.Add("Hold Onions");
                 return instructions;

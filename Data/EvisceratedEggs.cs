@@ -42,13 +42,17 @@ namespace TheFlyingSaucer.Data
             }
             set
             {
-                if (value <= 6)
+                if (value <= 6 && value >= 1)
                 {
                     _count = value;
                 }
-                else
+                else if ( value > 6)
                 {
                     _count = 6;
+                }
+                else
+                {
+                    _count = 1;
                 }
             }
         }
@@ -87,7 +91,30 @@ namespace TheFlyingSaucer.Data
             get
             {
                 List<string> instructions = new();
-                if (Style == EggStyle.OverEasy) instructions.Add("Over Easy");
+                //instructions.Add($"{Style}");
+
+                switch (this.Style)
+                {
+                    case EggStyle.SoftBoiled:
+                        instructions.Add("Soft Boiled");
+                        break;
+                    case EggStyle.HardBoiled:
+                        instructions.Add("Hard Boiled");
+                        break;
+                    case EggStyle.Scrambled:
+                        instructions.Add("Scrambled");
+                        break;
+                    case EggStyle.Poached:
+                        instructions.Add("Poached");
+                        break;
+                    case EggStyle.SunnySideUp:
+                        instructions.Add("Sunny Side Up");
+                        break;
+                    case EggStyle.OverEasy:
+                        instructions.Add("Over Easy");
+                        break;
+                }
+
                 if (Count != 2) instructions.Add(Count + " eggs");
                 return instructions;
             }

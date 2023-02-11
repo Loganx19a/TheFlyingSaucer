@@ -46,20 +46,46 @@ namespace TheFlyingSaucer.DataTests
         /// <param name="count">If the Flying Saucer will be served with berries</param>
         /// <remarks>There are more than 8 possible permutations of state, so we pick a subset to test against</remarks>
         [Theory]
-        [InlineData(6, SoftBoiled)]
+        [InlineData(6)]
         [InlineData(0)]
         [InlineData(5)]
         [InlineData(3)]
         [InlineData(4)]
         [InlineData(2)]
-        public void NameShouldAlwaysBeEvisceratedEggs(uint count, EggStyle style)
+        public void NameShouldAlwaysBeEvisceratedEggs(uint count)
         {
             EvisceratedEggs ee = new()
             {
-                Count = count,
-                Style = style
+                Count = count
             };
             Assert.Equal("Eviscerated Eggs", ee.Name);
+        }
+
+        /// <summary>
+        /// The Egg style should be able to be changed
+        /// </summary>
+        [Fact]
+        public void EggStyleShouldChange()
+        {
+            EvisceratedEggs ee = new();
+
+            ee.Style = EggStyle.SoftBoiled;
+            Assert.Equal(EggStyle.SoftBoiled, ee.Style);
+
+            ee.Style = EggStyle.HardBoiled;
+            Assert.Equal(EggStyle.HardBoiled, ee.Style);
+
+            ee.Style = EggStyle.Scrambled;
+            Assert.Equal(EggStyle.Scrambled, ee.Style);
+
+            ee.Style = EggStyle.Poached;
+            Assert.Equal(EggStyle.Poached, ee.Style);
+
+            ee.Style = EggStyle.SunnySideUp;
+            Assert.Equal(EggStyle.SunnySideUp, ee.Style);
+
+            ee.Style = EggStyle.OverEasy;
+            Assert.Equal(EggStyle.OverEasy, ee.Style);
         }
 
         /// <summary>
@@ -70,8 +96,28 @@ namespace TheFlyingSaucer.DataTests
         public void ShouldNotBeAbleToSetEggNumberAboveSix()
         {
             EvisceratedEggs ee = new();
-            ee.Count = 7;
-            Assert.Equal(6, (decimal)ee.Count);
+            ee.Count = 7u;
+            Assert.Equal(6u, ee.Count);
+        }
+
+        /// <summary>
+        /// This test verifies that the price of a Livestock Mutilation corresponds to the number of french toast slices added to it
+        /// </summary>
+        /// <param name="count">The number of biscuits in this instance of a LivestockMutilation</param>
+        [Theory]
+        [InlineData(1)]
+        [InlineData(2)]
+        [InlineData(3)]
+        [InlineData(4)]
+        [InlineData(5)]
+        [InlineData(6)]
+        public void PriceShouldCorrespondToNumberOfEggs(uint count)
+        {
+            EvisceratedEggs ee = new()
+            {
+                Count = count,
+            };
+            Assert.Equal(1.00m * count, ee.Price);
         }
 
         /// <summary>
@@ -84,7 +130,6 @@ namespace TheFlyingSaucer.DataTests
         /// This allows for an easy visual inspection to verify that the expected calories are matched to inputs 
         /// </remarks>
         [Theory]
-        [InlineData(0, 78 * 0)]
         [InlineData(1, 78 * 1)]
         [InlineData(2, 78 * 2)]
         [InlineData(3, 78 * 3)]
@@ -104,16 +149,25 @@ namespace TheFlyingSaucer.DataTests
         /// Checks that the special instructions reflect the current state of the Eviscerated Eggs
         /// </summary>
         /// <param name="count">The number of eggs</param>
+        /// <param name="style">The cooking style of the eggs</param>
         /// <param name="instructions">The expected special instructions</param>
         [Theory]
-        [InlineData(2, new string[] { })]
-        [InlineData(4, new string[] { "4 eggs" })]
-        public void SpecialInstructionsRelfectsState(uint count, string[] instructions)
+        [InlineData(2, EggStyle.OverEasy, new string[] { "Over Easy" })]
+        [InlineData(4, EggStyle.OverEasy, new string[] { "Over Easy", "4 eggs" })]
+        [InlineData(2, EggStyle.Scrambled, new string[] { "Scrambled" })]
+        [InlineData(2, EggStyle.SoftBoiled, new string[] { "Soft Boiled" })]
+        [InlineData(2, EggStyle.HardBoiled, new string[] { "Hard Boiled" })]
+        [InlineData(2, EggStyle.Poached, new string[] { "Poached" })]
+        [InlineData(2, EggStyle.SunnySideUp, new string[] { "Sunny Side Up" })]
+        [InlineData(3, EggStyle.Scrambled, new string[] { "Scrambled", "3 eggs"})]
+        public void SpecialInstructionsRelfectsState(uint count, EggStyle style, string[] instructions )
         {
             EvisceratedEggs ee = new()
             {
-                Count = count
+                Count = count,
+                Style = style,
             };
+            
             // Check that all expected special instructions exist
             foreach (string instruction in instructions)
             {
