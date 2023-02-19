@@ -52,6 +52,18 @@ namespace TheFlyingSaucer.DataTests
         #region state changes
 
         /// <summary>
+        /// Test that FlyingSaucer implements IMenuItem interface
+        /// </summary>
+        [Fact]
+        public void ShouldImplementIMenuItemInterface()
+        {
+            FlyingSaucer fs = new();
+            Assert.IsAssignableFrom<IMenuItem>(fs);
+        }
+
+
+
+        /// <summary>
         /// This test checks that even as the FlyingSaucer's state mutates, the name does not change
         /// </summary>
         /// <param name="stackSize">The number of panacakes included</param>
@@ -135,8 +147,8 @@ namespace TheFlyingSaucer.DataTests
         /// <param name="berries">If served with berries</param>
         /// <param name="instructions">The expected special instructions</param>
         [Theory]
-        [InlineData(6, true, true, true, new string[] {})]
-        [InlineData(4, true, true, true, new string[] {"4 Pancakes"})]
+        [InlineData(6, true, true, true, new string[] { })]
+        [InlineData(4, true, true, true, new string[] { "4 Pancakes" })]
         public void SpecialInstructionsRelfectsState(uint stackSize, bool syrup, bool whippedCream, bool berries, string[] instructions)
         {
             FlyingSaucer fs = new()
@@ -147,7 +159,7 @@ namespace TheFlyingSaucer.DataTests
                 Berries = berries
             };
             // Check that all expected special instructions exist
-            foreach(string instruction in instructions)
+            foreach (string instruction in instructions)
             {
                 Assert.Contains(instruction, fs.SpecialInstructions);
             }
@@ -158,4 +170,5 @@ namespace TheFlyingSaucer.DataTests
         #endregion
 
     }
+    
 }

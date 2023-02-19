@@ -3,7 +3,7 @@
     /// <summary>
     /// The class representing the blueprint for a FlyingSaucer object
     /// </summary>
-    public class FlyingSaucer
+    public class FlyingSaucer : Entree
     {
         /// <summary>
         /// The name of the FlyingSaucer instance
@@ -11,7 +11,7 @@
         /// <remarks>
         /// This is an example of a get-only autoproperty with a default value
         /// </remarks>
-        public string Name { get; } = "Flying Saucer";
+        public override string Name { get; } = "Flying Saucer";
 
         /// <summary>
         /// The description of the FlyingSaucer instance
@@ -19,7 +19,7 @@
         /// <remarks>
         /// This is also a get-only autoproperty, but it was declared using lambda syntax
         /// </remarks>
-        public string Description => "A stack of six pancakes, smothered in rich maple syrup, and topped with mixed berries and whipped cream.";
+        public override string Description => "A stack of six pancakes, smothered in rich maple syrup, and topped with mixed berries and whipped cream.";
 
         /// <summary>
         /// The private backing field for the StackSize property
@@ -72,7 +72,7 @@
         /// <summary>
         /// The price of the FlyingSaucer instance
         /// </summary>
-        public decimal Price 
+        public override decimal Price 
         { 
             get
             {
@@ -93,7 +93,7 @@
         /// <remarks>
         /// This is a get-only property whose value is derived from the other properties of the class.
         /// </remarks>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -108,7 +108,7 @@
         /// <summary>
         /// Special instructions for the preparation of this FlyingSaucer
         /// </summary>
-        public IEnumerable<string> SpecialInstructions
+        public override IEnumerable<string> SpecialInstructions
         {
             get
             {

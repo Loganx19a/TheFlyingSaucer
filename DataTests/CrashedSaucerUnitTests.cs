@@ -15,6 +15,16 @@ namespace TheFlyingSaucer.DataTests
         #region default values
 
         /// <summary>
+        /// Checks that a Crashed Saucer implements the IMenuItem interface
+        /// </summary>
+        [Fact]
+        public void CrashedSaucerShouldImplementIMenuItemInterface()
+        {
+            CrashedSaucer cs = new();
+            Assert.IsAssignableFrom<IMenuItem>(cs);
+        }
+
+        /// <summary>
         /// Checks that an unaltered Crashed Saucer has 2 slices of french toast
         /// </summary>
         [Fact]

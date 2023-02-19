@@ -15,6 +15,16 @@ namespace TheFlyingSaucer.DataTests
         #region default values
 
         /// <summary>
+        /// Checks that MissingLinks implements the IMenuItem interface
+        /// </summary>
+        [Fact]
+        public void MissingLinksShouldImplementIMenuItemInterface()
+        {
+            MissingLinks links = new();
+            Assert.IsAssignableFrom<IMenuItem>(links);
+        }
+
+        /// <summary>
         /// Checks that an unaltered MissingLinks has 2 sausage links
         /// </summary>
         [Fact]

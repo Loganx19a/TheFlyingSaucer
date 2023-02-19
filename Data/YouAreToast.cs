@@ -9,17 +9,17 @@ namespace TheFlyingSaucer.Data
     /// <summary>
     /// The class representing the blueprint for the YouAreToast object
     /// </summary>
-    public class YouAreToast
+    public class YouAreToast : Side
     {
         /// <summary>
         /// The name for the YouAreToast instance
         /// </summary>
-        public string Name { get; } = "You're Toast";
+        public override string Name { get; } = "You're Toast";
 
         /// <summary>
         /// The description for the YouAreToast instance
         /// </summary>
-        public string Description { get; } = "Texas toast.";
+        public override string Description { get; } = "Texas toast.";
 
         /// <summary>
         /// A private backing field for the Count property
@@ -55,7 +55,7 @@ namespace TheFlyingSaucer.Data
         /// <summary>
         /// The price of the YouAreToast instance
         /// </summary>
-        public decimal Price
+        public override decimal Price
         {
             get
             {
@@ -69,7 +69,7 @@ namespace TheFlyingSaucer.Data
         /// <remarks>
         /// This is a get-only property whose value is derived from the other properties of the class
         /// </remarks>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -81,7 +81,7 @@ namespace TheFlyingSaucer.Data
         /// <summary>
         /// Special instractions for the preparation of this YouAreToast
         /// </summary>
-        public IEnumerable<string> SpecialInstructions
+        public override IEnumerable<string> SpecialInstructions
         {
             get
             {

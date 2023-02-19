@@ -9,17 +9,17 @@ namespace TheFlyingSaucer.Data
     /// <summary>
     /// The class representing the blueprint for a TakenBacon object
     /// </summary>
-    public class TakenBacon
+    public class TakenBacon : Side
     {
         /// <summary>
         /// The name of the TakenBacon instance
         /// </summary>
-        public string Name { get; } = "Taken Bacon";
+        public override string Name { get; } = "Taken Bacon";
 
         /// <summary>
         /// The description of the TakenBacon instance
         /// </summary>
-        public string Description { get; } = "Crispy strips of bacon";
+        public override string Description { get; } = "Crispy strips of bacon";
 
         /// <summary>
         /// The private backing field for the count property
@@ -56,7 +56,7 @@ namespace TheFlyingSaucer.Data
         /// <summary>
         /// The price of the TakenBacon instance
         /// </summary>
-        public decimal Price
+        public override decimal Price
         {
             get
             {
@@ -70,7 +70,7 @@ namespace TheFlyingSaucer.Data
         /// <remarks>
         /// This is a get-only property whose value is derived from the other properties of the class
         /// </remarks>
-        public uint Calories 
+        public override uint Calories 
         {
             get
             {
@@ -82,7 +82,7 @@ namespace TheFlyingSaucer.Data
         /// <summary>
         /// Special instructinos for the preparation of this TakenBacon
         /// </summary>
-        public IEnumerable<string> SpecialInstructions 
+        public override IEnumerable<string> SpecialInstructions 
         { 
             get
             {

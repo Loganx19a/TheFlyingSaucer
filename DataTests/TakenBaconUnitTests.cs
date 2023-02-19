@@ -14,6 +14,16 @@ namespace TheFlyingSaucer.DataTests
         #region default values
 
         /// <summary>
+        /// Checks that TakenBacon implements the IMenuItem interface
+        /// </summary>
+        [Fact]
+        public void TakenBaconShouldImplementIMenuItemInterface()
+        {
+            TakenBacon bacon = new();
+            Assert.IsAssignableFrom<IMenuItem>(bacon);
+        }
+
+        /// <summary>
         /// Checks that an unaltered Taken Bacon has 2 bacon strips
         /// </summary>
         [Fact]

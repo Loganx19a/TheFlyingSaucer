@@ -14,6 +14,15 @@ namespace TheFlyingSaucer.DataTests
     {
         #region default values
 
+        /// <summary>
+        /// Checks that GlowingHaystack implements the IMenuItem interface
+        /// </summary>
+        [Fact]
+        public void GlowingHaystackShouldImplementIMenuItemInterface()
+        {
+            GlowingHaystack haystack = new();
+            Assert.IsAssignableFrom<IMenuItem>(haystack);
+        }
 
         /// <summary>
         /// Checks that a unaltered GlowingHaystack is served with sour cream 

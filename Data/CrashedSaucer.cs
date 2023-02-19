@@ -9,17 +9,17 @@ namespace TheFlyingSaucer.Data
     /// <summary>
     /// The class representing the blueprint for an CrashedSaucer object
     /// </summary>
-    public class CrashedSaucer
+    public class CrashedSaucer : Entree
     {
         /// <summary>
         /// The name of the CrashedSaucer instance
         /// </summary>
-        public string Name { get; } = "Crashed Saucer";
+        public override string Name { get; } = "Crashed Saucer";
 
         /// <summary>
         /// The description of the CrashedSaucer instance
         /// </summary>
-        public string Description => "A stack of crispy french toast smothered in syrup and topped with a pat of butter";
+        public override string Description => "A stack of crispy french toast smothered in syrup and topped with a pat of butter";
 
         /// <summary>
         /// The private backing field for the StackSize property
@@ -64,7 +64,7 @@ namespace TheFlyingSaucer.Data
         /// <summary>
         /// The price of the CrashedSaucer instance
         /// </summary>
-        public decimal Price
+        public override decimal Price
         {
             get
             {
@@ -76,7 +76,7 @@ namespace TheFlyingSaucer.Data
         /// <summary>
         /// The amount of calories in the CrashedSaucer instance
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -90,7 +90,7 @@ namespace TheFlyingSaucer.Data
         /// <summary>
         /// Special instructions for the preparation of this CrashedSaucer
         /// </summary>
-        public IEnumerable<string> SpecialInstructions
+        public override IEnumerable<string> SpecialInstructions
         {
             get
             {

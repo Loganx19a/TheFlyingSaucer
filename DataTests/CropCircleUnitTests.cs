@@ -12,6 +12,16 @@ namespace TheFlyingSaucer.DataTests
     public class CropCircleUnitTests
     {
 
+        /// <summary>
+        /// Checks that a Crop Circle implements the IMenuItem interface
+        /// </summary>
+        [Fact]
+        public void CropCircleShouldImplementIMenuItemInterface()
+        {
+            CropCircle cc = new();
+            Assert.IsAssignableFrom<IMenuItem>(cc);
+        }
+
         #region default values
 
         /// <summary>

@@ -9,17 +9,17 @@ namespace TheFlyingSaucer.Data
     /// <summary>
     /// The class representing the blueprint for a CropCircle object 
     /// </summary>
-    public class CropCircle
+    public class CropCircle : Side
     {
         /// <summary>
         /// The name of the CropCircle instance
         /// </summary>
-        public string Name { get; } = "Crop Circle";
+        public override string Name { get; } = "Crop Circle";
 
         /// <summary>
         /// The description of the CrashedSaucer instance
         /// </summary>
-        public string Description { get; } = "Oatmeal topped with mixed berries.";
+        public override string Description { get; } = "Oatmeal topped with mixed berries.";
 
         /// <summary>
         /// If the CropCircle instance is served with Berries
@@ -29,7 +29,7 @@ namespace TheFlyingSaucer.Data
         /// <summary>
         /// The price of the CropCircle instance
         /// </summary>
-        public decimal Price { get; } = 2.00m;
+        public override decimal Price { get; } = 2.00m;
 
         /// <summary>
         /// The calories of the CropCircle instance
@@ -37,7 +37,7 @@ namespace TheFlyingSaucer.Data
         /// <remarks>
         /// This is a get-only property whose value is derived from the other properties of the class
         /// </remarks>
-        public uint Calories 
+        public override uint Calories 
         {
             get
             {
@@ -52,7 +52,7 @@ namespace TheFlyingSaucer.Data
         /// <summary>
         /// Special instructions for the preparation of this CropCircle
         /// </summary>
-        public IEnumerable<string> SpecialInstructions
+        public override IEnumerable<string> SpecialInstructions
         {
             get
             {

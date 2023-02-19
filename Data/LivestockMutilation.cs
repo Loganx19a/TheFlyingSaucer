@@ -9,17 +9,17 @@ namespace TheFlyingSaucer.Data
     /// <summary>
     /// The class representing the blueprint for a LivestockMutilation object
     /// </summary>
-    public class LivestockMutilation
+    public class LivestockMutilation : Entree
     {
         /// <summary>
         /// The name of the LivestockMutilation instance
         /// </summary>
-        public string Name { get; } = "Livestock Mutilation";
+        public override string Name { get; } = "Livestock Mutilation";
 
         /// <summary>
         /// The description of the LivestockMutilation instance
         /// </summary>
-        public string Description => "A hearty serving of biscuits, smothered in sausage-laden gravy";
+        public override string Description => "A hearty serving of biscuits, smothered in sausage-laden gravy";
 
         /// <summary>
         /// The private backing field for the Biscuits property
@@ -56,7 +56,7 @@ namespace TheFlyingSaucer.Data
         /// <summary>
         /// The price of the LivestockMutilation instance
         /// </summary>
-        public decimal Price
+        public override decimal Price
         {
             get
             {
@@ -68,7 +68,7 @@ namespace TheFlyingSaucer.Data
         /// <summary>
         /// The amount of calories in the LivestockMutilation instance
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -81,7 +81,7 @@ namespace TheFlyingSaucer.Data
         /// <summary>
         /// Special instructions for the preparation of this LivestockMutilation 
         /// </summary>
-        public IEnumerable<string> SpecialInstructions
+        public override IEnumerable<string> SpecialInstructions
         {
             get
             {

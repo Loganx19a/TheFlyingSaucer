@@ -15,6 +15,16 @@ namespace TheFlyingSaucer.DataTests
         #region default values
 
         /// <summary>
+        /// Checks that YouAreToast implements the IMenuItem interface
+        /// </summary>
+        [Fact]
+        public void YouAreToastShouldImplementIMenuItemInterface()
+        {
+            YouAreToast toast = new();
+            Assert.IsAssignableFrom<IMenuItem>(toast);
+        }
+
+        /// <summary>
         /// Checks that an unaltered YouAreToast has 2 slices 
         /// </summary>
         [Fact]

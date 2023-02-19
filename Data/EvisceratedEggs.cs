@@ -9,17 +9,17 @@ namespace TheFlyingSaucer.Data
     /// <summary>
     /// The class representing the blueprint for an EvisceratedEggs object
     /// </summary>
-    public class EvisceratedEggs
+    public class EvisceratedEggs : Side
     {
         /// <summary>
         /// The name of the EvisceratedEggs instance
         /// </summary>
-        public string Name { get; } = "Eviscerated Eggs";
+        public override string Name { get; } = "Eviscerated Eggs";
 
         /// <summary>
         /// The description of the EvisceratedEggs instance
         /// </summary>
-        public string Description { get; } = "Eggs prepared the way you like.";
+        public override string Description { get; } = "Eggs prepared the way you like.";
 
         /// <summary>
         /// The style of how the EvisceratedEggs instance is cooked
@@ -60,7 +60,7 @@ namespace TheFlyingSaucer.Data
         /// <summary>
         /// The price of the EvisceratedEggs instance
         /// </summary>
-        public decimal Price
+        public override decimal Price
         {
             get
             {
@@ -74,7 +74,7 @@ namespace TheFlyingSaucer.Data
         /// <remarks>
         /// This is a get-only property whose value is derived from the other properties of the class
         /// </remarks>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -86,7 +86,7 @@ namespace TheFlyingSaucer.Data
         /// <summary>
         /// Special instructions for the preparation of this EvisceratedEggs
         /// </summary>
-        public IEnumerable<string> SpecialInstructions
+        public override IEnumerable<string> SpecialInstructions
         {
             get
             {

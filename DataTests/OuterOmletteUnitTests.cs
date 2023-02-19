@@ -14,6 +14,16 @@ namespace TheFlyingSaucer.DataTests
         #region default values
 
         /// <summary>
+        /// Checks that OuterOmlette implements the IMenuItem interface
+        /// </summary>
+        [Fact]
+        public void OuterOmletteShouldImplementIMenuItemInterface()
+        {
+            OuterOmlette omlette = new();
+            Assert.IsAssignableFrom<IMenuItem>(omlette);
+        }
+
+        /// <summary>
         /// Checks that a unaltered Outter Omlette is served with Cheddar Cheese 
         /// </summary>
         [Fact]

@@ -15,6 +15,16 @@ namespace TheFlyingSaucer.DataTests
         #region default values
 
         /// <summary>
+        /// Checks that EvisceratedEggs implements the IMenuItem interface
+        /// </summary>
+        [Fact]
+        public void EvisceratedEggsShouldImplementIMenuItemInterface()
+        {
+            EvisceratedEggs eggs = new();
+            Assert.IsAssignableFrom<IMenuItem>(eggs);
+        }
+
+        /// <summary>
         /// Checks that an unaltered Eviscerated Eggs has 2 eggs
         /// </summary>
         [Fact]

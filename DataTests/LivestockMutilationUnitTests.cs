@@ -14,6 +14,16 @@ namespace TheFlyingSaucer.DataTests
         #region default values
 
         /// <summary>
+        /// Checks that LivestockMutilation implements the IMenuItem interface
+        /// </summary>
+        [Fact]
+        public void LivestockMutilationShouldImplementIMenuItemInterface()
+        {
+            LivestockMutilation mutilation = new();
+            Assert.IsAssignableFrom<IMenuItem>(mutilation);
+        }
+
+        /// <summary>
         /// Checks that an unaltered LivestockMutilation has 3 biscuits
         /// </summary>
         [Fact]
