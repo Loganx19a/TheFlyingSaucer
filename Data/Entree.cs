@@ -35,5 +35,10 @@ namespace TheFlyingSaucer.Data
         /// Special instructions for the preparation of this Entree
         /// </summary>
         public abstract IEnumerable<string> SpecialInstructions { get; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

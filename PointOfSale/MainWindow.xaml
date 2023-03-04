@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TheFlyingSaucer.PointOfSale"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1080" Width="720">
-    <Grid>
+        Title="MainWindow" Height="720" Width="1080">
+    <Grid Margin="0,145,184,0">
+        <local:OrderSummaryControl Margin="647,-112,-174,10"/>
+        <local:MenuItemSelectionControl Margin="10,-112,249,-19"/>
 
     </Grid>
 </Window>
