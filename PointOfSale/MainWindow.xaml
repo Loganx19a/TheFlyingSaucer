@@ -8,7 +8,7 @@
         Title="MainWindow" Height="720" Width="1080">
     <Grid Margin="0,145,184,0">
         <local:OrderSummaryControl Margin="647,-112,-174,10"/>
-        <local:MenuItemSelectionControl Margin="10,-112,249,-19"/>
+        <local:MenuItemSelectionControl Margin="10,-88,249,-43"/>
 
     </Grid>
 </Window>

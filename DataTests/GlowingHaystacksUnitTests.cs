@@ -151,6 +151,17 @@ namespace TheFlyingSaucer.DataTests
             Assert.Equal(instructions.Length, gh.SpecialInstructions.Count());
         }
 
+        /// <summary>
+        /// Tests whether the ToString method is working properly for this class
+        /// </summary>
+        /// <param name="name">the Name property of this class</param>
+        [Theory]
+        [InlineData("Glowing Haystack")]
+        public void ToStringMethodShouldWorkProperly(string name)
+        {
+            Assert.Equal("Glowing Haystack", name);
+        }
+
         #endregion
     }
 }

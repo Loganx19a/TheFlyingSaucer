@@ -130,6 +130,17 @@ namespace TheFlyingSaucer.DataTests
             Assert.Equal(instructions.Length, yat.SpecialInstructions.Count());
         }
 
+        /// <summary>
+        /// Tests whether the ToString method is working properly for this class
+        /// </summary>
+        /// <param name="name">the Name property of this class</param>
+        [Theory]
+        [InlineData("You're Toast")]
+        public void ToStringMethodShouldWorkProperly(string name)
+        {
+            Assert.Equal("You're Toast", name);
+        }
+
         #endregion
     }
 }

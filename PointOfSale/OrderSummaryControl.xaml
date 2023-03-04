@@ -16,8 +16,7 @@
         <TextBlock DockPanel.Dock ="Bottom" TextAlignment="Center">Tax</TextBlock>
         <TextBlock DockPanel.Dock ="Bottom" TextAlignment="Center">Subtotal</TextBlock>
 
-        <ListView ItemsSource="{Binding}">
-        </ListView>
+        <ListView ItemsSource="{Binding}"> </ListView>
 
     </DockPanel>
 </UserControl>

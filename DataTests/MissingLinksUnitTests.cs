@@ -161,6 +161,17 @@ namespace TheFlyingSaucer.DataTests
             Assert.Equal(instructions.Length, ml.SpecialInstructions.Count());
         }
 
+        /// <summary>
+        /// Tests whether the ToString method is working properly for this class
+        /// </summary>
+        /// <param name="name">the Name property of this class</param>
+        [Theory]
+        [InlineData("Missing Links")]
+        public void ToStringMethodShouldWorkProperly(string name)
+        {
+            Assert.Equal("Missing Links", name);
+        }
+
         #endregion
 
     }

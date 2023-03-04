@@ -41,6 +41,10 @@ namespace TheFlyingSaucer.Data
         /// </summary>
         public abstract IEnumerable<string> SpecialInstructions { get; }
 
+        /// <summary>
+        /// Override for the ToString() method 
+        /// </summary>
+        /// <returns>the string version of the Name property</returns>
         public override string ToString()
         {
             return Name;
