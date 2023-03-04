@@ -10,11 +10,11 @@
         
 
         <TextBlock DockPanel.Dock ="Top" TextAlignment="Center">Order #</TextBlock>
-        <TextBlock DockPanel.Dock ="Top" TextAlignment="Center">Date</TextBlock>
+        <TextBlock DockPanel.Dock ="Top" TextAlignment="Center">3/3/2023</TextBlock>
 
-        <TextBlock DockPanel.Dock ="Bottom" TextAlignment="Center">Total</TextBlock>
-        <TextBlock DockPanel.Dock ="Bottom" TextAlignment="Center">Tax</TextBlock>
-        <TextBlock DockPanel.Dock ="Bottom" TextAlignment="Center">Subtotal</TextBlock>
+        <TextBlock DockPanel.Dock ="Bottom" TextAlignment="Left">Total</TextBlock>
+        <TextBlock DockPanel.Dock ="Bottom" TextAlignment="Left">Tax</TextBlock>
+        <TextBlock DockPanel.Dock ="Bottom" TextAlignment="Left">Subtotal</TextBlock>
 
         <ListView ItemsSource="{Binding}"> </ListView>
 

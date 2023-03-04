@@ -27,6 +27,11 @@ namespace TheFlyingSaucer.PointOfSale
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void AddItemClick(object sender, RoutedEventArgs e)
         {
             if (DataContext is ICollection<IMenuItem> data)
