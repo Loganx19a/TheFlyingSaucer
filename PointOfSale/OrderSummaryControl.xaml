@@ -7,14 +7,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="400">
     <DockPanel>
-        
 
-        <TextBlock DockPanel.Dock ="Top" TextAlignment="Center">Order #</TextBlock>
-        <TextBlock DockPanel.Dock ="Top" TextAlignment="Center">3/3/2023</TextBlock>
 
-        <TextBlock DockPanel.Dock ="Bottom" TextAlignment="Left">Total</TextBlock>
-        <TextBlock DockPanel.Dock ="Bottom" TextAlignment="Left">Tax</TextBlock>
-        <TextBlock DockPanel.Dock ="Bottom" TextAlignment="Left">Subtotal</TextBlock>
+        <TextBlock DockPanel.Dock ="Top" TextAlignment="Center" FontSize="16" FontWeight="Bold">Order #</TextBlock>
+        <TextBlock DockPanel.Dock ="Top" TextAlignment="Center" FontSize="16" FontWeight="Bold">3/3/2023</TextBlock>
+
+        <TextBlock DockPanel.Dock ="Bottom" TextAlignment="Left" FontSize="16" FontWeight="Bold">Total</TextBlock>
+        <TextBlock DockPanel.Dock ="Bottom" TextAlignment="Left" FontSize="16" FontWeight="Bold">Tax</TextBlock>
+        <TextBlock DockPanel.Dock ="Bottom" TextAlignment="Left" FontSize="16" FontWeight="Bold">Subtotal</TextBlock>
 
         <ListView ItemsSource="{Binding}"> </ListView>
 
