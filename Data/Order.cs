@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +14,9 @@ namespace TheFlyingSaucer.Data
     /// </summary>
     public class Order : ICollection<IMenuItem>
     {
+        public event NotifyCollectionChangedEventHandler? NotifyCollectionChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
+
         /// <summary>
         /// A private list of IMenuItem objects called _items
         /// </summary>
@@ -26,9 +31,25 @@ namespace TheFlyingSaucer.Data
         }
 
         /// <summary>
+        /// Private backing field for the tax rate of the order
+        /// </summary>
+        private decimal _taxRate = 0.1m;
+
+        /// <summary>
         /// The going tax rate (in Kansas)
         /// </summary>
-        public decimal TaxRate { get; set; } = 0.1m;
+        public decimal TaxRate
+        {
+            get
+            {
+                return _taxRate;
+            }
+            set
+            {
+                _taxRate = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(TaxRate)));
+            }
+        }
 
         /// <summary>
         /// The sales tax for the order
@@ -69,6 +90,8 @@ namespace TheFlyingSaucer.Data
         public void Add(IMenuItem item)
         {
             _items.Add(item);
+            NotifyCollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, item));
+
         }
 
         /// <summary>
@@ -77,6 +100,7 @@ namespace TheFlyingSaucer.Data
         public void Clear()
         {
             _items.Clear();
+            NotifyCollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
         }
 
         /// <summary>
@@ -106,7 +130,11 @@ namespace TheFlyingSaucer.Data
         /// <returns>True if the item is successfully removed, and false otherwise</returns>
         public bool Remove(IMenuItem item)
         {
-            return _items.Remove(item);
+            int index = _items.IndexOf(item);
+            if (index == -1) return false;
+            _items.Remove(item);
+            NotifyCollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, item, index));
+            return true;
         }
 
         /// <summary>

@@ -29,6 +29,7 @@
             The Flying Saucer Point of Sale
             
         </TextBlock>
+        
         <local:OrderSummaryControl Grid.Row="1" Grid.Column="3" Grid.RowSpan="3" />
         <local:MenuItemSelectionControl Grid.Row="1" Grid.ColumnSpan="3"/>
 
