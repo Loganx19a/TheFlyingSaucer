@@ -25,7 +25,7 @@ namespace TheFlyingSaucer.PointOfSale
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new ObservableCollection<IMenuItem>();
+            DataContext = new Order();
         }
     }
 }

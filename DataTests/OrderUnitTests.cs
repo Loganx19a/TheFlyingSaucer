@@ -24,6 +24,15 @@ namespace TheFlyingSaucer.DataTests
             public IEnumerable<string> SpecialInstructions { get; set; }
         }
 
+        [Fact]
+        public void ChangingTaxRateShouldNotifyOfPropertyChange()
+        {
+            Order order = new Order();
+            Assert.PropertyChanged(order, "TaxRate", () => {
+                order.TaxRate = 0.15m;
+            });
+        }
+
         /// <summary>
         /// Checks the Substotal of the order is calculated correctly
         /// </summary>

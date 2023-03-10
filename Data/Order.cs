@@ -22,15 +22,25 @@ namespace TheFlyingSaucer.Data
         /// </summary>
         private List<IMenuItem> _items = new List<IMenuItem>();
 
-        
+        private static int _number = 1;
+
+        public int Number { get; }
+
+        public DateTime PlacedAt { get; init; } = DateTime.Now;
+
+        public Order()
+        {
+            Number = _number;
+            _number++;
+        }
 
         /// <summary>
         /// Private backing field for the tax rate of the order
         /// </summary>
-        private decimal _taxRate = 0.1m;
+        private decimal _taxRate = 0.15m;
 
         /// <summary>
-        /// The going tax rate (in Kansas)
+        /// The rate at which the subtotal is taxed
         /// </summary>
         public decimal TaxRate
         {
@@ -42,6 +52,8 @@ namespace TheFlyingSaucer.Data
             {
                 _taxRate = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(TaxRate)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Tax)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Total)));
             }
         }
 
@@ -97,9 +109,25 @@ namespace TheFlyingSaucer.Data
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Subtotal)));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Tax)));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Total)));
-            
+        }
 
+        /// <summary>
+        /// A method for removing an item from _items
+        /// </summary>
+        /// <param name="item">The given item to be removed</param>
+        /// <returns>True if the item is successfully removed, and false otherwise</returns>
+        public bool Remove(IMenuItem item)
+        {
+            int index = _items.IndexOf(item);
+            if (index == -1) return false;
+            _items.Remove(item);
+            CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, item, index));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Count)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Subtotal)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Tax)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Total)));
 
+            return true;
         }
 
         /// <summary>
@@ -134,25 +162,6 @@ namespace TheFlyingSaucer.Data
         public void CopyTo(IMenuItem[] array, int arrayIndex)
         {
             _items.CopyTo(array, arrayIndex);
-        }
-
-        /// <summary>
-        /// A method for removing an item from _items
-        /// </summary>
-        /// <param name="item">The given item to be removed</param>
-        /// <returns>True if the item is successfully removed, and false otherwise</returns>
-        public bool Remove(IMenuItem item)
-        {
-            int index = _items.IndexOf(item);
-            if (index == -1) return false;
-            _items.Remove(item);
-            CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, item, index));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Count)));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Subtotal)));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Tax)));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Total)));
-            
-            return true;
         }
 
         /// <summary>

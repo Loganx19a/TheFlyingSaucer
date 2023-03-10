@@ -9,14 +9,27 @@
     <DockPanel>
 
 
-        <TextBlock DockPanel.Dock ="Top" TextAlignment="Center" FontSize="16" FontWeight="Bold">Order #</TextBlock>
-        <TextBlock DockPanel.Dock ="Top" TextAlignment="Center" FontSize="16" FontWeight="Bold">3/3/2023</TextBlock>
+        <TextBlock Text="{Binding Path=Number, StringFormat='Order #{0}'}" DockPanel.Dock ="Top" TextAlignment="Center" FontSize="16" FontWeight="Bold"></TextBlock>
+        <TextBlock Text="{Binding Path=PlacedAt}" DockPanel.Dock ="Top" TextAlignment="Center" FontSize="16" FontWeight="Bold"></TextBlock>
 
-        <TextBlock DockPanel.Dock ="Bottom" TextAlignment="Left" FontSize="16" FontWeight="Bold">Total</TextBlock>
-        <TextBlock DockPanel.Dock ="Bottom" TextAlignment="Left" FontSize="16" FontWeight="Bold">Tax</TextBlock>
-        <TextBlock DockPanel.Dock ="Bottom" TextAlignment="Left" FontSize="16" FontWeight="Bold">Subtotal</TextBlock>
+        <TextBlock Text="{Binding Path=Total, StringFormat='Total {0:c}'}" DockPanel.Dock ="Bottom" TextAlignment="Left" FontSize="16" FontWeight="Bold"></TextBlock>
+        <TextBlock Text="{Binding Path=Tax, StringFormat='Tax {0:c}'}" DockPanel.Dock ="Bottom" TextAlignment="Left" FontSize="16" FontWeight="Bold"></TextBlock>
+        <TextBlock Text="{Binding Path=Subtotal, StringFormat='Subtotal {0:c}'}" DockPanel.Dock ="Bottom" TextAlignment="Left" FontSize="16" FontWeight="Bold"></TextBlock>
 
-        <ListView ItemsSource="{Binding}"> </ListView>
+        <ListView ItemsSource="{Binding}">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Path=Name, StringFormat=' {0}   '}"/>
+                        <TextBlock Text="{Binding Path=Price}"/>
+                    </StackPanel>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
 
     </DockPanel>
 </UserControl>
