@@ -12,9 +12,9 @@ namespace TheFlyingSaucer.Data
     /// <summary>
     /// A class representing a collection of menu items being ordered together
     /// </summary>
-    public class Order : ICollection<IMenuItem>
+    public class Order : ICollection<IMenuItem>, INotifyCollectionChanged, INotifyPropertyChanged
     {
-        public event NotifyCollectionChangedEventHandler? NotifyCollectionChanged;
+        public event NotifyCollectionChangedEventHandler? CollectionChanged;
         public event PropertyChangedEventHandler? PropertyChanged;
 
         /// <summary>
@@ -22,13 +22,7 @@ namespace TheFlyingSaucer.Data
         /// </summary>
         private List<IMenuItem> _items = new List<IMenuItem>();
 
-        /// <summary>
-        /// The subtotal of the order
-        /// </summary>
-        public decimal Subtotal
-        {
-            get { return _items.Sum(item => item.Price); }
-        }
+        
 
         /// <summary>
         /// Private backing field for the tax rate of the order
@@ -52,6 +46,22 @@ namespace TheFlyingSaucer.Data
         }
 
         /// <summary>
+        /// The number of items comprising the order
+        /// </summary>
+        public int Count
+        {
+            get { return _items.Count; }
+        }
+
+        /// <summary>
+        /// The subtotal of the order
+        /// </summary>
+        public decimal Subtotal
+        {
+            get { return _items.Sum(item => item.Price); }
+        }
+
+        /// <summary>
         /// The sales tax for the order
         /// </summary>
         public decimal Tax
@@ -65,14 +75,6 @@ namespace TheFlyingSaucer.Data
         public decimal Total
         {
             get { return Subtotal + Tax; }
-        }
-
-        /// <summary>
-        /// The number of items comprising the order
-        /// </summary>
-        public int Count
-        {
-            get { return _items.Count; }
         }
 
         /// <summary>
@@ -90,7 +92,13 @@ namespace TheFlyingSaucer.Data
         public void Add(IMenuItem item)
         {
             _items.Add(item);
-            NotifyCollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, item));
+            CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, item));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Count)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Subtotal)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Tax)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Total)));
+            
+
 
         }
 
@@ -100,7 +108,12 @@ namespace TheFlyingSaucer.Data
         public void Clear()
         {
             _items.Clear();
-            NotifyCollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+            CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Count)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Subtotal)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Tax)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Total)));
+            
         }
 
         /// <summary>
@@ -133,7 +146,12 @@ namespace TheFlyingSaucer.Data
             int index = _items.IndexOf(item);
             if (index == -1) return false;
             _items.Remove(item);
-            NotifyCollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, item, index));
+            CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, item, index));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Count)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Subtotal)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Tax)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Total)));
+            
             return true;
         }
 
