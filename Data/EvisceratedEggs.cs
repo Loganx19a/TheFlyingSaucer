@@ -46,7 +46,7 @@ namespace TheFlyingSaucer.Data
                 {
                     _count = value;
                 }
-                else if ( value > 6)
+                else if (value > 6)
                 {
                     _count = 6;
                 }
@@ -93,7 +93,7 @@ namespace TheFlyingSaucer.Data
                 List<string> instructions = new();
                 //instructions.Add($"{Style}");
 
-                switch (this.Style)
+                switch (Style)
                 {
                     case EggStyle.SoftBoiled:
                         instructions.Add("Soft Boiled");

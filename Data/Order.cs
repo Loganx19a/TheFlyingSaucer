@@ -22,10 +22,19 @@ namespace TheFlyingSaucer.Data
         /// </summary>
         private List<IMenuItem> _items = new List<IMenuItem>();
 
+        /// <summary>
+        /// Private backing field for the Number property
+        /// </summary>
         private static int _number = 1;
 
+        /// <summary>
+        /// Property tracking the order number
+        /// </summary>
         public int Number { get; }
 
+        /// <summary>
+        /// Property tracking the date at which the order was placed
+        /// </summary>
         public DateTime PlacedAt { get; init; } = DateTime.Now;
 
         public Order()

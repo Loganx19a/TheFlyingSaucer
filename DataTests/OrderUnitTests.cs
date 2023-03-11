@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,14 +25,69 @@ namespace TheFlyingSaucer.DataTests
             public IEnumerable<string> SpecialInstructions { get; set; }
         }
 
+        /// <summary>
+        /// Tests whether the order class implements INotifyPropertyChanged correctly
+        /// </summary>
+        /// <remarks>
+        /// Important to check because property binding only works if the class can be cast to be an instance of INotifyPropertyChanged
+        /// We want to make sure it's possible to cast an object (order) to a specific type (INotifyPropertyChanged).
+        /// Where T is the type to cast into.
+        /// </remarks>
+        [Fact]
+        public void ShouldImplementINotifyPropertyChanged()
+        {
+            Order order = new Order();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(order);
+        }
+
+        /// <summary>
+        /// Tests whether the TaxRate property triggers the PropertyChanged event when its value changes
+        /// </summary>
         [Fact]
         public void ChangingTaxRateShouldNotifyOfPropertyChange()
         {
+            // Changing TaxRate should change TaxRate, Tax, and Total
+
             Order order = new Order();
             Assert.PropertyChanged(order, "TaxRate", () => {
                 order.TaxRate = 0.15m;
             });
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [Fact]
+        public void ChangingTaxRateShouldNotifyOfTaxPropertyChange()
+        {
+            Order order = new Order();
+            Assert.PropertyChanged(order, "Tax", () => {
+                order.TaxRate = 0.15m;
+            });
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [Fact]
+        public void ChangingTaxRateShouldNotifyOfTotalPropertyChange()
+        {
+            Order order = new Order();
+            Assert.PropertyChanged(order, "Total", () => {
+                order.TaxRate = 0.15m;
+            });
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [Fact]
+        public void AddingItemShouldNotifyOfCollectionChange()
+        {
+            Order order = new Order();
+
+        }
+
 
         /// <summary>
         /// Checks the Substotal of the order is calculated correctly

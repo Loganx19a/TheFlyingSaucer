@@ -8,24 +8,22 @@
              d:DesignHeight="720" d:DesignWidth="400">
     <DockPanel>
 
-
-        <TextBlock Text="{Binding Path=Number, StringFormat='Order #{0}'}" DockPanel.Dock ="Top" TextAlignment="Center" FontSize="16" FontWeight="Bold"></TextBlock>
-        <TextBlock Text="{Binding Path=PlacedAt}" DockPanel.Dock ="Top" TextAlignment="Center" FontSize="16" FontWeight="Bold"></TextBlock>
-
-        <TextBlock Text="{Binding Path=Total, StringFormat='Total {0:c}'}" DockPanel.Dock ="Bottom" TextAlignment="Left" FontSize="16" FontWeight="Bold"></TextBlock>
-        <TextBlock Text="{Binding Path=Tax, StringFormat='Tax {0:c}'}" DockPanel.Dock ="Bottom" TextAlignment="Left" FontSize="16" FontWeight="Bold"></TextBlock>
-        <TextBlock Text="{Binding Path=Subtotal, StringFormat='Subtotal {0:c}'}" DockPanel.Dock ="Bottom" TextAlignment="Left" FontSize="16" FontWeight="Bold"></TextBlock>
+        <!-- Top of Screen -->
+        <TextBlock Text="{Binding Path=Number, StringFormat='Order #{0}'}" Foreground="White" Background="DarkRed" DockPanel.Dock ="Top" TextAlignment="Center" FontSize="16" FontWeight="Bold"></TextBlock>
+        <TextBlock Text="{Binding Path=PlacedAt}" DockPanel.Dock ="Top" Foreground="White" Background="DarkRed" TextAlignment="Center" FontSize="16" FontWeight="Bold"></TextBlock>
+        <!-- Bottom of Screen -->
+        <TextBlock Text="{Binding Path=Total, StringFormat='Total {0:c}'}" Foreground="White" DockPanel.Dock ="Bottom" TextAlignment="Left" FontSize="16" FontWeight="Bold"></TextBlock>
+        <TextBlock Text="{Binding Path=Tax, StringFormat='Tax {0:c}'}" Foreground="White" DockPanel.Dock ="Bottom" TextAlignment="Left" FontSize="16" FontWeight="Bold"></TextBlock>
+        <TextBlock Text="{Binding Path=Subtotal, StringFormat='Subtotal {0:c}'}" Foreground="White" DockPanel.Dock ="Bottom" TextAlignment="Left" FontSize="16" FontWeight="Bold"></TextBlock>
 
         <ListView ItemsSource="{Binding}">
 
             <ListView.ItemTemplate>
                 <DataTemplate>
-
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Path=Name, StringFormat=' {0}   '}"/>
-                        <TextBlock Text="{Binding Path=Price}"/>
+                        <TextBlock Text="{Binding Path=Name, StringFormat=' {0}   '}" FontSize="16" FontWeight="DemiBold"/>
+                        <TextBlock Text="{Binding Path=Price}" FontSize="16" FontWeight="DemiBold"/>
                     </StackPanel>
-
                 </DataTemplate>
             </ListView.ItemTemplate>
 

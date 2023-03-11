@@ -41,7 +41,7 @@ namespace TheFlyingSaucer.Data
                 {
                     _count = value;
                 }
-                else if ( value > 6)
+                else if (value > 6)
                 {
                     _count = 6;
                 }
@@ -51,7 +51,7 @@ namespace TheFlyingSaucer.Data
                 }
             }
         }
-            
+
 
         /// <summary>
         /// The price of the TakenBacon instance
@@ -70,7 +70,7 @@ namespace TheFlyingSaucer.Data
         /// <remarks>
         /// This is a get-only property whose value is derived from the other properties of the class
         /// </remarks>
-        public override uint Calories 
+        public override uint Calories
         {
             get
             {
@@ -82,8 +82,8 @@ namespace TheFlyingSaucer.Data
         /// <summary>
         /// Special instructinos for the preparation of this TakenBacon
         /// </summary>
-        public override IEnumerable<string> SpecialInstructions 
-        { 
+        public override IEnumerable<string> SpecialInstructions
+        {
             get
             {
                 List<string> instructions = new();
@@ -92,6 +92,6 @@ namespace TheFlyingSaucer.Data
                 return instructions;
             }
         }
-        
+
     }
 }

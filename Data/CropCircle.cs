@@ -37,7 +37,7 @@ namespace TheFlyingSaucer.Data
         /// <remarks>
         /// This is a get-only property whose value is derived from the other properties of the class
         /// </remarks>
-        public override uint Calories 
+        public override uint Calories
         {
             get
             {
@@ -46,7 +46,7 @@ namespace TheFlyingSaucer.Data
                 return calories;
             }
 
-            
+
         }
 
         /// <summary>

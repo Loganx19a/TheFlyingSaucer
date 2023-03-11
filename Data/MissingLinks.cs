@@ -82,7 +82,7 @@ namespace TheFlyingSaucer.Data
         /// <summary>
         /// Special instructions for the preparations of this MissingLinks 
         /// </summary>
-        public override IEnumerable<string> SpecialInstructions 
+        public override IEnumerable<string> SpecialInstructions
         {
             get
             {
