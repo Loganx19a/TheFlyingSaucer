@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TheFlyingSaucer.Data
+namespace TheFlyingSaucer.Data.Sides
 {
     /// <summary>
     /// The class representing the blueprint for an EvisceratedEggs object
@@ -115,7 +115,8 @@ namespace TheFlyingSaucer.Data
                         break;
                 }
 
-                if (Count != 2) instructions.Add(Count + " eggs");
+                if (Count > 2) instructions.Add(Count + " eggs");
+                else if (Count == 1) instructions.Add(Count + " egg");
                 return instructions;
             }
         }

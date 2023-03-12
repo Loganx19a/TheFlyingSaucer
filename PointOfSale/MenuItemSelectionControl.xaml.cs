@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TheFlyingSaucer.Data;
+using TheFlyingSaucer.Data.Entrees;
+using TheFlyingSaucer.Data.Sides;
+using TheFlyingSaucer.Data.Drinks;
 
 namespace TheFlyingSaucer.PointOfSale
 {

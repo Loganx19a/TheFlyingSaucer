@@ -1,4 +1,4 @@
-﻿namespace TheFlyingSaucer.Data
+﻿namespace TheFlyingSaucer.Data.Entrees
 {
     /// <summary>
     /// The class representing the blueprint for a FlyingSaucer object
@@ -32,10 +32,11 @@
         /// <remarks>
         /// Note the set limits the stack size to a maximum of 12 pancakes
         /// </remarks>
-        public uint StackSize { 
-            get 
-            { 
-                return _stackSize; 
+        public uint StackSize
+        {
+            get
+            {
+                return _stackSize;
             }
             set
             {
@@ -72,13 +73,13 @@
         /// <summary>
         /// The price of the FlyingSaucer instance
         /// </summary>
-        public override decimal Price 
-        { 
+        public override decimal Price
+        {
             get
             {
-                if ( StackSize > 6)
+                if (StackSize > 6)
                 {
-                    return 8.50m + (.75m * (StackSize - 6));
+                    return 8.50m + .75m * (StackSize - 6);
                 }
                 else
                 {
@@ -121,7 +122,7 @@
             }
         }
 
-       
+
 
     }
 }

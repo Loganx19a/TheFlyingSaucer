@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TheFlyingSaucer.Data
+namespace TheFlyingSaucer.Data.Drinks
 {
     /// <summary>
     /// A class representing the Saucer Fuel drink
@@ -76,7 +76,7 @@ namespace TheFlyingSaucer.Data
                     else
                         return 1u;
                 }
-                    
+
                 else if (Size == ServingSize.Medium)
                 {
                     if (Cream)

@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TheFlyingSaucer.Data
+namespace TheFlyingSaucer.Data.Entrees
 {
     /// <summary>
     /// The class representing the blueprint for an OuterOmlette object
@@ -58,8 +58,8 @@ namespace TheFlyingSaucer.Data
         /// <remarks>
         /// This is a get-only property whose value is derived from the other properties of the class
         /// </remarks>
-        public override uint Calories 
-        { 
+        public override uint Calories
+        {
             get
             {
                 uint calories = 94u;
@@ -75,7 +75,7 @@ namespace TheFlyingSaucer.Data
         /// <summary>
         /// Special instructions for the preparation of this OuterOmlette
         /// </summary>
-        public override IEnumerable<string> SpecialInstructions 
+        public override IEnumerable<string> SpecialInstructions
         {
             get
             {

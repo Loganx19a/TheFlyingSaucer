@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TheFlyingSaucer.Data
+namespace TheFlyingSaucer.Data.Entrees
 {
     /// <summary>
     /// The class representing the blueprint for an CrashedSaucer object
@@ -86,7 +86,7 @@ namespace TheFlyingSaucer.Data
                 return calories;
             }
         }
-        
+
         /// <summary>
         /// Special instructions for the preparation of this CrashedSaucer
         /// </summary>
@@ -101,6 +101,6 @@ namespace TheFlyingSaucer.Data
                 return instructions;
             }
         }
-        
+
     }
 }

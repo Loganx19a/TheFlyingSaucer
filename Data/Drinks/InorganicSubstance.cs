@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TheFlyingSaucer.Data
+namespace TheFlyingSaucer.Data.Drinks
 {
     /// <summary>
     /// A class representing the Inorganic Substance drink
     /// </summary>
-    public class InorganicSubstance : Drink 
+    public class InorganicSubstance : Drink
     {
         /// <summary>
         /// The name of the Inorganic Substance instance
@@ -51,7 +51,7 @@ namespace TheFlyingSaucer.Data
                 List<string> instructions = new();
                 if (!Ice)
                     instructions.Add("No Ice");
-                return instructions;    
+                return instructions;
             }
         }
     }

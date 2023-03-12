@@ -1,3 +1,5 @@
+using TheFlyingSaucer.Data.Entrees;
+
 namespace TheFlyingSaucer.DataTests
 {
     /// <summary>

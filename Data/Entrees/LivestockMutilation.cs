@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TheFlyingSaucer.Data
+namespace TheFlyingSaucer.Data.Entrees
 {
     /// <summary>
     /// The class representing the blueprint for a LivestockMutilation object
@@ -37,7 +37,7 @@ namespace TheFlyingSaucer.Data
             }
             set
             {
-                if ( value <= 8 )
+                if (value <= 8)
                 {
                     _numBiscuits = value;
                 }

@@ -4,30 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TheFlyingSaucer.Data
+namespace TheFlyingSaucer.Data.Sides
 {
     /// <summary>
-    /// The class representing the blueprint for a TakenBacon object
+    /// The class representing the blueprint for the YouAreToast object
     /// </summary>
-    public class TakenBacon : Side
+    public class YouAreToast : Side
     {
         /// <summary>
-        /// The name of the TakenBacon instance
+        /// The name for the YouAreToast instance
         /// </summary>
-        public override string Name { get; } = "Taken Bacon";
+        public override string Name { get; } = "You're Toast";
 
         /// <summary>
-        /// The description of the TakenBacon instance
+        /// The description for the YouAreToast instance
         /// </summary>
-        public override string Description { get; } = "Crispy strips of bacon";
+        public override string Description { get; } = "Texas toast.";
 
         /// <summary>
-        /// The private backing field for the count property
+        /// A private backing field for the Count property
         /// </summary>
         private uint _count = 2;
 
         /// <summary>
-        /// The default number of bacon strips in the TakenBacon instance
+        /// The default number of toast slices in the YouAreToast instance
         /// </summary>
         public uint Count
         {
@@ -37,13 +37,13 @@ namespace TheFlyingSaucer.Data
             }
             set
             {
-                if (value <= 6 && value >= 1)
+                if (value <= 12 && value >= 1)
                 {
                     _count = value;
                 }
-                else if (value > 6)
+                else if (value > 12)
                 {
-                    _count = 6;
+                    _count = 12;
                 }
                 else
                 {
@@ -52,9 +52,8 @@ namespace TheFlyingSaucer.Data
             }
         }
 
-
         /// <summary>
-        /// The price of the TakenBacon instance
+        /// The price of the YouAreToast instance
         /// </summary>
         public override decimal Price
         {
@@ -65,7 +64,7 @@ namespace TheFlyingSaucer.Data
         }
 
         /// <summary>
-        /// The calories of the TakenBacon instance
+        /// The calories in the YouAreToast instance
         /// </summary>
         /// <remarks>
         /// This is a get-only property whose value is derived from the other properties of the class
@@ -74,24 +73,23 @@ namespace TheFlyingSaucer.Data
         {
             get
             {
-                uint calories = 43u * Count;
+                uint calories = 100u * Count;
                 return calories;
             }
         }
 
         /// <summary>
-        /// Special instructinos for the preparation of this TakenBacon
+        /// Special instractions for the preparation of this YouAreToast
         /// </summary>
         public override IEnumerable<string> SpecialInstructions
         {
             get
             {
                 List<string> instructions = new();
-
-                if (Count != 2) instructions.Add(Count + " strips");
+                if (Count > 2) instructions.Add(Count + " slices");
+                if (Count == 1) instructions.Add(Count + " slice");
                 return instructions;
             }
         }
-
     }
 }

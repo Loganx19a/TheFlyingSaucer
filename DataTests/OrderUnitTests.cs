@@ -25,6 +25,32 @@ namespace TheFlyingSaucer.DataTests
             public IEnumerable<string> SpecialInstructions { get; set; }
         }
 
+        [Fact]
+        public void PlacedAtReflectsOrderCreationTime()
+        {
+            
+            var order = new Order();
+
+            var now = DateTime.Now;
+            var difference = now - order.PlacedAt;
+
+            // Assert
+            Assert.True(difference.TotalSeconds < 5, $"PlacedAt was not within 5 seconds of the current time. Difference was {difference.TotalSeconds} seconds.");
+        }
+
+        [Fact]
+        public void OrderNumberShouldMatchNumberProperty()
+        {
+            Order order1 = new Order();
+            Order order2 = new Order();
+            Order order3 = new Order();
+
+            Assert.True(order1.Number == 2);
+            Assert.True(order2.Number == 3);
+            Assert.True(order3.Number == 4);
+        }
+
+
         /// <summary>
         /// Tests whether the order class implements INotifyPropertyChanged correctly
         /// </summary>
@@ -55,7 +81,7 @@ namespace TheFlyingSaucer.DataTests
         }
 
         /// <summary>
-        /// 
+        /// Tests whether the Tax property changes as a result of the TaxRate property having changed
         /// </summary>
         [Fact]
         public void ChangingTaxRateShouldNotifyOfTaxPropertyChange()
@@ -67,7 +93,7 @@ namespace TheFlyingSaucer.DataTests
         }
 
         /// <summary>
-        /// 
+        /// Tests whether the Total property changes as a result of the TaxRate property having changed
         /// </summary>
         [Fact]
         public void ChangingTaxRateShouldNotifyOfTotalPropertyChange()
@@ -77,6 +103,150 @@ namespace TheFlyingSaucer.DataTests
                 order.TaxRate = 0.15m;
             });
         }
+
+        /// <summary>
+        /// Tests whether the Count property changes as a result of Adding an item to the order
+        /// </summary>
+        [Fact]
+        public void AddingItemShouldNotifyOfCountPropertyChange()
+        {
+            Order order = new Order();
+            MockMenuItem mock = new MockMenuItem();
+            Assert.PropertyChanged(order, "Count", () => {
+                order.Add(mock);
+            });
+        }
+
+        /// <summary>
+        /// Tests whether the Count property changes as a result of Adding an item to the order
+        /// </summary>
+        [Fact]
+        public void AddingItemShouldNotifyOfSubtotalPropertyChange()
+        {
+            Order order = new Order();
+            MockMenuItem mock = new MockMenuItem();
+            Assert.PropertyChanged(order, "Subtotal", () => {
+                order.Add(mock);
+            });
+        }
+
+        /// <summary>
+        /// Tests whether the Total property changes as a result of Adding an item to the order
+        /// </summary>
+        [Fact]
+        public void AddingItemShouldNotifyOfTotalPropertyChange()
+        {
+            Order order = new Order();
+            MockMenuItem mock = new MockMenuItem();
+            Assert.PropertyChanged(order, "Total", () => {
+                order.Add(mock);
+            });
+        }
+
+        /// <summary>
+        /// Tests whether the Count property changes as a result of Removing an item to the order
+        /// </summary>
+        [Fact]
+        public void RemovingItemShouldNotifyOfCountPropertyChange()
+        {
+            Order order = new Order();
+            MockMenuItem mock = new MockMenuItem();
+            order.Add(mock);
+            Assert.PropertyChanged(order, "Count", () => {
+                order.Remove(mock);
+            });
+        }
+
+        /// <summary>
+        /// Tests whether the Subtotal property changes as a result of Removing an item to the order
+        /// </summary>
+        [Fact]
+        public void RemovingItemShouldNotifyOfSubtotalPropertyChange()
+        {
+            Order order = new Order();
+            MockMenuItem mock = new MockMenuItem();
+            order.Add(mock);
+            Assert.PropertyChanged(order, "Subtotal", () => {
+                order.Remove(mock);
+            });
+        }
+
+        /// <summary>
+        /// Tests whether the Tax property changes as a result of Removing an item to the order
+        /// </summary>
+        [Fact]
+        public void RemovingItemShouldNotifyOfTaxPropertyChange()
+        {
+            Order order = new Order();
+            MockMenuItem mock = new MockMenuItem();
+            order.Add(mock);
+            Assert.PropertyChanged(order, "Tax", () => {
+                order.Remove(mock);
+            });
+        }
+
+        /// <summary>
+        /// Tests whether the Total property changes as a result of Removing an item to the order
+        /// </summary>
+        [Fact]
+        public void RemovingItemShouldNotifyOfTotalPropertyChange()
+        {
+            Order order = new Order();
+            MockMenuItem mock = new MockMenuItem();
+            order.Add(mock);
+            Assert.PropertyChanged(order, "Total", () => {
+                order.Remove(mock);
+            });
+        }
+
+        /// <summary>
+        /// Tests whether the Count property changes as a result of Clearing the order
+        /// </summary>
+        [Fact]
+        public void ClearingMenuShouldNotifyOfCountPropertyChange()
+        {
+            Order order = new Order();
+            Assert.PropertyChanged(order, "Count", () => {
+                order.Clear();
+            });
+        }
+
+        /// <summary>
+        /// Tests whether the Subtotal property changes as a result of Clearing the order
+        /// </summary>
+        [Fact]
+        public void ClearningMenuShouldNotifyOfSubtotalPropertyChange()
+        {
+            Order order = new Order();
+            Assert.PropertyChanged(order, "Subtotal", () => {
+                order.Clear();
+            });
+        }
+
+        /// <summary>
+        /// Tests whether the Tax property changes as a result of Clearing the order
+        /// </summary>
+        [Fact]
+        public void ClearingMenuShouldNotifyOfTaxPropertyChange()
+        {
+            Order order = new Order();
+            Assert.PropertyChanged(order, "Tax", () => {
+                order.Clear();
+            });
+        }
+
+        /// <summary>
+        /// Tests whether the Total property changes as a result of Clearing the order
+        /// </summary>
+        [Fact]
+        public void ClearingMenuShouldNotifyOfTotalPropertyChange()
+        {
+            Order order = new Order();
+            Assert.PropertyChanged(order, "Total", () => {
+                order.Clear();
+            });
+        }
+
 
         /// <summary>
         /// 
@@ -139,7 +309,6 @@ namespace TheFlyingSaucer.DataTests
             
             order.Clear();
 
-            
             Assert.Empty(order);
         }
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TheFlyingSaucer.Data
+namespace TheFlyingSaucer.Data.Drinks
 {
     /// <summary>
     /// A class representing the Liquified Vegetation drink
@@ -76,5 +76,5 @@ namespace TheFlyingSaucer.Data
                 return instructions;
             }
         }
-    } 
+    }
 }
