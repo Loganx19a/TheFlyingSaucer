@@ -30,6 +30,16 @@ namespace TheFlyingSaucer.DataTests
             public NotifyCollectionChangedRemoveException(object expectedItem, int expectedIndex, object actualItem, int actualIndex) : base($"Expected a NotifyCollectionChanged event with an action of Remove and object {expectedItem} at index {expectedIndex} but instead saw {actualItem} at index  {actualIndex}") { }
         }
 
+        /// <summary>
+        /// Method to handle add events
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="collection"></param>
+        /// <param name="newItem"></param>
+        /// <param name="testCode"></param>
+        /// <exception cref="NotifyCollectionChangedWrongActionException"></exception>
+        /// <exception cref="NotifyCollectionChangedAddException"></exception>
+        /// <exception cref="NotifyCollectionChangedNotTriggeredException"></exception>
         public static void NotifyCollectionChangedAdd<T>(INotifyCollectionChanged collection, T newItem, Action testCode)
         {
             // A flag to indicate if the event triggered successfully
@@ -94,6 +104,16 @@ namespace TheFlyingSaucer.DataTests
             }
         }
 
+        /// <summary>
+        /// Method to handle remove events
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="collection"></param>
+        /// <param name="oldItem"></param>
+        /// <param name="testCode"></param>
+        /// <exception cref="NotifyCollectionChangedWrongActionException"></exception>
+        /// <exception cref="NotifyCollectionChangedRemoveException"></exception>
+        /// <exception cref="NotifyCollectionChangedNotTriggeredException"></exception>
         public static void NotifyCollectionChangedRemove<T>(INotifyCollectionChanged collection, T oldItem, Action testCode)
         {
             // A flag to indicate if the event triggered successfully
@@ -103,24 +123,24 @@ namespace TheFlyingSaucer.DataTests
             // notified when the Remove event occurs.
             NotifyCollectionChangedEventHandler handler = (sender, args) =>
             {
-                // Make sure the event is an Add event
+                // Make sure the event is a Remove event
                 if (args.Action != NotifyCollectionChangedAction.Remove)
                 {
                     throw new NotifyCollectionChangedWrongActionException(NotifyCollectionChangedAction.Remove, args.Action);
                 }
 
                 // Make sure we removed just one item
-                if (args.OldItems.Count != 1)
+                if (args.OldItems?.Count != 1)
                 {
-                    // We'll use the collection of added items as the second argument
-                    throw new NotifyCollectionChangedRemoveException(oldItem, 0 , args.OldItems, args.OldStartingIndex);
+                    // We'll use the collection of removed items as the second argument
+                    throw new NotifyCollectionChangedRemoveException(oldItem, 0, args.OldItems, args.OldStartingIndex);
                 }
 
                 // Make sure the removed item is what we expected
                 if (!args.OldItems[0].Equals(oldItem))
                 {
                     // Here we only have one item in the changed collection, so we'll report it directly
-                    throw new NotifyCollectionChangedRemoveException(oldItem, 0, args.OldItems, args.OldStartingIndex);
+                    throw new NotifyCollectionChangedRemoveException(oldItem, 0, args.OldItems[0], args.OldStartingIndex);
                 }
 
                 // If we reach this point, the NotifyCollectionChanged event was triggered successfully
@@ -157,6 +177,7 @@ namespace TheFlyingSaucer.DataTests
                 collection.CollectionChanged -= handler;
             }
         }
+
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ namespace TheFlyingSaucer.DataTests
     /// <summary>
     /// Unit tests for the Order class
     /// </summary>
-    public class OrderUnitTests
+    public class OrderUnitTests 
     {
         /// <summary>
         /// A mock menu item for testing
@@ -29,21 +30,17 @@ namespace TheFlyingSaucer.DataTests
         /// Tests that the Number property updates and matches the corresponding ordinal number of the order
         /// </summary>
         [Fact]
-        public void Test_Order_Number_Increment()
+        public void OrderNumberIncreasesForSubsequentOrders()
         {
-            // Arrange
-            int expectedNumber = 1;
+            var order1 = new Order();
+            var order2 = new Order();
+            var order3 = new Order();
 
-            // Act
-            Order order1 = new Order();
-            Order order2 = new Order();
-            Order order3 = new Order();
-
-            // Assert
-            Assert.Equal(expectedNumber++, order1.Number);
-            Assert.Equal(expectedNumber++, order2.Number);
-            Assert.Equal(expectedNumber++, order3.Number);
+            Assert.Equal(1, order1.Number);
+            Assert.Equal(2, order2.Number);
+            Assert.Equal(3, order3.Number);
         }
+
 
         /// <summary>
         /// Tests that the time and date reflect when the order is created
@@ -51,13 +48,10 @@ namespace TheFlyingSaucer.DataTests
         [Fact]
         public void PlacedAtDateAndTimeReflectWhenOrderIsCreated()
         {
-            // Arrange
             DateTime expectedPlacedAt = DateTime.Now;
 
-            // Act
             Order order = new Order();
 
-            // Assert
             Assert.Equal(expectedPlacedAt.Date, order.PlacedAt.Date);
             Assert.Equal(expectedPlacedAt.Hour, order.PlacedAt.Hour);
             Assert.Equal(expectedPlacedAt.Minute, order.PlacedAt.Minute);
@@ -70,15 +64,15 @@ namespace TheFlyingSaucer.DataTests
         [Fact]
         public void PlacedAtDateAndTimeDoNotChangeWhenRequestedMoreThanOnce()
         {
-            // Arrange
+            
             Order order = new Order();
             DateTime expectedPlacedAt = order.PlacedAt;
 
-            // Act
+            
             DateTime placedAt1 = order.PlacedAt;
             DateTime placedAt2 = order.PlacedAt;
 
-            // Assert
+            
             Assert.Equal(expectedPlacedAt.Date, placedAt1.Date);
             Assert.Equal(expectedPlacedAt.Hour, placedAt1.Hour);
             Assert.Equal(expectedPlacedAt.Minute, placedAt1.Minute);
@@ -286,17 +280,65 @@ namespace TheFlyingSaucer.DataTests
             });
         }
 
-
         /// <summary>
-        /// 
+        /// Tests that adding an IMenuItem to the Order triggers the CollectionChanged event
         /// </summary>
         [Fact]
-        public void AddingItemShouldNotifyOfCollectionChange()
+        public void AddMenuItemToOrder_ShouldTriggerCollectionChangedEvent()
         {
+            // Arrange
             Order order = new Order();
+            bool collectionChangedEventTriggered = false;
+            order.CollectionChanged += (sender, args) => {
+                if (args.Action == NotifyCollectionChangedAction.Add)
+                {
+                    collectionChangedEventTriggered = true;
+                }
+            };
 
+            // Act
+            MockMenuItem menuItem = new();
+            order.Add(menuItem);
+
+            // Assert
+            Assert.True(collectionChangedEventTriggered);
         }
 
+        /// <summary>
+        /// Tests that removing an IMenuItem from the Order triggers the CollectionChanged event
+        /// </summary>
+        [Fact]
+        public void RemoveMenuItemFromOrder_ShouldTriggerCollectionChangedEvent()
+        {
+            // Arrange
+            Order order = new Order();
+            MockMenuItem menuItem = new MockMenuItem();
+            order.Add(menuItem);
+            bool collectionChangedEventTriggered = false;
+            order.CollectionChanged += (sender, args) => {
+                if (args.Action == NotifyCollectionChangedAction.Remove)
+                {
+                    collectionChangedEventTriggered = true;
+                }
+            };
+
+            // Act
+            order.Remove(menuItem);
+
+            // Assert
+            Assert.True(collectionChangedEventTriggered);
+        }
+
+        /// <summary>
+        /// Tests whether Order can be cast into an INotifyCollectionChanged instance
+        /// </summary>
+        [Fact]
+        public void Order_ShouldImplementINotifyCollectionChanged()
+        {
+            
+            Order order = new Order();
+            Assert.IsAssignableFrom<INotifyCollectionChanged>(order);
+        }
 
         /// <summary>
         /// Checks the Substotal of the order is calculated correctly

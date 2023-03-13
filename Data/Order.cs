@@ -25,12 +25,12 @@ namespace TheFlyingSaucer.Data
         /// <summary>
         /// Private backing field for the Number property
         /// </summary>
-        private static int _number = 1;
+        private static int _number = 0;
 
         /// <summary>
         /// Property tracking the order number
         /// </summary>
-        public int Number { get; }
+        public int Number { get; } 
 
         /// <summary>
         /// Property tracking the date at which the order was placed
@@ -39,8 +39,7 @@ namespace TheFlyingSaucer.Data
 
         public Order()
         {
-            Number = _number;
-            _number++;
+            Number = _number++;
         }
 
         /// <summary>
