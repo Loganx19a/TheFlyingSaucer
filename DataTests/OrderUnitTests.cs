@@ -25,29 +25,68 @@ namespace TheFlyingSaucer.DataTests
             public IEnumerable<string> SpecialInstructions { get; set; }
         }
 
+        /// <summary>
+        /// Tests that the Number property updates and matches the corresponding ordinal number of the order
+        /// </summary>
         [Fact]
-        public void PlacedAtReflectsOrderCreationTime()
+        public void Test_Order_Number_Increment()
         {
-            
-            var order = new Order();
+            // Arrange
+            int expectedNumber = 1;
 
-            var now = DateTime.Now;
-            var difference = now - order.PlacedAt;
-
-            // Assert
-            Assert.True(difference.TotalSeconds < 5, $"PlacedAt was not within 5 seconds of the current time. Difference was {difference.TotalSeconds} seconds.");
-        }
-
-        [Fact]
-        public void OrderNumberShouldMatchNumberProperty()
-        {
+            // Act
             Order order1 = new Order();
             Order order2 = new Order();
             Order order3 = new Order();
 
-            Assert.True(order1.Number == 2);
-            Assert.True(order2.Number == 3);
-            Assert.True(order3.Number == 4);
+            // Assert
+            Assert.Equal(expectedNumber++, order1.Number);
+            Assert.Equal(expectedNumber++, order2.Number);
+            Assert.Equal(expectedNumber++, order3.Number);
+        }
+
+        /// <summary>
+        /// Tests that the time and date reflect when the order is created
+        /// </summary>
+        [Fact]
+        public void PlacedAtDateAndTimeReflectWhenOrderIsCreated()
+        {
+            // Arrange
+            DateTime expectedPlacedAt = DateTime.Now;
+
+            // Act
+            Order order = new Order();
+
+            // Assert
+            Assert.Equal(expectedPlacedAt.Date, order.PlacedAt.Date);
+            Assert.Equal(expectedPlacedAt.Hour, order.PlacedAt.Hour);
+            Assert.Equal(expectedPlacedAt.Minute, order.PlacedAt.Minute);
+            Assert.Equal(expectedPlacedAt.Second, order.PlacedAt.Second);
+        }
+
+        /// <summary>
+        /// Tests whether the time and date changes when requested multiple times
+        /// </summary>
+        [Fact]
+        public void PlacedAtDateAndTimeDoNotChangeWhenRequestedMoreThanOnce()
+        {
+            // Arrange
+            Order order = new Order();
+            DateTime expectedPlacedAt = order.PlacedAt;
+
+            // Act
+            DateTime placedAt1 = order.PlacedAt;
+            DateTime placedAt2 = order.PlacedAt;
+
+            // Assert
+            Assert.Equal(expectedPlacedAt.Date, placedAt1.Date);
+            Assert.Equal(expectedPlacedAt.Hour, placedAt1.Hour);
+            Assert.Equal(expectedPlacedAt.Minute, placedAt1.Minute);
+            Assert.Equal(expectedPlacedAt.Second, placedAt1.Second);
+            Assert.Equal(expectedPlacedAt.Date, placedAt2.Date);
+            Assert.Equal(expectedPlacedAt.Hour, placedAt2.Hour);
+            Assert.Equal(expectedPlacedAt.Minute, placedAt2.Minute);
+            Assert.Equal(expectedPlacedAt.Second, placedAt2.Second);
         }
 
 

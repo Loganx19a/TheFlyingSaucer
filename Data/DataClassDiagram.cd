@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TheFlyingSaucer.Data.Drinks.InorganicSubstance">
+    <Position X="4" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAQAggAAAAAAAAEQAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Drinks\InorganicSubstance.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheFlyingSaucer.Data.Drink">
+    <Position X="3.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAQAggAAEAAAAAEQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Drink.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TheFlyingSaucer.Data.Drinks.LiquifiedVegetation">
+    <Position X="6.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAQAggAAAAAAAAEQAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Drinks\LiquifiedVegetation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheFlyingSaucer.Data.Drinks.SaucerFuel">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAQAgQAggAAAAAAAAEQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Drinks\SaucerFuel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheFlyingSaucer.Data.Entrees.CrashedSaucer">
+    <Position X="8.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>oAAAAAAAARAgAAAAAAAAAEQAAAAAAAAAAAAAABIAAAA=</HashCode>
+      <FileName>Entrees\CrashedSaucer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheFlyingSaucer.Data.Entrees.FlyingSaucer">
+    <Position X="12.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>oAAAAAAgARAkAAAAAAAAAEQAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Entrees\FlyingSaucer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheFlyingSaucer.Data.Entrees.LivestockMutilation">
+    <Position X="14.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAQAAAAQAgAAAAAAAAAEQAAAQAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Entrees\LivestockMutilation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheFlyingSaucer.Data.Entrees.OuterOmlette">
+    <Position X="10.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IIAAAAAAAQAgAAAEAAAASEQEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entrees\OuterOmlette.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheFlyingSaucer.Data.Entree">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAQAgAAAEAAAAAEQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entree.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TheFlyingSaucer.Data.Sides.CropCircle">
+    <Position X="0.5" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAgAQAgAAAAAAAAAEQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Sides\CropCircle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheFlyingSaucer.Data.Sides.EvisceratedEggs">
+    <Position X="2.5" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAQAgAAAAAAAAAEQAAAAAAAAABACAAAAAAAA=</HashCode>
+      <FileName>Sides\EvisceratedEggs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheFlyingSaucer.Data.Sides.GlowingHaystack">
+    <Position X="4.5" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAYAgAgAAAAAAAEQEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Sides\GlowingHaystack.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheFlyingSaucer.Data.Sides.MissingLinks">
+    <Position X="6.5" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAQAgAAAAAAAAAEQAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Sides\MissingLinks.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheFlyingSaucer.Data.Sides.TakenBacon">
+    <Position X="8.5" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAQAgAAAAAAAAAEQAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Sides\TakenBacon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheFlyingSaucer.Data.Sides.YouAreToast">
+    <Position X="10.5" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAQAgAAAAAAAAAEQAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Sides\YouAreToast.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheFlyingSaucer.Data.Side">
+    <Position X="3.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAQAgAAAEAAAAAEQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Side.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TheFlyingSaucer.Data.Order">
+    <Position X="17.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAkABCQAEAAhAQAgBAAQAIEABAAAABQIAA=</HashCode>
+      <FileName>Order.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="TheFlyingSaucer.Data.IMenuItem">
+    <Position X="15" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAQAgAAAAAAAAAEQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IMenuItem.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="TheFlyingSaucer.Data.EggStyle">
+    <Position X="17" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAIAAAAAAAAAAAAAgAABAAAAAABAAAAAAAAAAAAIA=</HashCode>
+      <FileName>EggStyle.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TheFlyingSaucer.Data.ServingSize">
+    <Position X="19.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>ServingSize.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
