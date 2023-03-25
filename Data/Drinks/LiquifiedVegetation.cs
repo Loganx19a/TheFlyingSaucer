@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,8 +10,10 @@ namespace TheFlyingSaucer.Data.Drinks
     /// <summary>
     /// A class representing the Liquified Vegetation drink
     /// </summary>
-    public class LiquifiedVegetation : Drink
+    public class LiquifiedVegetation : Drink, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler? PropertyChanged;
+
         /// <summary>
         /// The name of the Liquified Vegetation instance
         /// </summary>

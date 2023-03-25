@@ -1,10 +1,21 @@
-﻿namespace TheFlyingSaucer.Data.Entrees
+﻿using System.Collections.Specialized;
+using System.ComponentModel;
+
+namespace TheFlyingSaucer.Data.Entrees
 {
     /// <summary>
     /// The class representing the blueprint for a FlyingSaucer object
     /// </summary>
-    public class FlyingSaucer : Entree
+    /// <remarks>
+    /// this object must implement the INotifyPropertyChanged interface for changes in the data object to be automatically
+    /// applied to the WPF control it's bound to
+    /// </remarks>
+    public class FlyingSaucer : Entree, INotifyPropertyChanged
     {
+        // this object must implement the INotifyPropertyChanged interface for changes in the data object to be automatically
+        // applied to the WPF control it's bound to
+        public event PropertyChangedEventHandler? PropertyChanged;
+
         /// <summary>
         /// The name of the FlyingSaucer instance
         /// </summary>
@@ -43,32 +54,106 @@
                 if (value <= 12)
                 {
                     _stackSize = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("StackSize"));
                 }
                 else
                 {
                     _stackSize = 12;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("StackSize"));
                 }
             }
         }
 
         /// <summary>
+        /// private backing field for the Syrup property
+        /// </summary>
+        private bool _syrup;
+
+        /// <summary>
         /// If the FyingSaucer instance is served with maple syrup
         /// </summary>
         /// <remarks>
-        /// Here we have an autoproperty with both getter and setter, 
-        /// and a default value
+        /// Initially we had an autoproperty with both getter and setter, 
+        /// and a default value, but now we need to change that to implement data binding
         /// </remarks>
-        public bool Syrup { get; set; } = true;
+        public bool Syrup
+        {
+            get 
+            {
+                return _syrup;
+            }
+            set
+            {
+                if (value == true)
+                {
+                    _syrup = true;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Syrup"));
+                }
+
+                else
+                {
+                    _syrup = false;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Syrup"));
+                }
+            }
+        }
+
+        /// <summary>
+        /// private backing field for the WhippedCream property
+        /// </summary>
+        private bool _whippedCream;
 
         /// <summary>
         /// If the FlyingSaucer instance is served with whipped cream
         /// </summary>
-        public bool WhippedCream { get; set; } = true;
+        public bool WhippedCream
+        {
+            get
+            {
+                return _whippedCream;
+            }
+            set
+            {
+                if (value == true)
+                {
+                    _whippedCream = true;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("WhippedCream"));
+                }
+
+                else
+                {
+                    _whippedCream = false;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("WhippedCream"));
+                }
+            }
+        }
+
+        private bool _berries;
 
         /// <summary>
         /// If the FlyingSaucer instance is served with berries
         /// </summary>
-        public bool Berries { get; set; } = true;
+        public bool Berries 
+        {
+            get
+            {
+                return _berries;
+            }
+            set
+            {
+                if (value == true)
+                {
+                    _berries = true;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Berries"));
+                }
+
+                else
+                {
+                    _berries = false;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Berries"));
+                }
+            }
+        }
 
         /// <summary>
         /// The price of the FlyingSaucer instance
@@ -102,6 +187,7 @@
                 if (Syrup) calories += 32u;
                 if (WhippedCream) calories += 414u;
                 if (Berries) calories += 89u;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
                 return calories;
             }
         }

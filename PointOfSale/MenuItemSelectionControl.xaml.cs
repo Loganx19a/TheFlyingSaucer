@@ -27,8 +27,25 @@ namespace TheFlyingSaucer.PointOfSale
         public MenuItemSelectionControl()
         {
             InitializeComponent();
-
         }
+
+        /*
+        private MainWindow listSwitcher
+        {
+            get
+            {
+                DependencyObject parent = this;
+                do
+                {
+                    // Get this node's parent
+                    parent = LogicalTreeHelper.GetParent(parent);
+                }
+                // Invariant: there is a parent element, and it is not a ListSwitcher 
+                while (!(parent is null || parent is MainWindow));
+                return (MainWindow)parent;
+            }
+        }
+        */
 
         /// <summary>
         /// 
@@ -43,6 +60,7 @@ namespace TheFlyingSaucer.PointOfSale
                 {
                     var item = new FlyingSaucer();
                     data.Add(item);
+
                 }
 
                 if (sender == CrashedSaucerButton)

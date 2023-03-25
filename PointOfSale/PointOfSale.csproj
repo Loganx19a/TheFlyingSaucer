@@ -9,20 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="FSbackground.jpg" />
-    <None Remove="FSbackground2.jpg" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="FSbackground.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FSbackground2.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj" />
   </ItemGroup>
 

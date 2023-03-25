@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,8 +10,10 @@ namespace TheFlyingSaucer.Data.Sides
     /// <summary>
     /// The class representing the blueprint for an EvisceratedEggs object
     /// </summary>
-    public class EvisceratedEggs : Side
+    public class EvisceratedEggs : Side, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler? PropertyChanged;
+
         /// <summary>
         /// The name of the EvisceratedEggs instance
         /// </summary>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,8 +10,10 @@ namespace TheFlyingSaucer.Data.Sides
     /// <summary>
     /// The class representing the blueprint for a CropCircle object 
     /// </summary>
-    public class CropCircle : Side
+    public class CropCircle : Side, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler? PropertyChanged;
+
         /// <summary>
         /// The name of the CropCircle instance
         /// </summary>

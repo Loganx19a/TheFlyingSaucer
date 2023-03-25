@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,8 +10,10 @@ namespace TheFlyingSaucer.Data.Entrees
     /// <summary>
     /// The class representing the blueprint for a LivestockMutilation object
     /// </summary>
-    public class LivestockMutilation : Entree
+    public class LivestockMutilation : Entree, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler? PropertyChanged;
+
         /// <summary>
         /// The name of the LivestockMutilation instance
         /// </summary>
@@ -40,10 +43,12 @@ namespace TheFlyingSaucer.Data.Entrees
                 if (value <= 8)
                 {
                     _numBiscuits = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Biscuits"));
                 }
                 else
                 {
                     _numBiscuits = 8;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Biscuits"));
                 }
             }
         }
@@ -74,6 +79,7 @@ namespace TheFlyingSaucer.Data.Entrees
             {
                 uint calories = 49u * _numBiscuits;
                 if (Gravy) calories += 140u;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
                 return calories;
             }
         }

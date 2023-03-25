@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -10,8 +11,9 @@ namespace TheFlyingSaucer.Data.Entrees
     /// <summary>
     /// The class representing the blueprint for an OuterOmlette object
     /// </summary>
-    public class OuterOmlette : Entree
+    public class OuterOmlette : Entree, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler? PropertyChanged;
         /// <summary>
         /// The name of the CropCircle instance
         /// </summary>
@@ -68,6 +70,7 @@ namespace TheFlyingSaucer.Data.Entrees
                 if (Mushrooms) calories += 4u;
                 if (Tomatoes) calories += 22u;
                 if (Onions) calories += 22u;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
                 return calories;
             }
         }
