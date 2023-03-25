@@ -6,52 +6,68 @@
              xmlns:local="clr-namespace:TheFlyingSaucer.PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="725" d:DesignWidth="800">
-    <Grid>
+    <UserControl.Resources>
+        <Style x:Key="MenuItemButton" TargetType="Button"/>
+    </UserControl.Resources>
         <Grid>
-            <!-- Row Dimensions !-->
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="2*"/>
-            </Grid.RowDefinitions>
-            
-            <!-- Column Dimensions !-->
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="5*"/>
-                <ColumnDefinition Width="5*"/>
-                <ColumnDefinition Width="5*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
+            <Grid>
+                <!-- Row Dimensions !-->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
 
-            <!-- | Entrees | Sides | Drinks | !-->
-            <TextBlock Grid.Row="1" Grid.Column="1" Foreground="White" Background="DarkRed" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">Entrees</TextBlock>
-            <TextBlock Grid.Row="1" Grid.Column="2" Foreground="White" Background="DarkRed" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">Sides</TextBlock>
-            <TextBlock Grid.Row="1" Grid.Column="3" Foreground="White" Background="DarkRed" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">Drinks</TextBlock>
+                <!-- Column Dimensions !-->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
 
-            <!-- Entrees Column !-->
-            <Button Grid.Row="2" Grid.Column="1" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Name="FlyingSaucerButton" Click="AddItemClick">Flying Saucer</Button>
-            <Button Grid.Row="3" Grid.Column="1" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Name="CrashedSaucerButton" Click="AddItemClick">Crashed Saucer</Button>
-            <Button Grid.Row="4" Grid.Column="1" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Name="LiveStockMutilationButton" Click="AddItemClick">Livestock Mutilation</Button>
-            <Button Grid.Row="5" Grid.Column="1" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Name="OuterOmletteButton" Click="AddItemClick">Outer Omlette</Button>
+                <!-- | Entrees | Sides | Drinks | !-->
+                <TextBlock Grid.Row="1" Grid.Column="1" Foreground="White" Background="DarkRed" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">Entrees</TextBlock>
+                <TextBlock Grid.Row="1" Grid.Column="2" Foreground="White" Background="DarkRed" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">Sides</TextBlock>
+                <TextBlock Grid.Row="1" Grid.Column="3" Foreground="White" Background="DarkRed" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">Drinks</TextBlock>
 
-            <!-- Sides Column !-->
-            <Button  Grid.Row ="2" Grid.Column="2" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Name="CropCircleButton" Click="AddItemClick">Crop Circle</Button>
-            <Button  Grid.Row ="3" Grid.Column="2" FontSize="20"  HorizontalAlignment="Center" VerticalAlignment="Center" Name="GlowingHaystackButton" Click="AddItemClick">Glowing Haystack</Button>
-            <Button  Grid.Row ="4" Grid.Column="2" FontSize="20"  HorizontalAlignment="Center" VerticalAlignment="Center" Name="TakenBaconButton" Click="AddItemClick">Taken Bacon</Button>
-            <Button  Grid.Row ="5" Grid.Column="2" FontSize="20"  HorizontalAlignment="Center" VerticalAlignment="Center" Name="MissingLinksButton" Click="AddItemClick">Missing Links</Button>
-            <Button  Grid.Row ="6" Grid.Column="2" FontSize="20"  HorizontalAlignment="Center" VerticalAlignment="Center" Name="EvisceratedEggsButton" Click="AddItemClick">Eviscerated Eggs</Button>
-            <Button  Grid.Row ="7" Grid.Column="2" FontSize="20"  HorizontalAlignment="Center" VerticalAlignment="Center" Name="YoureToastButton" Click="AddItemClick">You're Toast</Button>
+                <!-- Entrees Column !-->
+                <Button Grid.Row="2" Grid.Column="1" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Name="FlyingSaucerButton"
+                        Click="AddItemClick" Style="{DynamicResource MenuItemButton}">Flying Saucer</Button>
+                <Button Grid.Row="3" Grid.Column="1" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Name="CrashedSaucerButton"
+                        Click="AddItemClick" Style="{DynamicResource MenuItemButton}">Crashed Saucer</Button>
+                <Button Grid.Row="4" Grid.Column="1" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Name="LiveStockMutilationButton" 
+                        Click="AddItemClick" Style="{DynamicResource MenuItemButton}">Livestock Mutilation</Button>
+                <Button Grid.Row="5" Grid.Column="1" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Name="OuterOmletteButton"
+                        Click="AddItemClick" Style="{DynamicResource MenuItemButton}">Outer Omlette</Button>
 
-            <!-- Drinks Column !-->
-            <Button Grid.Row="2" Grid.Column="3"  FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Name="LiquifiedVegetationButton" Click="AddItemClick">Liquified Vegetation</Button>
-            <Button Grid.Row="3" Grid.Column="3"  FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Name="SaucerFuelButton" Click="AddItemClick">Saucer Fuel</Button>
-            <Button Grid.Row="4" Grid.Column="3"  FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Name="InorganicSubstanceButton" Click="AddItemClick">Inorganic Substance</Button>
+                <!-- Sides Column !-->
+                <Button  Grid.Row ="2" Grid.Column="2" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Name="CropCircleButton"
+                         Click="AddItemClick" Style="{DynamicResource MenuItemButton}">Crop Circle</Button>
+                <Button  Grid.Row ="3" Grid.Column="2" FontSize="20"  HorizontalAlignment="Center" VerticalAlignment="Center" Name="GlowingHaystackButton"
+                         Click="AddItemClick" Style="{DynamicResource MenuItemButton}">Glowing Haystack</Button>
+                <Button  Grid.Row ="4" Grid.Column="2" FontSize="20"  HorizontalAlignment="Center" VerticalAlignment="Center" Name="TakenBaconButton"
+                         Click="AddItemClick" Style="{DynamicResource MenuItemButton}">Taken Bacon</Button>
+                <Button  Grid.Row ="5" Grid.Column="2" FontSize="20"  HorizontalAlignment="Center" VerticalAlignment="Center" Name="MissingLinksButton"
+                         Click="AddItemClick" Style="{DynamicResource MenuItemButton}">Missing Links</Button>
+                <Button  Grid.Row ="6" Grid.Column="2" FontSize="20"  HorizontalAlignment="Center" VerticalAlignment="Center" Name="EvisceratedEggsButton"
+                         Click="AddItemClick" Style="{DynamicResource MenuItemButton}">Eviscerated Eggs</Button>
+                <Button  Grid.Row ="7" Grid.Column="2" FontSize="20"  HorizontalAlignment="Center" VerticalAlignment="Center" Name="YoureToastButton"
+                         Click="AddItemClick" Style="{DynamicResource MenuItemButton}">You're Toast</Button>
+
+                <!-- Drinks Column !-->
+                <Button Grid.Row="2" Grid.Column="3"  FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Name="LiquifiedVegetationButton"
+                        Click="AddItemClick" Style="{DynamicResource MenuItemButton}">Liquified Vegetation</Button>
+                <Button Grid.Row="3" Grid.Column="3"  FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Name="SaucerFuelButton"
+                        Click="AddItemClick" Style="{DynamicResource MenuItemButton}">Saucer Fuel</Button>
+                <Button Grid.Row="4" Grid.Column="3"  FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Name="InorganicSubstanceButton"
+                        Click="AddItemClick" Style="{DynamicResource MenuItemButton}">Inorganic Substance</Button>
+            </Grid>
         </Grid>
-    </Grid>
 </UserControl>

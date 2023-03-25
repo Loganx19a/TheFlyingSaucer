@@ -4,6 +4,8 @@ using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TheFlyingSaucer.Data.BaseClasses;
+using TheFlyingSaucer.Data.Enumerations;
 using TheFlyingSaucer.Data.Sides;
 
 namespace TheFlyingSaucer.DataTests

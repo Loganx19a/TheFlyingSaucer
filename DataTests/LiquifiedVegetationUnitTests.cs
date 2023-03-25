@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TheFlyingSaucer.Data.Drinks;
+using TheFlyingSaucer.Data.Enumerations;
 
 namespace TheFlyingSaucer.DataTests
 {

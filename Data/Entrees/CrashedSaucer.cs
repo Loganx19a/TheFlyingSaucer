@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TheFlyingSaucer.Data.BaseClasses;
 
 namespace TheFlyingSaucer.Data.Entrees
 {
@@ -46,12 +47,11 @@ namespace TheFlyingSaucer.Data.Entrees
                 if (value <= 6)
                 {
                     _stackSize = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("StackSize"));
+                    
                 }
                 else
                 {
                     _stackSize = 6;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("StackSize"));
                 }
             }
         }
@@ -88,7 +88,6 @@ namespace TheFlyingSaucer.Data.Entrees
                 uint calories = 149u * StackSize;
                 if (Syrup) calories += 52;
                 if (Butter) calories += 35;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
                 return calories;
             }
         }

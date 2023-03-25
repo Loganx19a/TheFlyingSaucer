@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TheFlyingSaucer.Data
+namespace TheFlyingSaucer.Data.BaseClasses
 {
     /// <summary>
     /// An interface for representing an item appearing on the menu

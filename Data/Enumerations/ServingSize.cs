@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TheFlyingSaucer.Data
+namespace TheFlyingSaucer.Data.Enumerations
 {
     /// <summary>
     /// The size of a menu item
     /// </summary>
     public enum ServingSize
     {
-        Small, 
+        Small,
         Medium,
         Large
     }

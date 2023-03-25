@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TheFlyingSaucer.Data.BaseClasses;
 
 namespace TheFlyingSaucer.Data
 {
@@ -25,7 +26,7 @@ namespace TheFlyingSaucer.Data
         /// <summary>
         /// Private backing field for the Number property
         /// </summary>
-        private static int _number = 0;
+        private static int _number = 1;
 
         /// <summary>
         /// Property tracking the order number

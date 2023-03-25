@@ -27,5 +27,29 @@ namespace TheFlyingSaucer.PointOfSale
             InitializeComponent();
             DataContext = new Order();
         }
+
+
+
+        
+        
+        
+        /// <summary>
+        /// Shows the desired screen in the Main Window
+        /// </summary>
+        /// <param name="screen"></param>
+        public void ShowScreen(UserControl screen)
+        {
+            MenuItemBorder.Child = screen;
+        }
+
+        private void BackToMainMenu(object sender, RoutedEventArgs e)
+        {
+            MenuItemBorder.Child = null;
+        }
+
+        void CancelOrderClick(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order order) this.DataContext = new Order();
+        }
     }
 }

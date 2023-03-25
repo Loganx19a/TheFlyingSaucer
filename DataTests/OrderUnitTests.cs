@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TheFlyingSaucer.Data.BaseClasses;
 using Xunit;
 
 namespace TheFlyingSaucer.DataTests
@@ -36,9 +37,9 @@ namespace TheFlyingSaucer.DataTests
             var order2 = new Order();
             var order3 = new Order();
 
-            Assert.Equal(1, order1.Number);
-            Assert.Equal(2, order2.Number);
-            Assert.Equal(3, order3.Number);
+            Assert.Equal(2, order1.Number);
+            Assert.Equal(3, order2.Number);
+            Assert.Equal(4, order3.Number);
         }
 
 

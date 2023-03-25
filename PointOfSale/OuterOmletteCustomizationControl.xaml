@@ -6,57 +6,61 @@
              xmlns:local="clr-namespace:TheFlyingSaucer.PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Border Background="White">
+        <Grid>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height=".25*"/>
-            <RowDefinition Height=".5*"/>
-            <RowDefinition Height=".5*"/>
-            <RowDefinition Height=".5*"/>
-            <RowDefinition Height=".5*"/>
-            <RowDefinition Height=".5*"/>
-            <RowDefinition Height=".5*"/>
-            <RowDefinition Height="100"/>
-        </Grid.RowDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height=".5*"/>
+                <RowDefinition Height=".5*"/>
+                <RowDefinition Height=".5*"/>
+                <RowDefinition Height=".5*"/>
+                <RowDefinition Height=".5*"/>
+                <RowDefinition Height=".5*"/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width=".25*"/>
-            <ColumnDefinition Width=".15*"/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition Width=".25*"/>
-        </Grid.ColumnDefinitions>
-
-
-        <CheckBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <CheckBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <CheckBox Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <CheckBox Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <CheckBox Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".25*"/>
+                <ColumnDefinition Width=".15*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width=".05*"/>
+                <ColumnDefinition Width=".25*"/>
+            </Grid.ColumnDefinitions>
 
 
-
-        <TextBlock Text="Cheddar cheese"
-                    Grid.Row="1" Grid.Column="2" VerticalAlignment="Center"/>
-
-        <TextBlock Text="Peppers"
-                   Grid.Row="2" Grid.Column="2" VerticalAlignment="Center"/>
-
-        <TextBlock Text="Mushrooms"
-                   Grid.Row="3" Grid.Column="2" VerticalAlignment="Center"/>
-
-        <TextBlock Text="Tomatoes"
-                   Grid.Row="4" Grid.Column="2" VerticalAlignment="Center"/>
-
-        <TextBlock Text="Onion"
-                   Grid.Row="5" Grid.Column="2" VerticalAlignment="Center"/>
-
-        <TextBlock Text="Customize Outer Omlette" FontSize="20" FontWeight="Bold" Grid.Column="2" TextWrapping="Wrap"
-                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
-        <TextBlock Text="Calories:" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2"
-                   HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+            <CheckBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <CheckBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <CheckBox Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <CheckBox Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <CheckBox Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
 
-    </Grid>
+
+            <TextBlock Text="Cheddar cheese" FontSize="30"
+                        Grid.Row="1" Grid.Column="2" VerticalAlignment="Center"/>
+
+            <TextBlock Text="Peppers" FontSize="30"
+                       Grid.Row="2" Grid.Column="2" VerticalAlignment="Center"/>
+
+            <TextBlock Text="Mushrooms" FontSize="30"
+                       Grid.Row="3" Grid.Column="2" VerticalAlignment="Center"/>
+
+            <TextBlock Text="Tomatoes" FontSize="30"
+                       Grid.Row="4" Grid.Column="2" VerticalAlignment="Center"/>
+
+            <TextBlock Text="Onion" FontSize="30"
+                       Grid.Row="5" Grid.Column="2" VerticalAlignment="Center"/>
+
+            <TextBlock Text="Customize Outer Omlette" FontSize="30" FontWeight="Bold" Grid.Column="2" TextWrapping="Wrap"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <TextBlock Text="Calories:" FontSize="30" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"
+                       HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+
+            <TextBlock Text="{Binding Path=Calories}" FontSize="30" Grid.Row="6" Grid.Column="2"
+                       HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+
+        </Grid>
+    </Border>
 </UserControl>

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using TheFlyingSaucer.Data.BaseClasses;
 
 namespace TheFlyingSaucer.Data.Entrees
 {
@@ -70,7 +71,6 @@ namespace TheFlyingSaucer.Data.Entrees
                 if (Mushrooms) calories += 4u;
                 if (Tomatoes) calories += 22u;
                 if (Onions) calories += 22u;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
                 return calories;
             }
         }

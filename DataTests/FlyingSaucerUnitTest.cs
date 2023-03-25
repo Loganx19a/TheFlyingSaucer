@@ -1,3 +1,4 @@
+using TheFlyingSaucer.Data.BaseClasses;
 using TheFlyingSaucer.Data.Entrees;
 
 namespace TheFlyingSaucer.DataTests
