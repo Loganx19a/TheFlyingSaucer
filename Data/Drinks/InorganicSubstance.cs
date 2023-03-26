@@ -12,10 +12,8 @@ namespace TheFlyingSaucer.Data.Drinks
     /// <summary>
     /// A class representing the Inorganic Substance drink
     /// </summary>
-    public class InorganicSubstance : Drink, INotifyPropertyChanged
+    public class InorganicSubstance : Drink
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
-
         /// <summary>
         /// The name of the Inorganic Substance instance
         /// </summary>
@@ -32,9 +30,23 @@ namespace TheFlyingSaucer.Data.Drinks
         public override ServingSize Size { get; set; } = ServingSize.Small;
 
         /// <summary>
+        /// A private backing field for the Ice property
+        /// </summary>
+        private bool _ice = true;
+
+        /// <summary>
         /// If the Inorganic Substance has ice
         /// </summary>
-        public bool Ice { get; set; } = true;
+        public bool Ice
+        {
+            get { return _ice; }
+            set 
+            {
+                _ice = value;
+                OnPropertyChanged(nameof(Ice));
+                if (!_ice) OnPropertyChanged(nameof(SpecialInstructions));
+            }
+        }
 
         /// <summary>
         /// The price of the Inorganic Substance instance
@@ -54,8 +66,7 @@ namespace TheFlyingSaucer.Data.Drinks
             get
             {
                 List<string> instructions = new();
-                if (!Ice)
-                    instructions.Add("No Ice");
+                if (!Ice) instructions.Add("No Ice");
                 return instructions;
             }
         }

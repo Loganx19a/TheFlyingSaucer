@@ -11,10 +11,8 @@ namespace TheFlyingSaucer.Data.Sides
     /// <summary>
     /// The class representing the blueprint for the YouAreToast object
     /// </summary>
-    public class YouAreToast : Side, INotifyPropertyChanged
+    public class YouAreToast : Side
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
-
         /// <summary>
         /// The name for the YouAreToast instance
         /// </summary>
@@ -44,14 +42,29 @@ namespace TheFlyingSaucer.Data.Sides
                 if (value <= 12 && value >= 1)
                 {
                     _count = value;
+                    OnPropertyChanged(nameof(Count));
+                    OnPropertyChanged(nameof(Price));
+                    if (_count != 2)
+                    {
+                        OnPropertyChanged(nameof(Calories));
+                        OnPropertyChanged(nameof(SpecialInstructions));
+                    }
                 }
                 else if (value > 12)
                 {
                     _count = 12;
+                    OnPropertyChanged(nameof(Count));
+                    OnPropertyChanged(nameof(Price));
+                    OnPropertyChanged(nameof(Calories));
+                    OnPropertyChanged(nameof(SpecialInstructions));
                 }
                 else
                 {
                     _count = 1;
+                    OnPropertyChanged(nameof(Count));
+                    OnPropertyChanged(nameof(Price));
+                    OnPropertyChanged(nameof(Calories));
+                    OnPropertyChanged(nameof(SpecialInstructions));
                 }
             }
         }

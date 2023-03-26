@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TheFlyingSaucer.Data.Drinks;
 using TheFlyingSaucer.Data.Enumerations;
 
+
 namespace TheFlyingSaucer.DataTests
 {
     /// <summary>
@@ -13,6 +14,8 @@ namespace TheFlyingSaucer.DataTests
     /// </summary>
     public class InorganicSubstanceUnitTests
     {
+        #region default values
+
         /// <summary>
         /// Tests whether the InorganicSubstance has the correct name
         /// </summary>
@@ -60,17 +63,6 @@ namespace TheFlyingSaucer.DataTests
         }
 
         /// <summary>
-        /// Tests that the Ice property can be set for the InorganicSubstance
-        /// </summary>
-        [Fact]
-        public void ShouldBeAbleToSetIce()
-        {
-            var drink = new InorganicSubstance();
-            drink.Ice = false;
-            Assert.False(drink.Ice);
-        }
-
-        /// <summary>
         /// Tests that the InorganicSubstance has the correct price
         /// </summary>
         [Fact]
@@ -100,6 +92,21 @@ namespace TheFlyingSaucer.DataTests
             Assert.Empty(drink.SpecialInstructions);
         }
 
+        #endregion
+
+        #region state changes
+
+        /// <summary>
+        /// Tests that the Ice property can be set for the InorganicSubstance
+        /// </summary>
+        [Fact]
+        public void ShouldBeAbleToSetIce()
+        {
+            var drink = new InorganicSubstance();
+            drink.Ice = false;
+            Assert.False(drink.Ice);
+        }
+
         /// <summary>
         /// Tests that the InorganicSubstance has no special instructions when there's no ice
         /// </summary>
@@ -110,5 +117,18 @@ namespace TheFlyingSaucer.DataTests
             drink.Ice = false;
             Assert.Contains("No Ice", drink.SpecialInstructions);
         }
+
+        /// <summary>
+        /// Tests whether the ToString method is working properly for this class
+        /// </summary>
+        /// <param name="name">the Name property of this class</param>
+        [Theory]
+        [InlineData("Inorganic Substance")]
+        public void ToStringMethodShouldWorkProperly(string name)
+        {
+            Assert.Equal("Inorganic Substance", name);
+        }
+
+        #endregion
     }
 }

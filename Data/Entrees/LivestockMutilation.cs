@@ -11,9 +11,8 @@ namespace TheFlyingSaucer.Data.Entrees
     /// <summary>
     /// The class representing the blueprint for a LivestockMutilation object
     /// </summary>
-    public class LivestockMutilation : Entree, INotifyPropertyChanged
+    public class LivestockMutilation : Entree
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
 
         /// <summary>
         /// The name of the LivestockMutilation instance
@@ -44,18 +43,41 @@ namespace TheFlyingSaucer.Data.Entrees
                 if (value <= 8)
                 {
                     _numBiscuits = value;
+                    OnPropertyChanged(nameof(Biscuits));
+                    OnPropertyChanged(nameof(Calories));
+                    OnPropertyChanged(nameof(Price));
+                    if (value != 3) OnPropertyChanged(nameof(SpecialInstructions));
                 }
                 else
                 {
                     _numBiscuits = 8;
+                    OnPropertyChanged(nameof(Biscuits));
+                    OnPropertyChanged(nameof(Calories));
+                    OnPropertyChanged(nameof(Price));
+                    OnPropertyChanged(nameof(SpecialInstructions));
                 }
             }
         }
 
         /// <summary>
+        /// A private backing field for the Gravy property
+        /// </summary>
+        private bool _gravy = true;
+
+        /// <summary>
         /// If the LivestockMutilation is served with gravy
         /// </summary>
-        public bool Gravy { get; set; } = true;
+        public bool Gravy
+        {
+            get { return _gravy; }
+            set 
+            {
+                _gravy = value;
+                OnPropertyChanged(nameof(Calories));
+                OnPropertyChanged(nameof(SpecialInstructions));
+            }
+        }
+
 
         /// <summary>
         /// The price of the LivestockMutilation instance

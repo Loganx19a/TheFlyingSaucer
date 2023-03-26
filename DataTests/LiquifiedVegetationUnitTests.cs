@@ -13,6 +13,8 @@ namespace TheFlyingSaucer.DataTests
     /// </summary>
     public class LiquifiedVegetationUnitTests
     {
+        #region default values
+
         /// <summary>
         /// Tests whether the Name property returns the correct name
         /// </summary>
@@ -53,6 +55,10 @@ namespace TheFlyingSaucer.DataTests
             Assert.True(drink.Ice);
         }
 
+        #endregion
+
+        #region state changes
+
         /// <summary>
         /// Tests whether the Price property returns the correct value
         /// </summary>
@@ -92,6 +98,19 @@ namespace TheFlyingSaucer.DataTests
             drink.Ice = false;
             Assert.Contains("No Ice", drink.SpecialInstructions);
         }
+
+        /// <summary>
+        /// Tests whether the ToString method is working properly for this class
+        /// </summary>
+        /// <param name="name">the Name property of this class</param>
+        [Theory]
+        [InlineData("Liquified Vegetation")]
+        public void ToStringMethodShouldWorkProperly(string name)
+        {
+            Assert.Equal("Liquified Vegetation", name);
+        }
+
+        #endregion
 
     }
 }

@@ -205,8 +205,6 @@ namespace TheFlyingSaucer.DataTests
             Assert.Equal("Outer Omlette", name);
         }
 
-
-        // new string[] { }
         #endregion
 
     }

@@ -13,6 +13,9 @@ namespace TheFlyingSaucer.DataTests
     /// </summary>
     public class SaucerFuelUnitTests
     {
+
+        #region default values
+
         /// <summary>
         /// Tests that the name is set correctly
         /// </summary>
@@ -38,6 +41,10 @@ namespace TheFlyingSaucer.DataTests
             // Assert
             Assert.Equal("Decaf Saucer Fuel", sf.Name);
         }
+
+        #endregion
+
+        #region state changes
 
         /// <summary>
         /// Tests that the price is calculated correctly
@@ -95,5 +102,36 @@ namespace TheFlyingSaucer.DataTests
             Assert.Equal(new List<string>() { "With Cream" }, sf1.SpecialInstructions.ToList());
             Assert.Equal(new List<string>(), sf2.SpecialInstructions.ToList());
         }
+
+        /// <summary>
+        /// Tests whether the ToString method is working properly for this class
+        /// </summary>
+        /// <param name="name">the Name property of this class</param>
+        [Theory]
+        [InlineData("Saucer Fuel")]
+        public void ToStringMethodShouldWorkProperly(string name)
+        {
+            Assert.Equal("Saucer Fuel", name);
+        }
+
+        [Theory]
+        [InlineData(ServingSize.Small, "Size")]
+        [InlineData(ServingSize.Medium, "Size")]
+        [InlineData(ServingSize.Large, "Size")]
+        [InlineData(ServingSize.Small, "Price")]
+        [InlineData(ServingSize.Medium, "Price")]
+        [InlineData(ServingSize.Large, "Price")]
+        [InlineData(ServingSize.Small, "Calories")]
+        [InlineData(ServingSize.Medium, "Calories")]
+        [InlineData(ServingSize.Large, "Calories")]
+        public void ChangingSizeShouldNotifyOfPropertyChanges(ServingSize size, string propertyName)
+        {
+            SaucerFuel saucerFuel = new();
+            Assert.PropertyChanged(saucerFuel, propertyName, () => {
+                saucerFuel.Size = size;
+            });
+        }
+
+        #endregion
     }
 }

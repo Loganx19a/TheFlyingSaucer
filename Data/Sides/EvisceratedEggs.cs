@@ -12,10 +12,8 @@ namespace TheFlyingSaucer.Data.Sides
     /// <summary>
     /// The class representing the blueprint for an EvisceratedEggs object
     /// </summary>
-    public class EvisceratedEggs : Side, INotifyPropertyChanged
+    public class EvisceratedEggs : Side
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
-
         /// <summary>
         /// The name of the EvisceratedEggs instance
         /// </summary>
@@ -27,9 +25,26 @@ namespace TheFlyingSaucer.Data.Sides
         public override string Description { get; } = "Eggs prepared the way you like.";
 
         /// <summary>
+        /// A private backing field for the Style property
+        /// </summary>
+        private EggStyle _style = EggStyle.OverEasy;
+
+        /// <summary>
         /// The style of how the EvisceratedEggs instance is cooked
         /// </summary>
-        public EggStyle Style { get; set; } = EggStyle.OverEasy;
+        public EggStyle Style
+        {
+            get { return _style; }
+            set 
+            { 
+                _style = value;
+                if (_style != EggStyle.OverEasy)
+                {
+                    OnPropertyChanged(nameof(SpecialInstructions));
+                    OnPropertyChanged(nameof(Style));
+                }
+            }
+        }
 
         /// <summary>
         /// A private backing field for the Count property
@@ -50,14 +65,27 @@ namespace TheFlyingSaucer.Data.Sides
                 if (value <= 6 && value >= 1)
                 {
                     _count = value;
+                    if(_count != 2)
+                    {
+                        OnPropertyChanged(nameof(Calories));
+                        OnPropertyChanged(nameof(SpecialInstructions));
+                        OnPropertyChanged(nameof(Price));
+                    }
+                    
                 }
                 else if (value > 6)
                 {
                     _count = 6;
+                    OnPropertyChanged(nameof(Calories));
+                    OnPropertyChanged(nameof(Price));
+                    OnPropertyChanged(nameof(SpecialInstructions));
                 }
                 else
                 {
                     _count = 1;
+                    OnPropertyChanged(nameof(Calories));
+                    OnPropertyChanged(nameof(Price));
+                    OnPropertyChanged(nameof(SpecialInstructions));
                 }
             }
         }

@@ -11,10 +11,8 @@ namespace TheFlyingSaucer.Data.Sides
     /// <summary>
     /// The class representing the blueprint for a CropCircle object 
     /// </summary>
-    public class CropCircle : Side, INotifyPropertyChanged
+    public class CropCircle : Side
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
-
         /// <summary>
         /// The name of the CropCircle instance
         /// </summary>
@@ -26,9 +24,24 @@ namespace TheFlyingSaucer.Data.Sides
         public override string Description { get; } = "Oatmeal topped with mixed berries.";
 
         /// <summary>
+        /// A private backing field 
+        /// </summary>
+        private bool _berries = true;
+
+        /// <summary>
         /// If the CropCircle instance is served with Berries
         /// </summary>
-        public bool Berries { get; set; } = true;
+        public bool Berries
+        {
+            get { return _berries; }
+            set
+            {
+                _berries = value;
+                OnPropertyChanged(nameof(Berries));
+                OnPropertyChanged(nameof(Calories));
+                if (_berries == false) OnPropertyChanged(nameof(SpecialInstructions));
+            }
+        }
 
         /// <summary>
         /// The price of the CropCircle instance
@@ -49,8 +62,6 @@ namespace TheFlyingSaucer.Data.Sides
                 if (Berries) calories += 89;
                 return calories;
             }
-
-
         }
 
         /// <summary>

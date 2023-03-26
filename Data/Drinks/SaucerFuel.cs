@@ -12,10 +12,8 @@ namespace TheFlyingSaucer.Data.Drinks
     /// <summary>
     /// A class representing the Saucer Fuel drink
     /// </summary>
-    public class SaucerFuel : Drink, INotifyPropertyChanged
+    public class SaucerFuel : Drink
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
-
         /// <summary>
         /// The name of the Saucer Fuel instance
         /// </summary>
@@ -36,19 +34,61 @@ namespace TheFlyingSaucer.Data.Drinks
         public override string Description { get; } = "A steaming cup of coffee.";
 
         /// <summary>
+        /// A private backing field for the Size property
+        /// </summary>
+        private ServingSize size = ServingSize.Small;
+
+        /// <summary>
         /// The serving size of the Saucer Fuel instance
         /// </summary>
-        public override ServingSize Size { get; set; } = ServingSize.Small;
+        public override ServingSize Size
+        {
+            get { return size; }
+            set 
+            { 
+                size = value;
+                OnPropertyChanged(nameof(Size));
+                OnPropertyChanged(nameof(Price));
+                OnPropertyChanged(nameof(Calories));
+            }
+        }
+
+        /// <summary>
+        /// A private backing field for the Decaf property
+        /// </summary>
+        private bool _decaf = false;
 
         /// <summary>
         /// If the Saucer Fuel is decaf
         /// </summary>
-        public bool Decaf { get; set; } = false;
+        public bool Decaf
+        {
+            get { return _decaf; }
+            set 
+            {
+                _decaf = value;
+                OnPropertyChanged(nameof(Decaf));
+            }
+        }
+
+        /// <summary>
+        /// A private backing field for the Cream property
+        /// </summary>
+        private bool _cream = false;
 
         /// <summary>
         /// If the Saucer Fuel has cream
         /// </summary>
-        public bool Cream { get; set; } = false;
+        public bool Cream
+        {
+            get { return _cream; }
+            set 
+            {
+                _cream = value;
+                OnPropertyChanged(nameof(Cream));
+                OnPropertyChanged(nameof(Calories));
+            }
+        }
 
         /// <summary>
         /// The price of the Saucer Fuel instance

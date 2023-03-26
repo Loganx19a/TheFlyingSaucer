@@ -11,10 +11,8 @@ namespace TheFlyingSaucer.Data.Sides
     /// <summary>
     /// The class representing the blueprint for a MissingLinks object
     /// </summary>
-    public class MissingLinks : Side, INotifyPropertyChanged
+    public class MissingLinks : Side
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
-
         /// <summary>
         /// The name of the MissingLinks instance
         /// </summary>
@@ -45,14 +43,30 @@ namespace TheFlyingSaucer.Data.Sides
                 if (value <= 8 && value >= 1)
                 {
                     _count = value;
+                    OnPropertyChanged(nameof(Count));
+                    OnPropertyChanged(nameof(Price));
+                    if (_count != 2)
+                    {
+                        OnPropertyChanged(nameof(Calories));
+                        OnPropertyChanged(nameof(SpecialInstructions));
+                    }
+                    
                 }
                 else if (value > 8)
                 {
                     _count = 8;
+                    OnPropertyChanged(nameof(Count));
+                    OnPropertyChanged(nameof(Price));
+                    OnPropertyChanged(nameof(Calories));
+                    OnPropertyChanged(nameof(SpecialInstructions));
                 }
                 else
                 {
                     _count = 1;
+                    OnPropertyChanged(nameof(Count));
+                    OnPropertyChanged(nameof(Price));
+                    OnPropertyChanged(nameof(Calories));
+                    OnPropertyChanged(nameof(SpecialInstructions));
                 }
             }
         }

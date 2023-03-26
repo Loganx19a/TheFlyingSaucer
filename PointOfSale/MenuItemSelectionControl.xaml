@@ -33,9 +33,9 @@
                 </Grid.ColumnDefinitions>
 
                 <!-- | Entrees | Sides | Drinks | !-->
-                <TextBlock Grid.Row="1" Grid.Column="1" Foreground="White" Background="DarkRed" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">Entrees</TextBlock>
-                <TextBlock Grid.Row="1" Grid.Column="2" Foreground="White" Background="DarkRed" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">Sides</TextBlock>
-                <TextBlock Grid.Row="1" Grid.Column="3" Foreground="White" Background="DarkRed" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">Drinks</TextBlock>
+                <TextBlock Grid.Row="1" Grid.Column="1" Foreground="White" Background="Black" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">Entrees</TextBlock>
+                <TextBlock Grid.Row="1" Grid.Column="2" Foreground="White" Background="Black" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">Sides</TextBlock>
+                <TextBlock Grid.Row="1" Grid.Column="3" Foreground="White" Background="Black" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">Drinks</TextBlock>
 
                 <!-- Entrees Column !-->
                 <Button Grid.Row="2" Grid.Column="1" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Name="FlyingSaucerButton"

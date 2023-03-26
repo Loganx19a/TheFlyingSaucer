@@ -11,10 +11,8 @@ namespace TheFlyingSaucer.Data.Sides
     /// <summary>
     /// The class representing the blueprint for a GlowingHaystack object
     /// </summary>
-    public class GlowingHaystack : Side, INotifyPropertyChanged
+    public class GlowingHaystack : Side
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
-
         /// <summary>
         /// The name of the GlowingHaystack instance
         /// </summary>
@@ -26,19 +24,65 @@ namespace TheFlyingSaucer.Data.Sides
         public override string Description { get; } = "Hash browns smothered in green chile sauce, sour cream, and topped with tomatoes.";
 
         /// <summary>
+        /// A private backing field for the SourCream property
+        /// </summary>
+        private bool _sourCream = true;
+
+        /// <summary>
         /// If the GlowingHaystack instance has sour cream
         /// </summary>
-        public bool SourCream { get; set; } = true;
+        public bool SourCream
+        {
+            get { return _sourCream; }
+            set 
+            { 
+                _sourCream = value;
+                OnPropertyChanged(nameof(SourCream));
+                OnPropertyChanged(nameof(Calories));
+                if (_sourCream == false) OnPropertyChanged(nameof(SpecialInstructions));
+
+            }
+        }
+
+        /// <summary>
+        /// A private backing field for the GreenChileSauce property
+        /// </summary>
+        private bool _greenChileSauce = true;
 
         /// <summary>
         /// If the GlowingHaystack instance has green chile sauce
         /// </summary>
-        public bool GreenChileSauce { get; set; } = true;
+        public bool GreenChileSauce
+        {
+            get { return _greenChileSauce; }
+            set 
+            { 
+                _greenChileSauce = value;
+                OnPropertyChanged(nameof(GreenChileSauce));
+                OnPropertyChanged(nameof(Calories));
+                if (_greenChileSauce == false) OnPropertyChanged(nameof(SpecialInstructions));
+            }
+        }
+
+        /// <summary>
+        /// A private backing field for the Tomatoes property
+        /// </summary>
+        private bool _tomatoes = true;
 
         /// <summary>
         /// If the GlowingHaystack instance has tomatoes
         /// </summary>
-        public bool Tomatoes { get; set; } = true;
+        public bool Tomatoes
+        {
+            get { return _tomatoes; }
+            set 
+            { 
+                _tomatoes = value;
+                OnPropertyChanged(nameof(Tomatoes));
+                OnPropertyChanged(nameof(Calories));
+                if (_tomatoes == false) OnPropertyChanged(nameof(SpecialInstructions));
+            }
+        }
 
         /// <summary>
         /// The price of the GlowingHaystack instance

@@ -12,10 +12,8 @@ namespace TheFlyingSaucer.Data.Drinks
     /// <summary>
     /// A class representing the Liquified Vegetation drink
     /// </summary>
-    public class LiquifiedVegetation : Drink, INotifyPropertyChanged
+    public class LiquifiedVegetation : Drink
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
-
         /// <summary>
         /// The name of the Liquified Vegetation instance
         /// </summary>
@@ -32,9 +30,23 @@ namespace TheFlyingSaucer.Data.Drinks
         public override ServingSize Size { get; set; } = ServingSize.Small;
 
         /// <summary>
-        /// If the Liquified Vegetation instance contains ice
+        /// A private backing field for the Ice property
         /// </summary>
-        public bool Ice { get; set; } = true;
+        private bool _ice = true;
+
+        /// <summary>
+        /// If the Inorganic Substance has ice
+        /// </summary>
+        public bool Ice
+        {
+            get { return _ice; }
+            set
+            {
+                _ice = value;
+                OnPropertyChanged(nameof(Ice));
+                if (!_ice) OnPropertyChanged(nameof(SpecialInstructions));
+            }
+        }
 
         /// <summary>
         /// The price of the Liquified Vegetation instance

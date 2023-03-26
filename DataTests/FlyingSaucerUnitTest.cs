@@ -1,5 +1,7 @@
 using TheFlyingSaucer.Data.BaseClasses;
+using TheFlyingSaucer.Data.Drinks;
 using TheFlyingSaucer.Data.Entrees;
+using TheFlyingSaucer.Data.Enumerations;
 
 namespace TheFlyingSaucer.DataTests
 {
@@ -63,8 +65,6 @@ namespace TheFlyingSaucer.DataTests
             FlyingSaucer fs = new();
             Assert.IsAssignableFrom<IMenuItem>(fs);
         }
-
-
 
         /// <summary>
         /// This test checks that even as the FlyingSaucer's state mutates, the name does not change
@@ -180,6 +180,50 @@ namespace TheFlyingSaucer.DataTests
         {
             Assert.Equal("Flying Saucer", name);
         }
+
+        [Theory]
+        [InlineData(2, "StackSize")]
+        [InlineData(3, "StackSize")]
+        [InlineData(4, "StackSize")]
+        [InlineData(5, "Price")]
+        [InlineData(6, "Price")]
+        [InlineData(7, "Price")]
+        [InlineData(8, "Calories")]
+        [InlineData(9, "Calories")]
+        [InlineData(10, "Calories")]
+        public void ChangingStackSizeShouldNotifyOfPropertyChanges(uint size, string propertyName)
+        {
+            FlyingSaucer fs = new();
+            Assert.PropertyChanged(fs, propertyName, () => {
+                fs.StackSize = size;
+            });
+        }
+
+        [Theory]
+        [InlineData(false, "WhippedCream")]
+        [InlineData(false, "Calories")]
+        [InlineData(false, "SpecialInstructions")]
+        public void ChangingWhippedCreamShouldNotifyOfPropertyChanges(bool whipped, string propertyName)
+        {
+            FlyingSaucer fs = new();
+            Assert.PropertyChanged(fs, propertyName, () => {
+                fs.WhippedCream = whipped;
+            });
+        }
+
+        [Theory]
+        [InlineData(false, "Berries")]
+        [InlineData(false, "Calories")]
+        [InlineData(false, "SpecialInstructions")]
+        [InlineData(true, "SpecialInstructions")]
+        public void ChangingBerriesShouldNotifyOfPropertyChanges(bool berries, string propertyName)
+        {
+            FlyingSaucer fs = new();
+            Assert.PropertyChanged(fs, propertyName, () => {
+                fs.Berries = berries;
+            });
+        }
+
 
         #endregion
 

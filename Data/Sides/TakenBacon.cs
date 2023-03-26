@@ -11,10 +11,8 @@ namespace TheFlyingSaucer.Data.Sides
     /// <summary>
     /// The class representing the blueprint for a TakenBacon object
     /// </summary>
-    public class TakenBacon : Side, INotifyPropertyChanged
+    public class TakenBacon : Side
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
-
         /// <summary>
         /// The name of the TakenBacon instance
         /// </summary>
@@ -44,14 +42,29 @@ namespace TheFlyingSaucer.Data.Sides
                 if (value <= 6 && value >= 1)
                 {
                     _count = value;
+                    OnPropertyChanged(nameof(Count));
+                    OnPropertyChanged(nameof(Price));
+                    if (_count != 2)
+                    {
+                        OnPropertyChanged(nameof(Calories));
+                        OnPropertyChanged(nameof(SpecialInstructions));
+                    }
                 }
                 else if (value > 6)
                 {
                     _count = 6;
+                    OnPropertyChanged(nameof(Count));
+                    OnPropertyChanged(nameof(Price));
+                    OnPropertyChanged(nameof(Calories));
+                    OnPropertyChanged(nameof(SpecialInstructions));
                 }
                 else
                 {
                     _count = 1;
+                    OnPropertyChanged(nameof(Count));
+                    OnPropertyChanged(nameof(Price));
+                    OnPropertyChanged(nameof(Calories));
+                    OnPropertyChanged(nameof(SpecialInstructions));
                 }
             }
         }

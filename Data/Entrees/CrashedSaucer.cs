@@ -11,10 +11,8 @@ namespace TheFlyingSaucer.Data.Entrees
     /// <summary>
     /// The class representing the blueprint for an CrashedSaucer object
     /// </summary>
-    public class CrashedSaucer : Entree, INotifyPropertyChanged
+    public class CrashedSaucer : Entree
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
-
         /// <summary>
         /// The name of the CrashedSaucer instance
         /// </summary>
@@ -47,24 +45,63 @@ namespace TheFlyingSaucer.Data.Entrees
                 if (value <= 6)
                 {
                     _stackSize = value;
-                    
+                    OnPropertyChanged(nameof(StackSize));
+                    OnPropertyChanged(nameof(Calories));
+                    OnPropertyChanged(nameof(Price));
+                    if (value != 2) OnPropertyChanged(nameof(SpecialInstructions));
+
                 }
                 else
                 {
                     _stackSize = 6;
+                    OnPropertyChanged(nameof(StackSize));
+                    OnPropertyChanged(nameof(Calories));
+                    OnPropertyChanged(nameof(Price));
+                    OnPropertyChanged(nameof(SpecialInstructions));
                 }
             }
         }
 
         /// <summary>
+        /// A private backing field for the Syrup property
+        /// </summary>
+        private bool _syrup = true;
+
+        /// <summary>
         /// If the CrashedSaucer instance is served with syrup
         /// </summary>
-        public bool Syrup { get; set; } = true;
+        public bool Syrup
+        {
+            get { return _syrup; }
+            set
+            {
+
+                _syrup = value;
+                OnPropertyChanged(nameof(Syrup));
+                OnPropertyChanged(nameof(Calories));
+                if (_syrup == false) OnPropertyChanged(nameof(SpecialInstructions));
+
+            }
+        }
+
+        private bool _butter = true;
 
         /// <summary>
         /// If the CrashedSaucer instance is served with butter
         /// </summary>
-        public bool Butter { get; set; } = true;
+        public bool Butter
+        {
+            get { return _butter; }
+            set
+            {
+
+                _butter = value;
+                OnPropertyChanged(nameof(Butter));
+                OnPropertyChanged(nameof(Calories));
+                if (_butter == false) OnPropertyChanged(nameof(SpecialInstructions));
+
+            }
+        }
 
         /// <summary>
         /// The price of the CrashedSaucer instance

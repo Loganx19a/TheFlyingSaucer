@@ -11,12 +11,8 @@ namespace TheFlyingSaucer.Data.Entrees
     /// this object must implement the INotifyPropertyChanged interface for changes in the data object to be automatically
     /// applied to the WPF control it's bound to
     /// </remarks>
-    public class FlyingSaucer : Entree, INotifyPropertyChanged
+    public class FlyingSaucer : Entree
     {
-        // this object must implement the INotifyPropertyChanged interface for changes in the data object to be automatically
-        // applied to the WPF control it's bound to
-        public event PropertyChangedEventHandler? PropertyChanged;
-
         /// <summary>
         /// The name of the FlyingSaucer instance
         /// </summary>
@@ -55,15 +51,26 @@ namespace TheFlyingSaucer.Data.Entrees
                 if (value <= 12)
                 {
                     _stackSize = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("StackSize"));
+                    OnPropertyChanged(nameof(StackSize));
+                    OnPropertyChanged(nameof(Price));
+                    OnPropertyChanged(nameof(Calories));
+                    if (value != 6) OnPropertyChanged(nameof(SpecialInstructions));
                 }
                 else
                 {
                     _stackSize = 12;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("StackSize"));
+                    OnPropertyChanged(nameof(StackSize));
+                    OnPropertyChanged(nameof(Price));
+                    OnPropertyChanged(nameof(Calories));
+                    OnPropertyChanged(nameof(SpecialInstructions));
                 }
             }
         }
+
+        /// <summary>
+        /// A private backing field for the Syrup property
+        /// </summary>
+        private bool _syrup = true;
 
         /// <summary>
         /// If the FyingSaucer instance is served with maple syrup
@@ -72,19 +79,59 @@ namespace TheFlyingSaucer.Data.Entrees
         /// Initially we had an autoproperty with both getter and setter, 
         /// and a default value, but now we need to change that to implement data binding
         /// </remarks>
-        public bool Syrup { get; set; } = true;
+        public bool Syrup
+        {
+            get { return _syrup; }
+            set
+            {
+                _syrup = value;
+                OnPropertyChanged(nameof(Syrup));
+                OnPropertyChanged(nameof(Calories));
+                if(_syrup==false) OnPropertyChanged(nameof(SpecialInstructions));
+            }
+        }
 
+        /// <summary>
+        /// A private backing field for the WhippedCream property
+        /// </summary>
+        private bool _whippedCream = true;
 
         /// <summary>
         /// If the FlyingSaucer instance is served with whipped cream
         /// </summary>
-        public bool WhippedCream { get; set; } = true;
+        public bool WhippedCream
+        {
+            get { return _whippedCream; }
+            set 
+            { 
+                _whippedCream = value;
+                OnPropertyChanged(nameof(WhippedCream));
+                OnPropertyChanged(nameof(Calories));
+                OnPropertyChanged(nameof(SpecialInstructions));
+            }
+        }
 
+
+        /// <summary>
+        /// A private backing field for the Berries property
+        /// </summary>
+        private bool _berries = true;
 
         /// <summary>
         /// If the FlyingSaucer instance is served with berries
         /// </summary>
-        public bool Berries { get; set; } = true;
+        public bool Berries
+        {
+            get { return _berries; }
+            set 
+            { 
+                _berries = value;
+                OnPropertyChanged(nameof(Berries));
+                OnPropertyChanged(nameof(Calories));
+                OnPropertyChanged(nameof(SpecialInstructions));
+            }
+        }
+
 
         /// <summary>
         /// The price of the FlyingSaucer instance
@@ -137,8 +184,5 @@ namespace TheFlyingSaucer.Data.Entrees
                 return instructions;
             }
         }
-
-
-
     }
 }
