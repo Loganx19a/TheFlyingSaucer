@@ -196,5 +196,72 @@ namespace TheFlyingSaucer.DataTests
         }
 
         #endregion 
+
+        #region property changes
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="size"></param>
+        /// <param name="propertyName"></param>
+        [Theory]
+        [InlineData(2, "StackSize")]
+        [InlineData(3, "StackSize")]
+        [InlineData(4, "StackSize")]
+        [InlineData(5, "Price")]
+        [InlineData(6, "Price")]
+        [InlineData(7, "Price")]
+        [InlineData(8, "Calories")]
+        [InlineData(9, "Calories")]
+        [InlineData(10, "Calories")]
+        public void ChangingStackSizeShouldNotifyOfPropertyChanges(uint size, string propertyName)
+        {
+            CrashedSaucer fs = new();
+            Assert.PropertyChanged(fs, propertyName, () => {
+                fs.StackSize = size;
+            });
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="syrup"></param>
+        /// <param name="propertyName"></param>
+        [Theory]
+        [InlineData(false, "Syrup")]
+        [InlineData(false, "Calories")]
+        [InlineData(false, "SpecialInstructions")]
+        [InlineData(true, "Syrup")]
+        [InlineData(true, "Calories")]
+        [InlineData(true, "SpecialInstructions")]
+        public void ChangingSyrupShouldNotifyOfPropertyChanges(bool syrup, string propertyName)
+        {
+            CrashedSaucer cs = new();
+            Assert.PropertyChanged(cs, propertyName, () => {
+                cs.Syrup = syrup;
+            });
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="whipped"></param>
+        /// <param name="propertyName"></param>
+        [Theory]
+        [InlineData(false, "Butter")]
+        [InlineData(false, "Calories")]
+        [InlineData(false, "SpecialInstructions")]
+        [InlineData(true, "Butter")]
+        [InlineData(true, "Calories")]
+        [InlineData(true, "SpecialInstructions")]
+        public void ChangingButterShouldNotifyOfPropertyChanges(bool butter, string propertyName)
+        {
+            CrashedSaucer cs = new();
+            Assert.PropertyChanged(cs, propertyName, () => {
+                cs.Butter = butter;
+            });
+        }
+
+        #endregion
     }
 }

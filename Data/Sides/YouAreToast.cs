@@ -42,30 +42,20 @@ namespace TheFlyingSaucer.Data.Sides
                 if (value <= 12 && value >= 1)
                 {
                     _count = value;
-                    OnPropertyChanged(nameof(Count));
-                    OnPropertyChanged(nameof(Price));
-                    if (_count != 2)
-                    {
-                        OnPropertyChanged(nameof(Calories));
-                        OnPropertyChanged(nameof(SpecialInstructions));
-                    }
+                    
                 }
                 else if (value > 12)
                 {
                     _count = 12;
-                    OnPropertyChanged(nameof(Count));
-                    OnPropertyChanged(nameof(Price));
-                    OnPropertyChanged(nameof(Calories));
-                    OnPropertyChanged(nameof(SpecialInstructions));
                 }
                 else
                 {
                     _count = 1;
-                    OnPropertyChanged(nameof(Count));
-                    OnPropertyChanged(nameof(Price));
-                    OnPropertyChanged(nameof(Calories));
-                    OnPropertyChanged(nameof(SpecialInstructions));
                 }
+                OnPropertyChanged(nameof(Count));
+                OnPropertyChanged(nameof(Price));
+                OnPropertyChanged(nameof(Calories));
+                OnPropertyChanged(nameof(SpecialInstructions));
             }
         }
 

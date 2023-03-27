@@ -169,5 +169,53 @@ namespace TheFlyingSaucer.DataTests
         }
 
         #endregion
+
+        #region property changes
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="biscuits"></param>
+        /// <param name="propertyName"></param>
+        [Theory]
+        [InlineData(2, "Biscuits")]
+        [InlineData(3, "Biscuits")]
+        [InlineData(4, "Biscuits")]
+        [InlineData(5, "Price")]
+        [InlineData(6, "Price")]
+        [InlineData(7, "Price")]
+        [InlineData(8, "Calories")]
+        [InlineData(9, "Calories")]
+        [InlineData(10, "Calories")]
+        public void ChangingBiscuitsShouldNotifyOfPropertyChanges(uint biscuits, string propertyName)
+        {
+            LivestockMutilation lm = new();
+            Assert.PropertyChanged(lm, propertyName, () => {
+                lm.Biscuits = biscuits;
+            });
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="gravy"></param>
+        /// <param name="propertyName"></param>
+        [Theory]
+        [InlineData(false, "Gravy")]
+        [InlineData(false, "Calories")]
+        [InlineData(false, "SpecialInstructions")]
+        [InlineData(true, "Gravy")]
+        [InlineData(true, "Calories")]
+        [InlineData(true, "SpecialInstructions")]
+        public void ChangingGravyShouldNotifyOfPropertyChanges(bool gravy, string propertyName)
+        {
+            LivestockMutilation lm = new();
+            Assert.PropertyChanged(lm, propertyName, () => {
+                lm.Gravy = gravy;
+            });
+        }
+
+
+        #endregion
     }
 }

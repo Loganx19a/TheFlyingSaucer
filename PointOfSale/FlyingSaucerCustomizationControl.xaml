@@ -43,12 +43,7 @@
             <TextBlock Text="Berries" FontSize="30"
                        Grid.Row="3" Grid.Column="2" VerticalAlignment="Center"/>
 
-            <TextBlock Text=""
-                       Grid.Row="4" Grid.Column="2" VerticalAlignment="Center"/>
-
-            <TextBlock Text=""
-                       Grid.Row="5" Grid.Column="2" VerticalAlignment="Center"/>
-
+            <local:CountBox Count="{Binding Path=StackSize}" Grid.Row="4" Grid.Column="1" FontSize="20" />
 
 
             <TextBlock Text="Customize Flying Saucer" FontSize="30" FontWeight="Bold" Grid.Column="2" TextWrapping="Wrap"

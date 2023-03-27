@@ -207,5 +207,83 @@ namespace TheFlyingSaucer.DataTests
 
         #endregion
 
+        #region property changes
+
+        [Theory]
+        [InlineData(false, "CheddarCheese")]
+        [InlineData(false, "Calories")]
+        [InlineData(false, "SpecialInstructions")]
+        [InlineData(true, "CheddarCheese")]
+        [InlineData(true, "Calories")]
+        [InlineData(true, "SpecialInstructions")]
+        public void ChangingCheeseShouldNotifyOfPropertyChanges(bool cheese, string propertyName)
+        {
+            OuterOmlette oo = new();
+            Assert.PropertyChanged(oo, propertyName, () => {
+                oo.CheddarCheese = cheese;
+            });
+        }
+
+        [Theory]
+        [InlineData(false, "CheddarCheese")]
+        [InlineData(false, "Calories")]
+        [InlineData(false, "SpecialInstructions")]
+        [InlineData(true, "CheddarCheese")]
+        [InlineData(true, "Calories")]
+        [InlineData(true, "SpecialInstructions")]
+        public void ChangingPeppersShouldNotifyOfPropertyChanges(bool cheese, string propertyName)
+        {
+            OuterOmlette oo = new();
+            Assert.PropertyChanged(oo, propertyName, () => {
+                oo.CheddarCheese = cheese;
+            });
+        }
+
+        [Theory]
+        [InlineData(false, "CheddarCheese")]
+        [InlineData(false, "Calories")]
+        [InlineData(false, "SpecialInstructions")]
+        [InlineData(true, "CheddarCheese")]
+        [InlineData(true, "Calories")]
+        [InlineData(true, "SpecialInstructions")]
+        public void ChangingMushroomsShouldNotifyOfPropertyChanges(bool cheese, string propertyName)
+        {
+            OuterOmlette oo = new();
+            Assert.PropertyChanged(oo, propertyName, () => {
+                oo.CheddarCheese = cheese;
+            });
+        }
+
+        [Theory]
+        [InlineData(false, "CheddarCheese")]
+        [InlineData(false, "Calories")]
+        [InlineData(false, "SpecialInstructions")]
+        [InlineData(true, "CheddarCheese")]
+        [InlineData(true, "Calories")]
+        [InlineData(true, "SpecialInstructions")]
+        public void ChangingTomatoesShouldNotifyOfPropertyChanges(bool cheese, string propertyName)
+        {
+            OuterOmlette oo = new();
+            Assert.PropertyChanged(oo, propertyName, () => {
+                oo.CheddarCheese = cheese;
+            });
+        }
+
+        [Theory]
+        [InlineData(false, "CheddarCheese")]
+        [InlineData(false, "Calories")]
+        [InlineData(false, "SpecialInstructions")]
+        [InlineData(true, "CheddarCheese")]
+        [InlineData(true, "Calories")]
+        [InlineData(true, "SpecialInstructions")]
+        public void ChangingSyrupShouldNotifyOfPropertyChanges(bool cheese, string propertyName)
+        {
+            OuterOmlette oo = new();
+            Assert.PropertyChanged(oo, propertyName, () => {
+                oo.CheddarCheese = cheese;
+            });
+        }
+        #endregion
+
     }
 }

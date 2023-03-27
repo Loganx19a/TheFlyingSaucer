@@ -3,9 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:TheFlyingSaucer.PointOfSale"
+             xmlns:local="clr-namespace:TheFlyingSaucer.PointOfSale" 
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
+
     <Border Background="White">
         <Grid>
             <Grid.RowDefinitions>
@@ -27,38 +29,29 @@
                 <ColumnDefinition Width=".25*"/>
             </Grid.ColumnDefinitions>
 
-            <!-- 
-            <CheckBox IsChecked="{Binding Path=Syrup}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <CheckBox IsChecked="{Binding Path=WhippedCream}" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <CheckBox IsChecked="{Binding Path=Berries}" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            -->
-
-
-            <TextBlock Text="" FontSize="30"
-                        Grid.Row="1" Grid.Column="2" VerticalAlignment="Center"/>
-
-            <TextBlock Text="" FontSize="30"
-                       Grid.Row="2" Grid.Column="2" VerticalAlignment="Center"/>
-
-            <TextBlock Text="" FontSize="30"
-                       Grid.Row="3" Grid.Column="2" VerticalAlignment="Center"/>
-
-            <TextBlock Text=""
-                       Grid.Row="4" Grid.Column="2" VerticalAlignment="Center"/>
-
-            <TextBlock Text=""
-                       Grid.Row="5" Grid.Column="2" VerticalAlignment="Center"/>
-
-
-
             <TextBlock Text="Customize Saucer Fuel" FontSize="30" FontWeight="Bold" Grid.Column="2" TextWrapping="Wrap"
                        HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <CheckBox IsChecked="{Binding Path=Decaf}"
+                      Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            
+            <CheckBox IsChecked="{Binding Path=Cream}"
+                      Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            
+            <TextBlock Text="Decaf" FontSize="30"
+                        Grid.Row="1" Grid.Column="2" VerticalAlignment="Center"/>
+
+            <TextBlock Text="Cream" FontSize="30"
+                       Grid.Row="2" Grid.Column="2" VerticalAlignment="Center"/>
+
 
             <TextBlock Text="Calories:" FontSize="30" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"
                        HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
 
             <TextBlock Text="{Binding Path=Calories}" FontSize="30" Grid.Row="6" Grid.Column="2"
                        HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+
+            
 
         </Grid>
     </Border>

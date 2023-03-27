@@ -39,7 +39,7 @@ namespace TheFlyingSaucer.Data.Sides
                 _berries = value;
                 OnPropertyChanged(nameof(Berries));
                 OnPropertyChanged(nameof(Calories));
-                if (_berries == false) OnPropertyChanged(nameof(SpecialInstructions));
+                OnPropertyChanged(nameof(SpecialInstructions));
             }
         }
 

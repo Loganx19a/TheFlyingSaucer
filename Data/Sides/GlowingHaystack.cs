@@ -39,7 +39,7 @@ namespace TheFlyingSaucer.Data.Sides
                 _sourCream = value;
                 OnPropertyChanged(nameof(SourCream));
                 OnPropertyChanged(nameof(Calories));
-                if (_sourCream == false) OnPropertyChanged(nameof(SpecialInstructions));
+                OnPropertyChanged(nameof(SpecialInstructions));
 
             }
         }
@@ -60,7 +60,7 @@ namespace TheFlyingSaucer.Data.Sides
                 _greenChileSauce = value;
                 OnPropertyChanged(nameof(GreenChileSauce));
                 OnPropertyChanged(nameof(Calories));
-                if (_greenChileSauce == false) OnPropertyChanged(nameof(SpecialInstructions));
+                OnPropertyChanged(nameof(SpecialInstructions));
             }
         }
 
@@ -80,7 +80,7 @@ namespace TheFlyingSaucer.Data.Sides
                 _tomatoes = value;
                 OnPropertyChanged(nameof(Tomatoes));
                 OnPropertyChanged(nameof(Calories));
-                if (_tomatoes == false) OnPropertyChanged(nameof(SpecialInstructions));
+                OnPropertyChanged(nameof(SpecialInstructions));
             }
         }
 

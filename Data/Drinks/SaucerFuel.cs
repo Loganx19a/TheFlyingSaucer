@@ -36,17 +36,17 @@ namespace TheFlyingSaucer.Data.Drinks
         /// <summary>
         /// A private backing field for the Size property
         /// </summary>
-        private ServingSize size = ServingSize.Small;
+        private ServingSize _size = ServingSize.Small;
 
         /// <summary>
         /// The serving size of the Saucer Fuel instance
         /// </summary>
         public override ServingSize Size
         {
-            get { return size; }
+            get { return _size; }
             set 
             { 
-                size = value;
+                _size = value;
                 OnPropertyChanged(nameof(Size));
                 OnPropertyChanged(nameof(Price));
                 OnPropertyChanged(nameof(Calories));
@@ -147,8 +147,7 @@ namespace TheFlyingSaucer.Data.Drinks
             get
             {
                 List<string> instructions = new();
-                if (Cream)
-                    instructions.Add("With Cream");
+                if (Cream) instructions.Add("With Cream");
                 return instructions;
             }
         }

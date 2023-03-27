@@ -34,17 +34,7 @@
             <TextBlock Text="Gravy" FontSize="30"
                         Grid.Row="1" Grid.Column="2" VerticalAlignment="Center"/>
 
-            <TextBlock Text=""
-                       Grid.Row="2" Grid.Column="2" VerticalAlignment="Center"/>
-
-            <TextBlock Text=""
-                       Grid.Row="3" Grid.Column="2" VerticalAlignment="Center"/>
-
-            <TextBlock Text=""
-                       Grid.Row="4" Grid.Column="2" VerticalAlignment="Center"/>
-
-            <TextBlock Text=""
-                       Grid.Row="5" Grid.Column="2" VerticalAlignment="Center"/>
+            <local:CountBox Count="{Binding Path=Biscuits}" Grid.Row="2" Grid.Column="1" FontSize="20" />
 
 
 

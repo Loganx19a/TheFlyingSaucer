@@ -28,26 +28,18 @@
             </Grid.ColumnDefinitions>
 
 
-            <CheckBox IsChecked="{Binding Path=Syrup}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <CheckBox IsChecked="{Binding Path=WhippedCream}" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <CheckBox IsChecked="{Binding Path=Berries}" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <CheckBox IsChecked="{Binding Path=Ice}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            
 
 
 
-            <TextBlock Text="Syrup" FontSize="30"
+            <TextBlock Text="Ice" FontSize="30"
                         Grid.Row="1" Grid.Column="2" VerticalAlignment="Center"/>
 
-            <TextBlock Text="Whipped Cream" FontSize="30"
+            <TextBlock Text="" FontSize="30"
                        Grid.Row="2" Grid.Column="2" VerticalAlignment="Center"/>
 
-            <TextBlock Text="Berries" FontSize="30"
-                       Grid.Row="3" Grid.Column="2" VerticalAlignment="Center"/>
-
-            <TextBlock Text=""
-                       Grid.Row="4" Grid.Column="2" VerticalAlignment="Center"/>
-
-            <TextBlock Text=""
-                       Grid.Row="5" Grid.Column="2" VerticalAlignment="Center"/>
+            
 
 
 

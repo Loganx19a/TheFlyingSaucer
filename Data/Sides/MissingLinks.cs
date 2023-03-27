@@ -43,31 +43,19 @@ namespace TheFlyingSaucer.Data.Sides
                 if (value <= 8 && value >= 1)
                 {
                     _count = value;
-                    OnPropertyChanged(nameof(Count));
-                    OnPropertyChanged(nameof(Price));
-                    if (_count != 2)
-                    {
-                        OnPropertyChanged(nameof(Calories));
-                        OnPropertyChanged(nameof(SpecialInstructions));
-                    }
-                    
                 }
                 else if (value > 8)
                 {
                     _count = 8;
-                    OnPropertyChanged(nameof(Count));
-                    OnPropertyChanged(nameof(Price));
-                    OnPropertyChanged(nameof(Calories));
-                    OnPropertyChanged(nameof(SpecialInstructions));
                 }
                 else
                 {
                     _count = 1;
-                    OnPropertyChanged(nameof(Count));
-                    OnPropertyChanged(nameof(Price));
-                    OnPropertyChanged(nameof(Calories));
-                    OnPropertyChanged(nameof(SpecialInstructions));
                 }
+                OnPropertyChanged(nameof(Count));
+                OnPropertyChanged(nameof(Price));
+                OnPropertyChanged(nameof(Calories));
+                OnPropertyChanged(nameof(SpecialInstructions));
             }
         }
 
@@ -106,7 +94,8 @@ namespace TheFlyingSaucer.Data.Sides
             {
                 List<string> instructions = new();
 
-                if (Count != 2) instructions.Add(Count + " links");
+                if (Count != 2 && Count != 1) instructions.Add(Count + " links");
+                if (Count == 1) instructions.Add(Count + " link");
                 return instructions;
             }
         }

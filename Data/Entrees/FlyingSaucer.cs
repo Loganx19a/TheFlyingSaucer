@@ -51,19 +51,15 @@ namespace TheFlyingSaucer.Data.Entrees
                 if (value <= 12)
                 {
                     _stackSize = value;
-                    OnPropertyChanged(nameof(StackSize));
-                    OnPropertyChanged(nameof(Price));
-                    OnPropertyChanged(nameof(Calories));
-                    if (value != 6) OnPropertyChanged(nameof(SpecialInstructions));
                 }
                 else
                 {
                     _stackSize = 12;
-                    OnPropertyChanged(nameof(StackSize));
-                    OnPropertyChanged(nameof(Price));
-                    OnPropertyChanged(nameof(Calories));
-                    OnPropertyChanged(nameof(SpecialInstructions));
                 }
+                OnPropertyChanged(nameof(StackSize));
+                OnPropertyChanged(nameof(Price));
+                OnPropertyChanged(nameof(Calories));
+                OnPropertyChanged(nameof(SpecialInstructions));
             }
         }
 
@@ -87,7 +83,7 @@ namespace TheFlyingSaucer.Data.Entrees
                 _syrup = value;
                 OnPropertyChanged(nameof(Syrup));
                 OnPropertyChanged(nameof(Calories));
-                if(_syrup==false) OnPropertyChanged(nameof(SpecialInstructions));
+                OnPropertyChanged(nameof(SpecialInstructions));
             }
         }
 
@@ -177,7 +173,8 @@ namespace TheFlyingSaucer.Data.Entrees
             get
             {
                 List<string> instructions = new();
-                if (StackSize != 6) instructions.Add($"{StackSize} Pancakes");
+                if (StackSize != 6 && StackSize != 1) instructions.Add($"{StackSize} Pancakes");
+                if (StackSize == 1) instructions.Add($"{StackSize} Pancake");
                 if (!Syrup) instructions.Add("Hold Syrup");
                 if (!WhippedCream) instructions.Add("Hold Whipped Cream");
                 if (!Berries) instructions.Add("Hold Berries");

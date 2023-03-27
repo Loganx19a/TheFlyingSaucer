@@ -48,7 +48,7 @@ namespace TheFlyingSaucer.Data.Entrees
                     OnPropertyChanged(nameof(StackSize));
                     OnPropertyChanged(nameof(Calories));
                     OnPropertyChanged(nameof(Price));
-                    if (value != 2) OnPropertyChanged(nameof(SpecialInstructions));
+                    OnPropertyChanged(nameof(SpecialInstructions));
 
                 }
                 else
@@ -79,7 +79,7 @@ namespace TheFlyingSaucer.Data.Entrees
                 _syrup = value;
                 OnPropertyChanged(nameof(Syrup));
                 OnPropertyChanged(nameof(Calories));
-                if (_syrup == false) OnPropertyChanged(nameof(SpecialInstructions));
+                OnPropertyChanged(nameof(SpecialInstructions));
 
             }
         }
@@ -98,7 +98,7 @@ namespace TheFlyingSaucer.Data.Entrees
                 _butter = value;
                 OnPropertyChanged(nameof(Butter));
                 OnPropertyChanged(nameof(Calories));
-                if (_butter == false) OnPropertyChanged(nameof(SpecialInstructions));
+                OnPropertyChanged(nameof(SpecialInstructions));
 
             }
         }
@@ -137,7 +137,8 @@ namespace TheFlyingSaucer.Data.Entrees
             get
             {
                 List<string> instructions = new();
-                if (StackSize != 2) instructions.Add($"{StackSize} slices");
+                if (StackSize != 2 && StackSize != 1) instructions.Add($"{StackSize} slices");
+                if (StackSize == 1) instructions.Add($"{StackSize} slice");
                 if (!Butter) instructions.Add("Hold Butter");
                 if (!Syrup) instructions.Add("Hold Syrup");
                 return instructions;

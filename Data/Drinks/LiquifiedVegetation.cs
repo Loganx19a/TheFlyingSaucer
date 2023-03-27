@@ -44,7 +44,7 @@ namespace TheFlyingSaucer.Data.Drinks
             {
                 _ice = value;
                 OnPropertyChanged(nameof(Ice));
-                if (!_ice) OnPropertyChanged(nameof(SpecialInstructions));
+                OnPropertyChanged(nameof(SpecialInstructions));
             }
         }
 

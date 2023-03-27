@@ -41,7 +41,7 @@ namespace TheFlyingSaucer.Data.Entrees
                 _cheddarCheese = value;
                 OnPropertyChanged(nameof(CheddarCheese));
                 OnPropertyChanged(nameof(Calories));
-                if (_cheddarCheese == false) OnPropertyChanged(nameof(SpecialInstructions));
+                OnPropertyChanged(nameof(SpecialInstructions));
             }
         }
 
@@ -61,7 +61,7 @@ namespace TheFlyingSaucer.Data.Entrees
                 _peppers = value;
                 OnPropertyChanged(nameof(Peppers));
                 OnPropertyChanged(nameof(Calories));
-                if (_peppers == false) OnPropertyChanged(nameof(SpecialInstructions));
+                OnPropertyChanged(nameof(SpecialInstructions));
             }
         }
 
@@ -81,7 +81,7 @@ namespace TheFlyingSaucer.Data.Entrees
                 _mushrooms = value;
                 OnPropertyChanged(nameof(Mushrooms));
                 OnPropertyChanged(nameof(Calories));
-                if (_mushrooms == false) OnPropertyChanged(nameof(SpecialInstructions));
+                OnPropertyChanged(nameof(SpecialInstructions));
             }
         }
 
@@ -101,7 +101,7 @@ namespace TheFlyingSaucer.Data.Entrees
                 _tomatoes = value;
                 OnPropertyChanged(nameof(Tomatoes));
                 OnPropertyChanged(nameof(Calories));
-                if (_tomatoes == false) OnPropertyChanged(nameof(SpecialInstructions));
+                OnPropertyChanged(nameof(SpecialInstructions));
             }
         }
 
@@ -121,7 +121,7 @@ namespace TheFlyingSaucer.Data.Entrees
                 _onions = value;
                 OnPropertyChanged(nameof(Onions));
                 OnPropertyChanged(nameof(Calories));
-                if (_onions == false) OnPropertyChanged(nameof(SpecialInstructions));
+                OnPropertyChanged(nameof(SpecialInstructions));
             }
         }
 

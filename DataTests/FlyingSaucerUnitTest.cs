@@ -181,6 +181,15 @@ namespace TheFlyingSaucer.DataTests
             Assert.Equal("Flying Saucer", name);
         }
 
+        #endregion
+
+        #region property changes
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="size"></param>
+        /// <param name="propertyName"></param>
         [Theory]
         [InlineData(2, "StackSize")]
         [InlineData(3, "StackSize")]
@@ -199,10 +208,38 @@ namespace TheFlyingSaucer.DataTests
             });
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="syrup"></param>
+        /// <param name="propertyName"></param>
+        [Theory]
+        [InlineData(false, "Syrup")]
+        [InlineData(false, "Calories")]
+        [InlineData(false, "SpecialInstructions")]
+        [InlineData(true, "Syrup")]
+        [InlineData(true, "Calories")]
+        [InlineData(true, "SpecialInstructions")]
+        public void ChangingSyrupShouldNotifyOfPropertyChanges(bool syrup, string propertyName)
+        {
+            FlyingSaucer fs = new();
+            Assert.PropertyChanged(fs, propertyName, () => {
+                fs.Syrup = syrup;
+            });
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="whipped"></param>
+        /// <param name="propertyName"></param>
         [Theory]
         [InlineData(false, "WhippedCream")]
         [InlineData(false, "Calories")]
         [InlineData(false, "SpecialInstructions")]
+        [InlineData(true, "WhippedCream")]
+        [InlineData(true, "Calories")]
+        [InlineData(true, "SpecialInstructions")]
         public void ChangingWhippedCreamShouldNotifyOfPropertyChanges(bool whipped, string propertyName)
         {
             FlyingSaucer fs = new();
@@ -211,10 +248,17 @@ namespace TheFlyingSaucer.DataTests
             });
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="berries"></param>
+        /// <param name="propertyName"></param>
         [Theory]
         [InlineData(false, "Berries")]
         [InlineData(false, "Calories")]
         [InlineData(false, "SpecialInstructions")]
+        [InlineData(true, "Berries")]
+        [InlineData(true, "Calories")]
         [InlineData(true, "SpecialInstructions")]
         public void ChangingBerriesShouldNotifyOfPropertyChanges(bool berries, string propertyName)
         {
@@ -224,9 +268,9 @@ namespace TheFlyingSaucer.DataTests
             });
         }
 
-
         #endregion
 
+
     }
-    
+
 }

@@ -38,11 +38,9 @@ namespace TheFlyingSaucer.Data.Sides
             set 
             { 
                 _style = value;
-                if (_style != EggStyle.OverEasy)
-                {
-                    OnPropertyChanged(nameof(SpecialInstructions));
-                    OnPropertyChanged(nameof(Style));
-                }
+                OnPropertyChanged(nameof(SpecialInstructions));
+                OnPropertyChanged(nameof(Style));
+
             }
         }
 
@@ -65,28 +63,18 @@ namespace TheFlyingSaucer.Data.Sides
                 if (value <= 6 && value >= 1)
                 {
                     _count = value;
-                    if(_count != 2)
-                    {
-                        OnPropertyChanged(nameof(Calories));
-                        OnPropertyChanged(nameof(SpecialInstructions));
-                        OnPropertyChanged(nameof(Price));
-                    }
-                    
                 }
                 else if (value > 6)
                 {
                     _count = 6;
-                    OnPropertyChanged(nameof(Calories));
-                    OnPropertyChanged(nameof(Price));
-                    OnPropertyChanged(nameof(SpecialInstructions));
                 }
                 else
                 {
                     _count = 1;
-                    OnPropertyChanged(nameof(Calories));
-                    OnPropertyChanged(nameof(Price));
-                    OnPropertyChanged(nameof(SpecialInstructions));
                 }
+                OnPropertyChanged(nameof(Calories));
+                OnPropertyChanged(nameof(SpecialInstructions));
+                OnPropertyChanged(nameof(Price));
             }
         }
 

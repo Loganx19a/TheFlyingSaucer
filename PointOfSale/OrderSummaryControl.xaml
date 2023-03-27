@@ -29,18 +29,38 @@
 
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
+                    <StackPanel>
                         
-                        <TextBlock Text="{Binding Path=Name, StringFormat=' {0}   '}"
-                                   FontSize="16" FontWeight="DemiBold"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Path=Name, StringFormat=' {0}   '}"
+                                       FontSize="16" FontWeight="DemiBold"/>
                         
-                        <TextBlock Text="{Binding Path=Price, StringFormat=' {0}  '}"
-                                   FontSize="16" FontWeight="DemiBold"/>
+                            <TextBlock Text="{Binding Path=Price, StringFormat=' {0}  '}"
+                                       FontSize="16" FontWeight="DemiBold"/>
 
-                        <Button Click="EditItemClick" FontSize="18">Edit</Button>
-                        <TextBlock Text="     "/>
-                        <Button Click="RemoveButtonClick" FontSize="18">Remove</Button>
+                            <Button Click="EditItemClick" FontSize="18">Edit</Button>
+                            <TextBlock Text="     "/>
+                            <Button Click="RemoveButtonClick" FontSize="18">Remove</Button>
+                        </StackPanel>
                         
+                        <ListView ItemsSource="{Binding Path=SpecialInstructions}" BorderThickness="0">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem">
+                                    <Setter Property="IsHitTestVisible" Value="False"/>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <BulletDecorator>
+                                        <BulletDecorator.Bullet>
+                                            <Ellipse Height="5" Width="5" Fill="Black"/>
+                                        </BulletDecorator.Bullet>
+                                        <TextBlock Text="{Binding StringFormat=' {0}'}"/>
+                                    </BulletDecorator>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                            
                     </StackPanel>
                     
                 </DataTemplate>

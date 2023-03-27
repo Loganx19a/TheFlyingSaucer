@@ -43,19 +43,15 @@ namespace TheFlyingSaucer.Data.Entrees
                 if (value <= 8)
                 {
                     _numBiscuits = value;
-                    OnPropertyChanged(nameof(Biscuits));
-                    OnPropertyChanged(nameof(Calories));
-                    OnPropertyChanged(nameof(Price));
-                    if (value != 3) OnPropertyChanged(nameof(SpecialInstructions));
                 }
                 else
                 {
                     _numBiscuits = 8;
-                    OnPropertyChanged(nameof(Biscuits));
-                    OnPropertyChanged(nameof(Calories));
-                    OnPropertyChanged(nameof(Price));
-                    OnPropertyChanged(nameof(SpecialInstructions));
                 }
+                OnPropertyChanged(nameof(Biscuits));
+                OnPropertyChanged(nameof(Calories));
+                OnPropertyChanged(nameof(Price));
+                OnPropertyChanged(nameof(SpecialInstructions));
             }
         }
 
@@ -73,6 +69,7 @@ namespace TheFlyingSaucer.Data.Entrees
             set 
             {
                 _gravy = value;
+                OnPropertyChanged(nameof(Gravy));
                 OnPropertyChanged(nameof(Calories));
                 OnPropertyChanged(nameof(SpecialInstructions));
             }
@@ -112,7 +109,8 @@ namespace TheFlyingSaucer.Data.Entrees
             get
             {
                 List<string> instructions = new();
-                if (_numBiscuits != 3) instructions.Add($"{_numBiscuits} Biscuits");
+                if (_numBiscuits != 3 && _numBiscuits != 1) instructions.Add($"{_numBiscuits} Biscuits");
+                if (_numBiscuits == 1) instructions.Add($"{_numBiscuits} Biscuit");
                 if (!Gravy) instructions.Add("Hold Gravy");
                 return instructions;
             }
