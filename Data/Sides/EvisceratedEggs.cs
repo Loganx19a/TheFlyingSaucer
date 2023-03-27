@@ -72,6 +72,7 @@ namespace TheFlyingSaucer.Data.Sides
                 {
                     _count = 1;
                 }
+                OnPropertyChanged(nameof(Count));
                 OnPropertyChanged(nameof(Calories));
                 OnPropertyChanged(nameof(SpecialInstructions));
                 OnPropertyChanged(nameof(Price));

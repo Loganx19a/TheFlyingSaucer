@@ -40,6 +40,8 @@
 
             <local:CountBox Count="{Binding Path=Count}" Grid.Row="2" Grid.Column="1" FontSize="20" />
 
+            <local:EggStyleControl Grid.Row="2" Grid.Column="2"/>
+
 
             <TextBlock Text="Customize Eviscerated Eggs" FontSize="30" FontWeight="Bold" Grid.Column="2" TextWrapping="Wrap"
                        HorizontalAlignment="Center" VerticalAlignment="Center"/>

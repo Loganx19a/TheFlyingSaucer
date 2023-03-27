@@ -29,7 +29,9 @@
 
 
             <CheckBox IsChecked="{Binding Path=Ice}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            
+
+            <local:ServingSizeControl Grid.Row="2" Grid.Column="2"/>
+
 
 
 

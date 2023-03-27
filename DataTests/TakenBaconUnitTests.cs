@@ -167,5 +167,26 @@ namespace TheFlyingSaucer.DataTests
         }
 
         #endregion
+
+        #region property changes
+
+        [Theory]
+        [InlineData(1, "Count")]
+        [InlineData(2, "Price")]
+        [InlineData(3, "Calories")]
+        [InlineData(4, "SpecialInstructions")]
+        [InlineData(5, "SpecialInstructions")]
+        [InlineData(6, "Calories")]
+        [InlineData(3, "Price")]
+        [InlineData(4, "Count")]
+        public void ChangingCountShouldNotifyOfPropertyChanges(uint count, string propertyName)
+        {
+            TakenBacon tb = new();
+            Assert.PropertyChanged(tb, propertyName, () => {
+                tb.Count = count;
+            });
+        }
+
+        #endregion
     }
 }

@@ -167,5 +167,54 @@ namespace TheFlyingSaucer.DataTests
         }
 
         #endregion
+
+        #region property changes
+
+        [Theory]
+        [InlineData(false, "SourCream")]
+        [InlineData(false, "Calories")]
+        [InlineData(false, "SpecialInstructions")]
+        [InlineData(true, "SourCream")]
+        [InlineData(true, "Calories")]
+        [InlineData(true, "SpecialInstructions")]
+        public void ChangingSourCreamShouldNotifyOfPropertyChanges(bool sourCream, string propertyName)
+        {
+            GlowingHaystack gh = new();
+            Assert.PropertyChanged(gh, propertyName, () => {
+                gh.SourCream = sourCream;
+            });
+        }
+
+        [Theory]
+        [InlineData(false, "GreenChileSauce")]
+        [InlineData(false, "Calories")]
+        [InlineData(false, "SpecialInstructions")]
+        [InlineData(true, "GreenChileSauce")]
+        [InlineData(true, "Calories")]
+        [InlineData(true, "SpecialInstructions")]
+        public void ChangingGreenChileSauceShouldNotifyOfPropertyChanges(bool chileSauce, string propertyName)
+        {
+            GlowingHaystack gh = new();
+            Assert.PropertyChanged(gh, propertyName, () => {
+                gh.GreenChileSauce = chileSauce;
+            });
+        }
+
+        [Theory]
+        [InlineData(false, "Tomatoes")]
+        [InlineData(false, "Calories")]
+        [InlineData(false, "SpecialInstructions")]
+        [InlineData(true, "Tomatoes")]
+        [InlineData(true, "Calories")]
+        [InlineData(true, "SpecialInstructions")]
+        public void ChangingTomatoesShouldNotifyOfPropertyChanges(bool tomatoes, string propertyName)
+        {
+            GlowingHaystack gh = new();
+            Assert.PropertyChanged(gh, propertyName, () => {
+                gh.Tomatoes = tomatoes;
+            });
+        }
+
+        #endregion
     }
 }

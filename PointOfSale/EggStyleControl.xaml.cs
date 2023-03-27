@@ -16,14 +16,13 @@ using System.Windows.Shapes;
 namespace TheFlyingSaucer.PointOfSale
 {
     /// <summary>
-    /// Interaction logic for ServingSizeControl.xaml
+    /// Interaction logic for EggStyleControl.xaml
     /// </summary>
-    public partial class ServingSizeControl : UserControl
+    public partial class EggStyleControl : UserControl
     {
-        public ServingSizeControl()
+        public EggStyleControl()
         {
             InitializeComponent();
         }
-
     }
 }

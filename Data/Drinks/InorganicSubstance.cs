@@ -14,10 +14,20 @@ namespace TheFlyingSaucer.Data.Drinks
     /// </summary>
     public class InorganicSubstance : Drink
     {
+
+
         /// <summary>
         /// The name of the Inorganic Substance instance
         /// </summary>
-        public override string Name { get; } = "Inorganic Substance";
+        public override string Name
+        {
+            get
+            {
+                if (Size == ServingSize.Medium) return "Medium Inorganic Substance";
+                if (Size == ServingSize.Large) return "Large Inorganic Substance";
+                return "Inorganic Substance";
+            }
+        }
 
         /// <summary>
         /// The description of the Inorganic Substance instance
@@ -25,9 +35,23 @@ namespace TheFlyingSaucer.Data.Drinks
         public override string Description { get; } = "A cold glass of ice water.";
 
         /// <summary>
+        /// A private backing field for the Size property
+        /// </summary>
+        private ServingSize _size = ServingSize.Small;
+
+        /// <summary>
         /// The serving size of the Inorganic Substance instance
         /// </summary>
-        public override ServingSize Size { get; set; } = ServingSize.Small;
+        public override ServingSize Size
+        {
+            get { return _size; }
+            set
+            {
+                _size = value;
+                OnPropertyChanged(nameof(Size));
+                OnPropertyChanged(nameof(Name));
+            }
+        }
 
         /// <summary>
         /// A private backing field for the Ice property

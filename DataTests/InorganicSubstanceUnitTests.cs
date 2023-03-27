@@ -130,5 +130,22 @@ namespace TheFlyingSaucer.DataTests
         }
 
         #endregion
+
+        #region property changes
+
+        [Theory]
+        [InlineData(false, "Ice")]
+        [InlineData(false, "SpecialInstructions")]
+        [InlineData(true, "Ice")]
+        [InlineData(true, "SpecialInstructions")]
+        public void ChangingIceShouldNotifyOfPropertyChanges(bool ice, string propertyName)
+        {
+            InorganicSubstance inS = new();
+            Assert.PropertyChanged(inS, propertyName, () => {
+                inS.Ice = ice;
+            });
+        }
+
+        #endregion
     }
 }

@@ -114,7 +114,26 @@ namespace TheFlyingSaucer.DataTests
             Assert.Equal("Crop Circle", name);
         }
 
-        #endregion 
+        #endregion
+
+        #region property changes
+
+        [Theory]
+        [InlineData(false, "Berries")]
+        [InlineData(false, "Calories")]
+        [InlineData(false, "SpecialInstructions")]
+        [InlineData(true, "Berries")]
+        [InlineData(true, "Calories")]
+        [InlineData(true, "SpecialInstructions")]
+        public void ChangingBerriesShouldNotifyOfPropertyChanges(bool berries, string propertyName)
+        {
+            CropCircle cc = new();
+            Assert.PropertyChanged(cc, propertyName, () => {
+                cc.Berries = berries;
+            });
+        }
+
+        #endregion
     }
 
 }

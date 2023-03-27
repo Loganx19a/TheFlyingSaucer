@@ -144,5 +144,26 @@ namespace TheFlyingSaucer.DataTests
         }
 
         #endregion
+
+        #region property changes
+
+        [Theory]
+        [InlineData(1, "Count")]
+        [InlineData(2, "Price")]
+        [InlineData(3, "Calories")]
+        [InlineData(4, "SpecialInstructions")]
+        [InlineData(5, "SpecialInstructions")]
+        [InlineData(6, "Calories")]
+        [InlineData(7, "Price")]
+        [InlineData(8, "Count")]
+        public void ChangingCountShouldNotifyOfPropertyChanges(uint count, string propertyName)
+        {
+            YouAreToast yat = new();
+            Assert.PropertyChanged(yat, propertyName, () => {
+                yat.Count = count;
+            });
+        }
+
+        #endregion
     }
 }

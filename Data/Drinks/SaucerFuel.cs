@@ -21,10 +21,13 @@ namespace TheFlyingSaucer.Data.Drinks
         {
             get
             {
-                if (Decaf == true)
-                    return "Decaf Saucer Fuel";
-                else
-                    return "Saucer Fuel";
+                if (Decaf == true && Size == ServingSize.Small) return "Decaf Saucer Fuel";
+
+                if (Size == ServingSize.Medium && Decaf == true) return "Medium Decaf Saucer Fuel";
+                if (Size == ServingSize.Medium && Decaf == false) return "Medium Saucer Fuel";
+                if (Size == ServingSize.Large && Decaf == true) return "Large Decaf Saucer Fuel";
+                if (Size == ServingSize.Large && Decaf == false) return "Large Saucer Fuel";
+                return "Saucer Fuel";
             }
         }
 
@@ -50,6 +53,7 @@ namespace TheFlyingSaucer.Data.Drinks
                 OnPropertyChanged(nameof(Size));
                 OnPropertyChanged(nameof(Price));
                 OnPropertyChanged(nameof(Calories));
+                OnPropertyChanged(nameof(Name));
             }
         }
 
@@ -68,6 +72,7 @@ namespace TheFlyingSaucer.Data.Drinks
             {
                 _decaf = value;
                 OnPropertyChanged(nameof(Decaf));
+                OnPropertyChanged(nameof(Name));
             }
         }
 

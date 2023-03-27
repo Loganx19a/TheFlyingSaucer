@@ -52,6 +52,8 @@
             <TextBlock Text="{Binding Path=Calories}" FontSize="30" Grid.Row="6" Grid.Column="2"
                        HorizontalAlignment="Left" VerticalAlignment="Bottom" />
 
+            <local:ServingSizeControl Grid.Row="2" Grid.Column="2"/>
+
         </Grid>
     </Border>
 </UserControl>

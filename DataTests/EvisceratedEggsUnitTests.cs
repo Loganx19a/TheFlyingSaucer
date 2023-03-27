@@ -203,5 +203,40 @@ namespace TheFlyingSaucer.DataTests
 
         #endregion
 
+        #region property changes
+
+        [Theory]
+        [InlineData(2, "Count")]
+        [InlineData(3, "Price")]
+        [InlineData(4, "Calories")]
+        [InlineData(5, "SpecialInstructions")]
+        [InlineData(6, "SpecialInstructions")]
+        public void ChangingCountShouldNotifyOfPropertyChanges(uint count, string propertyName)
+        {
+            EvisceratedEggs ee = new();
+            Assert.PropertyChanged(ee, propertyName, () => {
+                ee.Count = count;
+            });
+        }
+
+        [Theory]
+        [InlineData(EggStyle.OverEasy, "Style")]
+        [InlineData(EggStyle.Poached, "Style")]
+        [InlineData(EggStyle.Scrambled, "Style")]
+        [InlineData(EggStyle.SoftBoiled, "SpecialInstructions")]
+        [InlineData(EggStyle.SunnySideUp, "SpecialInstructions")]
+        [InlineData(EggStyle.HardBoiled, "SpecialInstructions")]
+        [InlineData(EggStyle.SunnySideUp, "Style")]
+        [InlineData(EggStyle.HardBoiled, "Style")]
+        public void ChangingStyleShouldNotifyOfPropertyChanges(EggStyle style, string propertyName)
+        {
+            EvisceratedEggs ee = new();
+            Assert.PropertyChanged(ee, propertyName, () => {
+                ee.Style = style;
+            });
+        }
+
+        #endregion property changes
+
     }
 }
