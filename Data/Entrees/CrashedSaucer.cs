@@ -45,20 +45,15 @@ namespace TheFlyingSaucer.Data.Entrees
                 if (value <= 6)
                 {
                     _stackSize = value;
-                    OnPropertyChanged(nameof(StackSize));
-                    OnPropertyChanged(nameof(Calories));
-                    OnPropertyChanged(nameof(Price));
-                    OnPropertyChanged(nameof(SpecialInstructions));
-
                 }
                 else
                 {
                     _stackSize = 6;
-                    OnPropertyChanged(nameof(StackSize));
-                    OnPropertyChanged(nameof(Calories));
-                    OnPropertyChanged(nameof(Price));
-                    OnPropertyChanged(nameof(SpecialInstructions));
                 }
+                OnPropertyChanged(nameof(StackSize));
+                OnPropertyChanged(nameof(Calories));
+                OnPropertyChanged(nameof(Price));
+                OnPropertyChanged(nameof(SpecialInstructions));
             }
         }
 

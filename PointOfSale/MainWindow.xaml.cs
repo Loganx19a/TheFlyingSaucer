@@ -27,11 +27,6 @@ namespace TheFlyingSaucer.PointOfSale
             InitializeComponent();
             DataContext = new Order();
         }
-
-
-
-        
-        
         
         /// <summary>
         /// Shows the desired screen in the Main Window
@@ -42,14 +37,36 @@ namespace TheFlyingSaucer.PointOfSale
             MenuItemBorder.Child = screen;
         }
 
+        /// <summary>
+        /// An event handler method that's called when the user clicks on the "Back To Menu" button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BackToMainMenu(object sender, RoutedEventArgs e)
         {
             MenuItemBorder.Child = null;
         }
 
+        /// <summary>
+        /// An event handler method that's called when the user clicks on the "Cancel Order" button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void CancelOrderClick(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order order) this.DataContext = new Order();
+        }
+
+        /// <summary>
+        /// An event handler that's called when the user clicks the "Complete Order" button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void CompleteOrderClick(object sender, RoutedEventArgs e)
+        {
+            var screen = new PaymentOptionsScreen();
+            var window = Application.Current.MainWindow as TheFlyingSaucer.PointOfSale.MainWindow;
+            window.ShowScreen(screen);
         }
     }
 }
