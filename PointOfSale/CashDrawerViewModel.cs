@@ -15,6 +15,8 @@ namespace TheFlyingSaucer.PointOfSale
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 
+        #region properties that represent the quantity of each kind of currency: the customer is using to pay, in the drawer, and that should be provided to the customer as change
+
         private uint _penniesFromCustomer;
 
         /// <summary>
@@ -142,7 +144,6 @@ namespace TheFlyingSaucer.PointOfSale
                 if (_dimesFromCustomer != value) _dimesFromCustomer = value;
                 OnPropertyChanged(nameof(DimesFromCustomer));
                 //OnPropertyChanged(nameof(PenniesInDrawer));
-
             }
 
         }
@@ -498,6 +499,11 @@ namespace TheFlyingSaucer.PointOfSale
             }
         }
 
+        #endregion
+
+
+        #region methods
+
         /// <summary>
         /// 
         /// </summary>
@@ -535,15 +541,29 @@ namespace TheFlyingSaucer.PointOfSale
 
         }
 
+        /// <summary>
+        /// A method for finalizing the transaction
+        /// </summary>
+        public void FinalizeTransaction()
+        {
+            PenniesInDrawer += _penniesFromCustomer;
+            NicklesInDrawer += _nicklesFromCustomer;
+            DimesInDrawer += _dimesFromCustomer;
+            QuartersInDrawer += _quartersFromCustomer;
+
+            OnesInDrawer += _onesFromCustomer;
+            FivesInDrawer += _fivesFromCustomer;
+            TensInDrawer += _tensFromCustomer;
+            TwentiesInDrawer += _twentiesFromCustomer;
+
+        }
+
         protected virtual void OnPropertyChanged(string propertyName)
         {
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
 
-        // amount change to give
-
-
-        // how much in drawer
+        #endregion
     }
 }

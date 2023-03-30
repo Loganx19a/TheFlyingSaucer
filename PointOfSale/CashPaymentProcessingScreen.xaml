@@ -28,15 +28,62 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             
-            <!-- Only need 1, 5, 10, 20, 1c 5c 10c and 25c -->
-            <local:CashPaymentControl Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"/>
+            <!-- CashPaymentControls -->
             <local:CashPaymentControl Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
             <local:CashPaymentControl Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"/>
             <local:CashPaymentControl Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"/>
-            <local:CashPaymentControl Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="2"/>
+            <local:CashPaymentControl Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"/>
             <local:CashPaymentControl Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2"/>
             <local:CashPaymentControl Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2"/>
             <local:CashPaymentControl Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2"/>
+            <local:CashPaymentControl Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2"/>
+            
+            <!-- Header -->
+            <TextBlock Text="From Customer" 
+                       FontSize="18" TextWrapping="WrapWithOverflow" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <TextBlock Text="Give As Change"
+                       FontSize="18" TextWrapping="WrapWithOverflow" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <TextBlock Text="From Customer"
+                       FontSize="18" TextWrapping="WrapWithOverflow" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <TextBlock Text="Give As Change"
+                       FontSize="18" TextWrapping="WrapWithOverflow" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center" />
+
+            <!-- Footer -->
+            <TextBlock Text="Total Sale" FontSize="18"
+                       Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Text="Amount Due" FontSize="18"
+                       Grid.Row="6" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Text="Total Sale" FontSize="18"
+                       Grid.Row="6" Grid.Column="4" VerticalAlignment="Center"/>
+            
+            <TextBlock Text="{Binding Path=AmountDue}" 
+                       Grid.Row="6" Grid.Column="3" FontSize="18"/>
+
+
+            <Button Grid.Row="7" Grid.Column="5" FontSize="18">
+                Finalize Sale</Button>
+            
+            
+
+
+            <!-- Green and Blue Denomination Columns -->
+            <TextBlock Text="$20"
+                       Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Green" FontSize="25"/>
+            <TextBlock Text="$10"
+                       Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Green" FontSize="25"/>
+            <TextBlock Text="$5"
+                       Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Green" FontSize="25"/>
+            <TextBlock Text="$1"
+                       Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Green" FontSize="25"/>
+            <TextBlock Text="25c"
+                       Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Background="LightBlue" FontSize="25"/>
+            <TextBlock Text="10c"
+                       Grid.Row="2" Grid.Column="3"  HorizontalAlignment="Center" VerticalAlignment="Center" Background="LightBlue" FontSize="25"/>
+            <TextBlock Text="5c"
+                       Grid.Row="3" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Background="LightBlue" FontSize="25"/>
+            <TextBlock Text="1c"
+                       Grid.Row="4" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Background="LightBlue" FontSize="25"/>
+            
             
         </Grid>
     </Border>
