@@ -24,5 +24,18 @@ namespace TheFlyingSaucer.PointOfSale
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// An event handler that's called when the user clicks the "Complete Order" button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void CashClick(object sender, RoutedEventArgs e)
+        {
+            var screen = new CashPaymentProcessingScreen();
+            var window = Application.Current.MainWindow as TheFlyingSaucer.PointOfSale.MainWindow;
+            //window.ShowScreen(screen);
+            window.MenuItemBorder.Child = screen;
+        }
     }
 }
