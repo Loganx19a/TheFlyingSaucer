@@ -65,7 +65,7 @@
             <TextBlock Text="{Binding Path=ChangeOwed, StringFormat=' {0:c}'}"
                        Grid.Row="6" Grid.Column="5" Background="Green" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
 
-            <Button Grid.Row="7" Grid.Column="5" FontSize="18">
+            <Button Click="FinalizeSale" Grid.Row="7" Grid.Column="5" FontSize="18">
                 Finalize Sale</Button>
             
             

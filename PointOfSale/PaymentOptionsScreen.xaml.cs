@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RoundRegister;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,7 +28,7 @@ namespace TheFlyingSaucer.PointOfSale
         }
 
         /// <summary>
-        /// An event handler that's called when the user clicks the "Complete Order" button
+        /// An event handler that's called when the user clicks the "Cash" button
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -35,10 +36,26 @@ namespace TheFlyingSaucer.PointOfSale
         {
             var window = Application.Current.MainWindow as TheFlyingSaucer.PointOfSale.MainWindow;
             Order temp = (Order)window.DataContext;
-            var screen = new CashPaymentProcessingScreen() {DataContext= new CashDrawerViewModel() {Total = temp.Total}};
+            var screen = new CashPaymentProcessingScreen() {DataContext= new CashDrawerViewModel(temp) {Total = temp.Total}};
             
-            //window.ShowScreen(screen);
-            window.MenuItemBorder.Child = screen;
+            window.ShowScreen(screen);
+            //window.MenuItemBorder.Child = screen;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void CreditDebitClick(object sender, RoutedEventArgs e)
+        {
+            var window = Application.Current.MainWindow as TheFlyingSaucer.PointOfSale.MainWindow;
+            Order temp = (Order)window.DataContext;
+            string result = CardReader.RunCard((double)temp.Total).ToString();
+
+            CashDrawerViewModel viewModel = new CashDrawerViewModel(temp);
+            if (result.Equals("Approved")) viewModel.PrintReceipt();
+            MessageBox.Show(result);
         }
     }
 }

@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using RoundRegister;
 using System.ComponentModel;
+using TheFlyingSaucer.Data;
+using TheFlyingSaucer.Data.BaseClasses;
 
 namespace TheFlyingSaucer.PointOfSale
 {
@@ -16,6 +18,8 @@ namespace TheFlyingSaucer.PointOfSale
         public event PropertyChangedEventHandler? PropertyChanged;
 
         #region properties that represent the quantity of each kind of currency: the customer is using to pay, in the drawer, and that should be given to the customer as change
+
+        public Order orderObject { get; set; }
 
         /// <summary>
         /// 
@@ -591,6 +595,15 @@ namespace TheFlyingSaucer.PointOfSale
         #region methods
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="orderObject"></param>
+        public CashDrawerViewModel(Order orderObject)
+        {
+            this.orderObject = orderObject;
+        }
+
+        /// <summary>
         /// A method for making the appropriate change
         /// </summary>
         public void MakeChange()
@@ -685,7 +698,45 @@ namespace TheFlyingSaucer.PointOfSale
 
             #region Deduct the quantity given as change
             #endregion
-            MakeChange(); 
+
+            MakeChange();
+            PrintReceipt();
+        }
+
+        public void PrintReceipt()
+        {
+            #region The receipt should print the following
+            /*
+                The order number
+                The date and time the order was finalized
+                A complete list of all items in the order, including their price and any customization instructions
+                The subtotal for the order
+                The tax for the order
+                The total for the order
+                The payment method (i.e. cash or card)
+                The change owed
+             */
+            #endregion
+
+
+            RoundRegister.ReceiptPrinter.PrintLine("Order Number: " + orderObject.Number.ToString());
+            RoundRegister.ReceiptPrinter.PrintLine("Date: " + orderObject.PlacedAt.ToString());
+
+            foreach (IMenuItem item in orderObject)
+            {
+                RoundRegister.ReceiptPrinter.PrintLine("Name: " + item.Name);
+                RoundRegister.ReceiptPrinter.PrintLine("Price: " + item.Price.ToString());
+
+                foreach (string instruction in item.SpecialInstructions)
+                {
+                    RoundRegister.ReceiptPrinter.PrintLine(instruction);
+                }
+            }
+            RoundRegister.ReceiptPrinter.PrintLine("Subtotal: " + orderObject.Subtotal.ToString());
+            RoundRegister.ReceiptPrinter.PrintLine("Tax: " + orderObject.Tax.ToString());
+            RoundRegister.ReceiptPrinter.PrintLine("Total: " + orderObject.Total.ToString());
+
+            RoundRegister.ReceiptPrinter.CutTape();
         }
 
         /// <summary>

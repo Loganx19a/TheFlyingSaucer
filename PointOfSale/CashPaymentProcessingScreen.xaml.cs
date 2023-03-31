@@ -25,15 +25,10 @@ namespace TheFlyingSaucer.PointOfSale
         {
             InitializeComponent();
         }
-        /*
-        public CashDrawerViewModel _connection = new CashDrawerViewModel();
-        */
 
-        /*
         public void FinalizeSale(object sender, RoutedEventArgs e)
         {
             ((CashDrawerViewModel)this.DataContext).FinalizeTransaction();
         }
-        */
     }
 }

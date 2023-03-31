@@ -16,7 +16,7 @@
 
             <Button Click="CashClick" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center">
                 Cash</Button>
-            <Button FontSize="40" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" 
+            <Button Click="CreditDebitClick" FontSize="40" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" 
                     >Credit/Debit</Button>
 
         </Grid>
