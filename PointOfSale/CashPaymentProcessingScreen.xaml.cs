@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TheFlyingSaucer.Data;
 
 namespace TheFlyingSaucer.PointOfSale
 {
@@ -24,5 +25,15 @@ namespace TheFlyingSaucer.PointOfSale
         {
             InitializeComponent();
         }
+        /*
+        public CashDrawerViewModel _connection = new CashDrawerViewModel();
+        */
+
+        /*
+        public void FinalizeSale(object sender, RoutedEventArgs e)
+        {
+            ((CashDrawerViewModel)this.DataContext).FinalizeTransaction();
+        }
+        */
     }
 }

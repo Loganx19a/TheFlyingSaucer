@@ -14,10 +14,11 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        
         <Button FontSize="25" Grid.Column="0" ButtonBase.Click="HandleDecrement">-</Button>
-        <TextBox FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Text="{Binding Path=Count, RelativeSource={RelativeSource AncestorType=local:CashPaymentControl}}"/>
+        <TextBox FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Text="{Binding Path=Paid, RelativeSource={RelativeSource AncestorType=local:CashPaymentControl}}"/>
         <Button FontSize="25" Grid.Column="2" ButtonBase.Click="HandleIncrement">+</Button>
-        <TextBox FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="3" Text="{Binding Path=Count, RelativeSource={RelativeSource AncestorType=local:CashPaymentControl}}"/>
+        <TextBox FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="3" Text="{Binding Path=Owed, RelativeSource={RelativeSource AncestorType=local:CashPaymentControl}}"/>
 
 
     </Grid>

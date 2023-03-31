@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TheFlyingSaucer.Data;
 
 namespace TheFlyingSaucer.PointOfSale
 {
@@ -32,8 +33,10 @@ namespace TheFlyingSaucer.PointOfSale
         /// <param name="e"></param>
         void CashClick(object sender, RoutedEventArgs e)
         {
-            var screen = new CashPaymentProcessingScreen();
             var window = Application.Current.MainWindow as TheFlyingSaucer.PointOfSale.MainWindow;
+            Order temp = (Order)window.DataContext;
+            var screen = new CashPaymentProcessingScreen() {DataContext= new CashDrawerViewModel() {Total = temp.Total}};
+            
             //window.ShowScreen(screen);
             window.MenuItemBorder.Child = screen;
         }

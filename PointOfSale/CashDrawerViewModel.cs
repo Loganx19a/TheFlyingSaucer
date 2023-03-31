@@ -15,8 +15,11 @@ namespace TheFlyingSaucer.PointOfSale
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        #region properties that represent the quantity of each kind of currency: the customer is using to pay, in the drawer, and that should be provided to the customer as change
+        #region properties that represent the quantity of each kind of currency: the customer is using to pay, in the drawer, and that should be given to the customer as change
 
+        /// <summary>
+        /// 
+        /// </summary>
         private uint _penniesFromCustomer;
 
         /// <summary>
@@ -32,8 +35,9 @@ namespace TheFlyingSaucer.PointOfSale
             {
                 if (_penniesFromCustomer != value) _penniesFromCustomer = value;
                 OnPropertyChanged(nameof(PenniesInDrawer));
-                //OnPropertyChanged(nameof(PenniesInDrawer));
-
+                OnPropertyChanged(nameof(AmountDueNegative));
+                OnPropertyChanged(nameof(ChangeOwed));
+                OnPropertyChanged(nameof(AmountDue));
             }
 
         }
@@ -57,8 +61,14 @@ namespace TheFlyingSaucer.PointOfSale
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private uint _penniesChange = 0;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public uint PenniesChange
         {
             get
@@ -72,6 +82,9 @@ namespace TheFlyingSaucer.PointOfSale
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private uint _nicklesFromCustomer;
 
         /// <summary>
@@ -87,8 +100,9 @@ namespace TheFlyingSaucer.PointOfSale
             {
                 if (_nicklesFromCustomer != value) _nicklesFromCustomer = value;
                 OnPropertyChanged(nameof(NicklesFromCustomer));
-                //OnPropertyChanged(nameof(PenniesInDrawer));
-
+                OnPropertyChanged(nameof(AmountDueNegative));
+                OnPropertyChanged(nameof(ChangeOwed));
+                OnPropertyChanged(nameof(AmountDue));
             }
 
         }
@@ -112,8 +126,14 @@ namespace TheFlyingSaucer.PointOfSale
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private uint _nicklesChange = 0;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public uint NicklesChange
         {
             get
@@ -127,7 +147,9 @@ namespace TheFlyingSaucer.PointOfSale
             }
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
         private uint _dimesFromCustomer;
 
         /// <summary>
@@ -143,7 +165,9 @@ namespace TheFlyingSaucer.PointOfSale
             {
                 if (_dimesFromCustomer != value) _dimesFromCustomer = value;
                 OnPropertyChanged(nameof(DimesFromCustomer));
-                //OnPropertyChanged(nameof(PenniesInDrawer));
+                OnPropertyChanged(nameof(AmountDueNegative));
+                OnPropertyChanged(nameof(ChangeOwed));
+                OnPropertyChanged(nameof(AmountDue));
             }
 
         }
@@ -167,8 +191,14 @@ namespace TheFlyingSaucer.PointOfSale
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private uint _dimesChange = 0;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public uint DimesChange
         {
             get
@@ -182,6 +212,9 @@ namespace TheFlyingSaucer.PointOfSale
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private uint _quartersFromCustomer;
 
         /// <summary>
@@ -197,8 +230,9 @@ namespace TheFlyingSaucer.PointOfSale
             {
                 if (_quartersFromCustomer != value) _quartersFromCustomer = value;
                 OnPropertyChanged(nameof(QuartersFromCustomer));
-                //OnPropertyChanged(nameof(PenniesInDrawer));
-
+                OnPropertyChanged(nameof(AmountDueNegative));
+                OnPropertyChanged(nameof(ChangeOwed));
+                OnPropertyChanged(nameof(AmountDue));
             }
 
         }
@@ -222,8 +256,14 @@ namespace TheFlyingSaucer.PointOfSale
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private uint _quartersChange = 0;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public uint QuartersChange
         {
             get
@@ -237,6 +277,9 @@ namespace TheFlyingSaucer.PointOfSale
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private uint _onesFromCustomer;
 
         /// <summary>
@@ -252,8 +295,9 @@ namespace TheFlyingSaucer.PointOfSale
             {
                 if (_onesFromCustomer != value) _onesFromCustomer = value;
                 OnPropertyChanged(nameof(OnesFromCustomer));
-                //OnPropertyChanged(nameof(PenniesInDrawer));
-
+                OnPropertyChanged(nameof(AmountDueNegative));
+                OnPropertyChanged(nameof(ChangeOwed));
+                OnPropertyChanged(nameof(AmountDue));
             }
 
         }
@@ -277,8 +321,14 @@ namespace TheFlyingSaucer.PointOfSale
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private uint _onesChange = 0;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public uint OnesChange
         {
             get
@@ -292,6 +342,9 @@ namespace TheFlyingSaucer.PointOfSale
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private uint _fivesFromCustomer;
 
         /// <summary>
@@ -307,8 +360,9 @@ namespace TheFlyingSaucer.PointOfSale
             {
                 if (_fivesFromCustomer != value) _fivesFromCustomer = value;
                 OnPropertyChanged(nameof(FivesFromCustomer));
-                //OnPropertyChanged(nameof(PenniesInDrawer));
-
+                OnPropertyChanged(nameof(AmountDueNegative));
+                OnPropertyChanged(nameof(ChangeOwed));
+                OnPropertyChanged(nameof(AmountDue));
             }
 
         }
@@ -332,8 +386,14 @@ namespace TheFlyingSaucer.PointOfSale
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private uint _fivesChange = 0;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public uint FivesChange
         {
             get
@@ -347,6 +407,9 @@ namespace TheFlyingSaucer.PointOfSale
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private uint _tensFromCustomer;
 
         /// <summary>
@@ -362,8 +425,9 @@ namespace TheFlyingSaucer.PointOfSale
             {
                 if (_tensFromCustomer != value) _tensFromCustomer = value;
                 OnPropertyChanged(nameof(TensFromCustomer));
-                //OnPropertyChanged(nameof(PenniesInDrawer));
-
+                OnPropertyChanged(nameof(AmountDueNegative));
+                OnPropertyChanged(nameof(ChangeOwed));
+                OnPropertyChanged(nameof(AmountDue));
             }
 
         }
@@ -387,8 +451,14 @@ namespace TheFlyingSaucer.PointOfSale
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private uint _tensChange = 0;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public uint TensChange
         {
             get
@@ -402,6 +472,9 @@ namespace TheFlyingSaucer.PointOfSale
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private uint _twentiesFromCustomer;
 
         /// <summary>
@@ -417,8 +490,9 @@ namespace TheFlyingSaucer.PointOfSale
             {
                 if (_twentiesFromCustomer != value) _twentiesFromCustomer = value;
                 OnPropertyChanged(nameof(TwentiesFromCustomer));
-                //OnPropertyChanged(nameof(PenniesInDrawer));
-
+                OnPropertyChanged(nameof(AmountDueNegative));
+                OnPropertyChanged(nameof(ChangeOwed));
+                OnPropertyChanged(nameof(AmountDue));
             }
 
         }
@@ -442,8 +516,14 @@ namespace TheFlyingSaucer.PointOfSale
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private uint _twentiesChange = 0;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public uint TwentiesChange
         {
             get
@@ -457,8 +537,14 @@ namespace TheFlyingSaucer.PointOfSale
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public decimal Total { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public decimal AmountDue
         {
             get
@@ -469,25 +555,25 @@ namespace TheFlyingSaucer.PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// A property that calculates the difference between what the total and the amount the customer paid
         /// </summary>
         public decimal AmountDueNegative
         {
             get
             {
-                return Total - (PenniesFromCustomer * .01m 
-                    - NicklesFromCustomer * .05m
-                    - DimesFromCustomer * .10m 
-                    - QuartersFromCustomer * 25m
-                    - OnesFromCustomer * 1
-                    - FivesFromCustomer * 5
-                    - TensFromCustomer * 10
-                    - TwentiesFromCustomer * 20);
+                return Total - (PenniesFromCustomer * .01m) 
+                    - (NicklesFromCustomer * .05m)
+                    - (DimesFromCustomer * .10m) 
+                    - (QuartersFromCustomer * .25m)
+                    - (OnesFromCustomer * 1)
+                    - (FivesFromCustomer * 5)
+                    - (TensFromCustomer * 10)
+                    - (TwentiesFromCustomer * 20);
             }
         }
 
         /// <summary>
-        /// 
+        /// A property representing the change owed to the customer
         /// </summary>
         public decimal ChangeOwed
         {
@@ -505,7 +591,7 @@ namespace TheFlyingSaucer.PointOfSale
         #region methods
 
         /// <summary>
-        /// 
+        /// A method for making the appropriate change
         /// </summary>
         public void MakeChange()
         {
@@ -539,6 +625,34 @@ namespace TheFlyingSaucer.PointOfSale
                 OnesChange++;
             }
 
+            while (temp - .25m >= 0 && QuartersInDrawer > 0)
+            {
+                temp -= .25m;
+                QuartersInDrawer--;
+                QuartersChange++;
+            }
+
+            while (temp - .10m >= 0 && DimesInDrawer > 0)
+            {
+                temp -= .10m;
+                DimesInDrawer--;
+                DimesChange++;
+            }
+
+            while (temp - .05m >= 0 && NicklesInDrawer > 0)
+            {
+                temp -= .05m;
+                NicklesInDrawer--;
+                NicklesChange++;
+            }
+
+            while (temp - .01m >= 0 && PenniesInDrawer > 0)
+            {
+                temp -= .01m;
+                PenniesInDrawer--;
+                PenniesChange++;
+            }
+
         }
 
         /// <summary>
@@ -546,18 +660,38 @@ namespace TheFlyingSaucer.PointOfSale
         /// </summary>
         public void FinalizeTransaction()
         {
-            PenniesInDrawer += _penniesFromCustomer;
-            NicklesInDrawer += _nicklesFromCustomer;
-            DimesInDrawer += _dimesFromCustomer;
-            QuartersInDrawer += _quartersFromCustomer;
+            CashDrawer.Open();      // Invoke the CashDrawer.Open() method
 
-            OnesInDrawer += _onesFromCustomer;
-            FivesInDrawer += _fivesFromCustomer;
-            TensInDrawer += _tensFromCustomer;
-            TwentiesInDrawer += _twentiesFromCustomer;
+            #region Add the quantity of currency the customer paid to the CashDrawer's fields
+            #endregion
 
+            PenniesInDrawer += PenniesFromCustomer;
+            _penniesFromCustomer = 0;
+            NicklesInDrawer += NicklesFromCustomer;
+            _nicklesFromCustomer = 0;
+            DimesInDrawer += DimesFromCustomer;
+            _dimesFromCustomer = 0;
+            QuartersInDrawer += QuartersFromCustomer;
+            _quartersFromCustomer = 0;
+
+            OnesInDrawer += OnesFromCustomer;
+            _onesFromCustomer = 0;
+            FivesInDrawer += FivesFromCustomer;
+            _fivesFromCustomer = 0;
+            TensInDrawer += TensFromCustomer;
+            _tensFromCustomer = 0;
+            TwentiesInDrawer += TwentiesFromCustomer;
+            _twentiesFromCustomer = 0;
+
+            #region Deduct the quantity given as change
+            #endregion
+            MakeChange(); 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="propertyName"></param>
         protected virtual void OnPropertyChanged(string propertyName)
         {
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

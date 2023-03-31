@@ -28,7 +28,7 @@ namespace TheFlyingSaucer.PointOfSale
         public static readonly DependencyProperty FromCustomerProperty = DependencyProperty.Register(
             nameof(Paid),
             typeof(uint),
-            typeof(CountBox), new FrameworkPropertyMetadata(0u, FrameworkPropertyMetadataOptions.AffectsRender | FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
+            typeof(CashPaymentControl), new FrameworkPropertyMetadata(0u, FrameworkPropertyMetadataOptions.AffectsRender | FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
 
         public uint Paid
         {
@@ -39,7 +39,7 @@ namespace TheFlyingSaucer.PointOfSale
         public static readonly DependencyProperty OwedProperty = DependencyProperty.Register(
             nameof(Owed),
             typeof(uint),
-            typeof(CountBox), new FrameworkPropertyMetadata(0u, FrameworkPropertyMetadataOptions.AffectsRender | FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
+            typeof(CashPaymentControl), new FrameworkPropertyMetadata(0u, FrameworkPropertyMetadataOptions.AffectsRender | FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
 
         /// <summary>
         /// 
@@ -69,7 +69,7 @@ namespace TheFlyingSaucer.PointOfSale
         /// <param name="e"></param>
         private void HandleDecrement(object sender, RoutedEventArgs e)
         {
-            if (Owed != 0) Owed--;
+            if (Paid != 0) Paid--;
             e.Handled = true;
         }
     }

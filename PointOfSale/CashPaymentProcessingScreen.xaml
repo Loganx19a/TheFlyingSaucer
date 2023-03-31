@@ -29,14 +29,14 @@
             </Grid.ColumnDefinitions>
             
             <!-- CashPaymentControls -->
-            <local:CashPaymentControl Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
-            <local:CashPaymentControl Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"/>
-            <local:CashPaymentControl Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"/>
-            <local:CashPaymentControl Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"/>
-            <local:CashPaymentControl Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2"/>
-            <local:CashPaymentControl Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2"/>
-            <local:CashPaymentControl Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2"/>
-            <local:CashPaymentControl Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2"/>
+            <local:CashPaymentControl Paid="{Binding Path=TwentiesFromCustomer}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
+            <local:CashPaymentControl Paid="{Binding Path=TensFromCustomer}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"/>
+            <local:CashPaymentControl Paid="{Binding Path=FivesFromCustomer}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"/>
+            <local:CashPaymentControl Paid="{Binding Path=OnesFromCustomer}" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"/>
+            <local:CashPaymentControl Paid="{Binding Path=QuartersFromCustomer}" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2"/>
+            <local:CashPaymentControl Paid="{Binding Path=DimesFromCustomer}" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2"/>
+            <local:CashPaymentControl Paid="{Binding Path=NicklesFromCustomer}" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2"/>
+            <local:CashPaymentControl Paid="{Binding Path=PenniesFromCustomer}" Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2"/>
             
             <!-- Header -->
             <TextBlock Text="From Customer" 
@@ -49,16 +49,21 @@
                        FontSize="18" TextWrapping="WrapWithOverflow" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center" />
 
             <!-- Footer -->
-            <TextBlock Text="Total Sale" FontSize="18"
+            <TextBlock Text="Total Sale" FontSize="25"
                        Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <TextBlock Text="Amount Due" FontSize="18"
-                       Grid.Row="6" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <TextBlock Text="Total Sale" FontSize="18"
-                       Grid.Row="6" Grid.Column="4" VerticalAlignment="Center"/>
-            
-            <TextBlock Text="{Binding Path=AmountDue}" 
-                       Grid.Row="6" Grid.Column="3" FontSize="18"/>
+            <TextBlock Text="Amount Due" FontSize="25"
+                       Grid.Row="6" Grid.Column="2" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Text="Change Owed" FontSize="25"
+                       Grid.Row="6" Grid.Column="4" TextWrapping="Wrap" VerticalAlignment="Center"/>
 
+            <TextBlock Text="{Binding Path=Total, StringFormat=' {0:c}'}"
+                       Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
+
+            <TextBlock Text="{Binding Path=AmountDue, StringFormat=' {0:c}'}" 
+                       Grid.Row="6" Grid.Column="3" Background="Red" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
+
+            <TextBlock Text="{Binding Path=ChangeOwed, StringFormat=' {0:c}'}"
+                       Grid.Row="6" Grid.Column="5" Background="Green" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
 
             <Button Grid.Row="7" Grid.Column="5" FontSize="18">
                 Finalize Sale</Button>
