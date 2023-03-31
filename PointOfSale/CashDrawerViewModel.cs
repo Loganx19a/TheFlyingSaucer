@@ -38,6 +38,7 @@ namespace TheFlyingSaucer.PointOfSale
             set
             {
                 if (_penniesFromCustomer != value) _penniesFromCustomer = value;
+                OnPropertyChanged(nameof(PenniesFromCustomer));
                 OnPropertyChanged(nameof(PenniesInDrawer));
                 OnPropertyChanged(nameof(AmountDueNegative));
                 OnPropertyChanged(nameof(ChangeOwed));
@@ -104,6 +105,7 @@ namespace TheFlyingSaucer.PointOfSale
             {
                 if (_nicklesFromCustomer != value) _nicklesFromCustomer = value;
                 OnPropertyChanged(nameof(NicklesFromCustomer));
+                OnPropertyChanged(nameof(NicklesInDrawer));
                 OnPropertyChanged(nameof(AmountDueNegative));
                 OnPropertyChanged(nameof(ChangeOwed));
                 OnPropertyChanged(nameof(AmountDue));
@@ -729,7 +731,7 @@ namespace TheFlyingSaucer.PointOfSale
 
                 foreach (string instruction in item.SpecialInstructions)
                 {
-                    RoundRegister.ReceiptPrinter.PrintLine(instruction);
+                    RoundRegister.ReceiptPrinter.PrintLine("    " + instruction);
                 }
             }
             RoundRegister.ReceiptPrinter.PrintLine("Subtotal: " + orderObject.Subtotal.ToString());
