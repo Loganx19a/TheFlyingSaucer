@@ -11,10 +11,13 @@ using TheFlyingSaucer.Data.BaseClasses;
 namespace TheFlyingSaucer.PointOfSale
 {
     /// <summary>
-    /// 
+    /// The CashDrawerViewModel class that represents the ViewModel of the MVVM architecture
     /// </summary>
     public class CashDrawerViewModel: INotifyPropertyChanged
     {
+        /// <summary>
+        /// Event handler for implementing the INotifyPropertyChanged interface
+        /// </summary>
         public event PropertyChangedEventHandler? PropertyChanged;
 
         #region properties that represent the quantity of each kind of currency: the customer is using to pay, in the drawer, and that should be given to the customer as change
@@ -22,12 +25,12 @@ namespace TheFlyingSaucer.PointOfSale
         public Order orderObject { get; set; }
 
         /// <summary>
-        /// 
+        /// A private backing field for the pennies from the customer
         /// </summary>
         private uint _penniesFromCustomer;
 
         /// <summary>
-        /// 
+        /// A property for the pennies from the customer
         /// </summary>
         public uint PenniesFromCustomer
         {
@@ -48,7 +51,7 @@ namespace TheFlyingSaucer.PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// A property for the pennies in the cash drawer
         /// </summary>
         public uint PenniesInDrawer
         {
@@ -67,12 +70,12 @@ namespace TheFlyingSaucer.PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// A private backing field for the pennies to give to the customer as change
         /// </summary>
         private uint _penniesChange = 0;
 
         /// <summary>
-        /// 
+        /// A property for the pennies to give to the customer as change
         /// </summary>
         public uint PenniesChange
         {
@@ -88,12 +91,12 @@ namespace TheFlyingSaucer.PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// A private backing field for the nickels received from the customer
         /// </summary>
         private uint _nicklesFromCustomer;
 
         /// <summary>
-        /// 
+        /// A property for the nickels received from the customer
         /// </summary>
         public uint NicklesFromCustomer
         {
@@ -114,7 +117,7 @@ namespace TheFlyingSaucer.PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// A property for the nickels in the cash drawer
         /// </summary>
         public uint NicklesInDrawer
         {
@@ -133,12 +136,12 @@ namespace TheFlyingSaucer.PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// A private backing field for the nickels to give to the customer as change
         /// </summary>
         private uint _nicklesChange = 0;
 
         /// <summary>
-        /// 
+        /// A property for the nickels to give to the customer as change
         /// </summary>
         public uint NicklesChange
         {
@@ -154,12 +157,12 @@ namespace TheFlyingSaucer.PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// A private backing field for the dimes received from the customer
         /// </summary>
         private uint _dimesFromCustomer;
 
         /// <summary>
-        /// 
+        /// A property for the dimes received from the customer
         /// </summary>
         public uint DimesFromCustomer
         {
@@ -171,6 +174,7 @@ namespace TheFlyingSaucer.PointOfSale
             {
                 if (_dimesFromCustomer != value) _dimesFromCustomer = value;
                 OnPropertyChanged(nameof(DimesFromCustomer));
+                OnPropertyChanged(nameof(DimesInDrawer));
                 OnPropertyChanged(nameof(AmountDueNegative));
                 OnPropertyChanged(nameof(ChangeOwed));
                 OnPropertyChanged(nameof(AmountDue));
@@ -179,7 +183,7 @@ namespace TheFlyingSaucer.PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// A property for the dimes in the cash drawer
         /// </summary>
         public uint DimesInDrawer
         {
@@ -198,12 +202,12 @@ namespace TheFlyingSaucer.PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// A private backing field for the dimes to give to the customer as change
         /// </summary>
         private uint _dimesChange = 0;
 
         /// <summary>
-        /// 
+        /// A property for the dimes to give to the customer as change
         /// </summary>
         public uint DimesChange
         {
@@ -219,12 +223,12 @@ namespace TheFlyingSaucer.PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// A private backing field for the quarters received from the customer
         /// </summary>
         private uint _quartersFromCustomer;
 
         /// <summary>
-        /// 
+        /// A property for the quarters received from the customer
         /// </summary>
         public uint QuartersFromCustomer
         {
@@ -236,6 +240,7 @@ namespace TheFlyingSaucer.PointOfSale
             {
                 if (_quartersFromCustomer != value) _quartersFromCustomer = value;
                 OnPropertyChanged(nameof(QuartersFromCustomer));
+                OnPropertyChanged(nameof(QuartersInDrawer));
                 OnPropertyChanged(nameof(AmountDueNegative));
                 OnPropertyChanged(nameof(ChangeOwed));
                 OnPropertyChanged(nameof(AmountDue));
@@ -244,7 +249,7 @@ namespace TheFlyingSaucer.PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// A property for the quarters in the cash drawer
         /// </summary>
         public uint QuartersInDrawer
         {
@@ -263,12 +268,12 @@ namespace TheFlyingSaucer.PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// A private backing field for the quarters to give to the customer as change
         /// </summary>
         private uint _quartersChange = 0;
 
         /// <summary>
-        /// 
+        /// A property for the quarters to give to the customer as change
         /// </summary>
         public uint QuartersChange
         {
@@ -284,12 +289,12 @@ namespace TheFlyingSaucer.PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// A private backing field for the ones received from the customer
         /// </summary>
         private uint _onesFromCustomer;
 
         /// <summary>
-        /// 
+        /// A property for the ones received from the customer
         /// </summary>
         public uint OnesFromCustomer
         {
@@ -301,6 +306,7 @@ namespace TheFlyingSaucer.PointOfSale
             {
                 if (_onesFromCustomer != value) _onesFromCustomer = value;
                 OnPropertyChanged(nameof(OnesFromCustomer));
+                OnPropertyChanged(nameof(OnesInDrawer));
                 OnPropertyChanged(nameof(AmountDueNegative));
                 OnPropertyChanged(nameof(ChangeOwed));
                 OnPropertyChanged(nameof(AmountDue));
@@ -309,7 +315,7 @@ namespace TheFlyingSaucer.PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// A property for the ones in the cash drawer
         /// </summary>
         public uint OnesInDrawer
         {
@@ -328,12 +334,12 @@ namespace TheFlyingSaucer.PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// A private backing field for the ones to give to the customer as change
         /// </summary>
         private uint _onesChange = 0;
 
         /// <summary>
-        /// 
+        /// A property for the ones to give to the customer as change
         /// </summary>
         public uint OnesChange
         {
@@ -349,12 +355,12 @@ namespace TheFlyingSaucer.PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// A private backing field fo the fives received from the customer
         /// </summary>
         private uint _fivesFromCustomer;
 
         /// <summary>
-        /// 
+        /// A property for the fives received from the customer
         /// </summary>
         public uint FivesFromCustomer
         {
@@ -366,6 +372,7 @@ namespace TheFlyingSaucer.PointOfSale
             {
                 if (_fivesFromCustomer != value) _fivesFromCustomer = value;
                 OnPropertyChanged(nameof(FivesFromCustomer));
+                OnPropertyChanged(nameof(FivesInDrawer));
                 OnPropertyChanged(nameof(AmountDueNegative));
                 OnPropertyChanged(nameof(ChangeOwed));
                 OnPropertyChanged(nameof(AmountDue));
@@ -374,7 +381,7 @@ namespace TheFlyingSaucer.PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// A property for the fives in the cash drawer
         /// </summary>
         public uint FivesInDrawer
         {
@@ -393,12 +400,12 @@ namespace TheFlyingSaucer.PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// A private backing field for the fives given to the customer as change
         /// </summary>
         private uint _fivesChange = 0;
 
         /// <summary>
-        /// 
+        /// A property for the fives given to the customer as change
         /// </summary>
         public uint FivesChange
         {
@@ -414,12 +421,12 @@ namespace TheFlyingSaucer.PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// A private backing field for the tens recevied from the customer
         /// </summary>
         private uint _tensFromCustomer;
 
         /// <summary>
-        /// 
+        /// A property for the tens received from the customer
         /// </summary>
         public uint TensFromCustomer
         {
@@ -431,6 +438,7 @@ namespace TheFlyingSaucer.PointOfSale
             {
                 if (_tensFromCustomer != value) _tensFromCustomer = value;
                 OnPropertyChanged(nameof(TensFromCustomer));
+                OnPropertyChanged(nameof(TensInDrawer));
                 OnPropertyChanged(nameof(AmountDueNegative));
                 OnPropertyChanged(nameof(ChangeOwed));
                 OnPropertyChanged(nameof(AmountDue));
@@ -439,7 +447,7 @@ namespace TheFlyingSaucer.PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// A property for the tens in the cash drawer
         /// </summary>
         public uint TensInDrawer
         {
@@ -458,12 +466,12 @@ namespace TheFlyingSaucer.PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// A private backing field for the tens given to the customer as change
         /// </summary>
         private uint _tensChange = 0;
 
         /// <summary>
-        /// 
+        /// A property for the tens given to the customer as change
         /// </summary>
         public uint TensChange
         {
@@ -479,12 +487,12 @@ namespace TheFlyingSaucer.PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// A private backing field for the twenties received from the customer
         /// </summary>
         private uint _twentiesFromCustomer;
 
         /// <summary>
-        /// 
+        /// A property for the twenties received from the customer
         /// </summary>
         public uint TwentiesFromCustomer
         {
@@ -496,6 +504,7 @@ namespace TheFlyingSaucer.PointOfSale
             {
                 if (_twentiesFromCustomer != value) _twentiesFromCustomer = value;
                 OnPropertyChanged(nameof(TwentiesFromCustomer));
+                OnPropertyChanged(nameof(TwentiesInDrawer));
                 OnPropertyChanged(nameof(AmountDueNegative));
                 OnPropertyChanged(nameof(ChangeOwed));
                 OnPropertyChanged(nameof(AmountDue));
@@ -504,7 +513,7 @@ namespace TheFlyingSaucer.PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// A property for the twenties in the cash drawer
         /// </summary>
         public uint TwentiesInDrawer
         {
@@ -523,12 +532,12 @@ namespace TheFlyingSaucer.PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// A private backing field for the twenties given as change
         /// </summary>
         private uint _twentiesChange = 0;
 
         /// <summary>
-        /// 
+        /// A property for the twenties given to the customer as change
         /// </summary>
         public uint TwentiesChange
         {
@@ -544,12 +553,12 @@ namespace TheFlyingSaucer.PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// A property representing the total cost of the order
         /// </summary>
         public decimal Total { get; set; }
 
         /// <summary>
-        /// 
+        /// A property representing the remaining amount due by the customer
         /// </summary>
         public decimal AmountDue
         {
@@ -597,7 +606,7 @@ namespace TheFlyingSaucer.PointOfSale
         #region methods
 
         /// <summary>
-        /// 
+        /// Constructs a new CashDrawerViewModel object
         /// </summary>
         /// <param name="orderObject"></param>
         public CashDrawerViewModel(Order orderObject)
@@ -705,6 +714,9 @@ namespace TheFlyingSaucer.PointOfSale
             PrintReceipt();
         }
 
+        /// <summary>
+        /// A method for printing a receipt for the transaction
+        /// </summary>
         public void PrintReceipt()
         {
             #region The receipt should print the following
@@ -742,9 +754,9 @@ namespace TheFlyingSaucer.PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// A method for signaling when a property has changed
         /// </summary>
-        /// <param name="propertyName"></param>
+        /// <param name="propertyName">The name of the property that is changing</param>
         protected virtual void OnPropertyChanged(string propertyName)
         {
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

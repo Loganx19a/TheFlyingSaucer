@@ -35,7 +35,7 @@
                             <TextBlock Text="{Binding Path=Name, StringFormat=' {0}   '}"
                                        FontSize="16" FontWeight="DemiBold"/>
                         
-                            <TextBlock Text="{Binding Path=Price, StringFormat=' {0}  '}"
+                            <TextBlock Text="{Binding Path=Price, StringFormat=' ${0}  '}"
                                        FontSize="16" FontWeight="DemiBold"/>
 
                             <Button Click="EditItemClick" FontSize="18">Edit</Button>
