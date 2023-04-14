@@ -40,7 +40,6 @@ namespace TheFlyingSaucer.Data.Sides
                 _style = value;
                 OnPropertyChanged(nameof(SpecialInstructions));
                 OnPropertyChanged(nameof(Style));
-
             }
         }
 
@@ -113,7 +112,6 @@ namespace TheFlyingSaucer.Data.Sides
             get
             {
                 List<string> instructions = new();
-                //instructions.Add($"{Style}");
 
                 switch (Style)
                 {

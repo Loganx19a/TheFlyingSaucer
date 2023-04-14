@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TheFlyingSaucer.Data.BaseClasses;
-using TheFlyingSaucer.Data.Drinks;
 using TheFlyingSaucer.Data.Entrees;
 using TheFlyingSaucer.Data.Sides;
+using TheFlyingSaucer.Data.Drinks;
+
 
 namespace TheFlyingSaucer.Data
 {
@@ -39,13 +40,11 @@ namespace TheFlyingSaucer.Data
                 sides.Add(new CropCircle());
                 sides.Add(new EvisceratedEggs() { Style = Enumerations.EggStyle.Scrambled });
                 #region other egg styles
-                /*
-                sides.Add(new EvisceratedEggs() { Style = Enumerations.EggStyle.SoftBoiled});
-                sides.Add(new EvisceratedEggs() { Style = Enumerations.EggStyle.HardBoiled });
                 sides.Add(new EvisceratedEggs() { Style = Enumerations.EggStyle.OverEasy });
                 sides.Add(new EvisceratedEggs() { Style = Enumerations.EggStyle.SunnySideUp });
+                sides.Add(new EvisceratedEggs() { Style = Enumerations.EggStyle.SoftBoiled} );
+                sides.Add(new EvisceratedEggs() { Style = Enumerations.EggStyle.HardBoiled });
                 sides.Add(new EvisceratedEggs() { Style = Enumerations.EggStyle.Poached });
-                */
                 #endregion
                 sides.Add(new GlowingHaystack());
                 sides.Add(new MissingLinks());

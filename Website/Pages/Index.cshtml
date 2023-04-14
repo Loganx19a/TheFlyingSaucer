@@ -5,6 +5,8 @@
 }
 @using TheFlyingSaucer.Data;
 @using TheFlyingSaucer.Data.BaseClasses;
+@using TheFlyingSaucer.Data.Enumerations;
+@using TheFlyingSaucer.Data.Sides;
 
 <div class="text-center">
     <div class="header">
@@ -18,7 +20,6 @@
     <div class="menu-item">
         @foreach(Entree entree in Menu.Entrees)
         {
-
             <li class="Entrees">
                 <p>@entree.Name </p>
                 <p>$@entree.Price </p>
@@ -28,26 +29,29 @@
     </div>
 
     <h2 id="sides"> Sides </h2>
-    <p>
-        Eviscerated Eggs Styles: Over Easy, Scrambled, Sunny Side Up, Poached, Soft Boiled, Hard Boiled
-    </p>
     <div class="menu-item" border: 15px solid green;>
         
         @foreach (Side side in Menu.Sides)
         {
             <li class="Sides">
-                <p>@side.Name </p>
-                <p>$@side.Price </p>
-                <p>Calories: @side.Calories </p>
+                @if(side is EvisceratedEggs eggs)
+                {
+                    <p>@eggs.Style.ToString() @side.Name </p>
+                    <p>$@side.Price </p>
+                    <p>Calories: @side.Calories </p>
+                }
+                @if(!(side is EvisceratedEggs))
+                {
+                    <p>@side.Name </p>
+                    <p>$@side.Price </p>
+                    <p>Calories: @side.Calories </p>
+                }
+                
             </li>
         }
     </div>
 
     <h2 id="drinks"> Drinks </h2>
-    <p> 
-        Drinks available in: Small (1.00), Medium (1.50), and Large(2.00) <br/>
-        **Water free in any size
-    </p>
     <div class="menu-item">
         @foreach (Drink drink in Menu.Drinks)
         {
