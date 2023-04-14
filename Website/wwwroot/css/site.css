@@ -14,5 +14,51 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: black;
 }
+
+.text-center {
+    color: white;
+}
+
+.header {
+    font: Trattatello, fantasy ;
+}
+
+.privacyPage {
+    color: white;
+}
+
+.aboutPage {
+    color: white;
+}
+
+.menu-item {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr;
+}
+
+.nav_item {
+    align-content: 
+}
+
+.Entrees {
+    list-style-type: none;
+    color: white;
+    border: 1px solid green;
+}
+
+.Sides {
+    list-style-type: none;
+    color: white;
+    border: 1px solid green;
+}
+
+.Drinks {
+    list-style-type: none;
+    color: white;
+    border: 1px solid green;
+}
+

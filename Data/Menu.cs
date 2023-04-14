@@ -37,12 +37,16 @@ namespace TheFlyingSaucer.Data
             {
                 List<Side> sides = new List<Side>();
                 sides.Add(new CropCircle());
+                sides.Add(new EvisceratedEggs() { Style = Enumerations.EggStyle.Scrambled });
+                #region other egg styles
+                /*
                 sides.Add(new EvisceratedEggs() { Style = Enumerations.EggStyle.SoftBoiled});
                 sides.Add(new EvisceratedEggs() { Style = Enumerations.EggStyle.HardBoiled });
                 sides.Add(new EvisceratedEggs() { Style = Enumerations.EggStyle.OverEasy });
                 sides.Add(new EvisceratedEggs() { Style = Enumerations.EggStyle.SunnySideUp });
-                sides.Add(new EvisceratedEggs() { Style = Enumerations.EggStyle.Scrambled });
                 sides.Add(new EvisceratedEggs() { Style = Enumerations.EggStyle.Poached });
+                */
+                #endregion
                 sides.Add(new GlowingHaystack());
                 sides.Add(new MissingLinks());
                 sides.Add(new TakenBacon());

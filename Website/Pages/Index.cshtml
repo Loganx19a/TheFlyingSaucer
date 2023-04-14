@@ -3,19 +3,59 @@
 @{
     ViewData["Title"] = "Home page";
 }
+@using TheFlyingSaucer.Data;
+@using TheFlyingSaucer.Data.BaseClasses;
 
 <div class="text-center">
-    <h1 class="display-4">The Flying Saucer</h1>
-    <p>Breakfast out of this World!</p>
-
-    <h2> Entrees </h2>
+    <div class="header">
+        <h1 class="display-4">The Flying Saucer</h1>
+        <h2>
+            Breakfast out of this World!
+        </h2>
+    </div>
+    
+    <h2 id="entrees"> Entrees </h2>
     <div class="menu-item">
-        Flying Saucer <br />
-        $8.50 <br />
-        919 <br />
+        @foreach(Entree entree in Menu.Entrees)
+        {
+
+            <li class="Entrees">
+                <p>@entree.Name </p>
+                <p>$@entree.Price </p>
+                <p>Calories: @entree.Calories </p>
+            </li>
+        }
     </div>
 
-    <h2> Sides </h2>
+    <h2 id="sides"> Sides </h2>
+    <p>
+        Eviscerated Eggs Styles: Over Easy, Scrambled, Sunny Side Up, Poached, Soft Boiled, Hard Boiled
+    </p>
+    <div class="menu-item" border: 15px solid green;>
+        
+        @foreach (Side side in Menu.Sides)
+        {
+            <li class="Sides">
+                <p>@side.Name </p>
+                <p>$@side.Price </p>
+                <p>Calories: @side.Calories </p>
+            </li>
+        }
+    </div>
 
-    <h2> Drinks </h2>
+    <h2 id="drinks"> Drinks </h2>
+    <p> 
+        Drinks available in: Small (1.00), Medium (1.50), and Large(2.00) <br/>
+        **Water free in any size
+    </p>
+    <div class="menu-item">
+        @foreach (Drink drink in Menu.Drinks)
+        {
+            <li class="Drinks">
+                <p>@drink.Name </p>
+                <p>$@drink.Price </p>
+                <p>Calories: @drink.Calories </p>
+            </li>
+        }
+    </div>
 </div>
